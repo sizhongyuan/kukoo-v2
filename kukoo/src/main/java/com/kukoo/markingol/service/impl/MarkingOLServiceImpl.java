@@ -14,6 +14,7 @@ import com.kukoo.base.util.StaticMethod;
 import com.kukoo.markingol.dao.MarkingOLMapper;
 import com.kukoo.markingol.model.MarkingOL;
 import com.kukoo.markingol.service.MarkingOLService;
+import com.kukoo.markingol.util.EEutil;
 import com.kukoo.markingol.util.NSutil;
 import com.kukoo.markingol.util.QSWutil;
 import com.kukoo.markingol.util.SINPutil;
@@ -502,165 +503,165 @@ public class MarkingOLServiceImpl implements MarkingOLService{
 	 */
 	@Override
 	public JSONObject EEProject(JSONArray jsonArray) throws Exception {
-		// TODO Auto-generated method stub
-		JSONObject jsonObject = new JSONObject();
-//		String projectName = "EE联邦";
-		int length = jsonArray.size();
-		if(length > 0) {
-			JSONObject jsonMain = (JSONObject)jsonArray.get(0);//主
-			int count = 0;//总分
-			//判断主申人是否有伴侣
-			String isLivingAlone = StaticMethod.nullObject2String(jsonMain.get("question1"));
-			if("无".equals(isLivingAlone)) {
-				//调用无伴侣算法
-				JSONObject scoreJson = EEProjectNone(jsonMain);
-				int score = StaticMethod.nullObject2int(scoreJson.get("titleScore"));//总得分
-				int[] englishCLB = (int[]) scoreJson.get("englishCLB");//英语clb等级
-				int[] frenchCLB = (int[]) scoreJson.get("frenchCLB");//法语clb等级
-				String firstLanguage = StaticMethod.nullObject2String(scoreJson.get("firstLanguage"));//第一语言 
-				int languageScore = StaticMethod.nullObject2int(scoreJson.get("question67MainScore"));//语言得分
-				//未达标提示语言
-				String tips = "";
-				//分数达标
-				if(score >= 425) {
-					tips = notStandardLanguage(firstLanguage, englishCLB, frenchCLB);
-					JSONObject json = new JSONObject();
-					json.put("projectName", "加拿大联邦技术移民");
-					json.put("country", "加拿大");
-					json.put("major", "您");
-					json.put("language", (firstLanguage == "french")?"法语":"英语");
-					json.put("visaType", "PR");
-					json.put("capital", "5万");
-					json.put("period", "3年");
-					json.put("intro", "加拿大联邦技术移民项目是由加拿大联邦移民局直接受理的移民项目，联邦技术移民采用快速通道（Express Entry, 'EE'）系统进行申请，具有名额充沛、无职业限制、无加拿大境内居住地要求、审理速度快等优点，最快可在8个月内办理成功并登陆加拿大。 同时，从申请条件上对语言水平等条件要求较高，通常适合学历高，年纪轻，英语好的申请人。");
-					json.put("score", score);
-					json.put("pass", 425);
-					json.put("projectType", "技术移民");
-					jsonObject.put("recommend", json);
-					return jsonObject;
-				}
-				//分数不达标可推荐
-				if(score < 425) {
-					int raiseScore = raiseScoreNone(firstLanguage,languageScore,englishCLB, frenchCLB);
-					if((score+raiseScore) >= 425) {
-						//语言努力可达标
-						
-						JSONObject json = new JSONObject();
-						json.put("projectName", "加拿大联邦技术移民");
-						json.put("country", "加拿大");
-						json.put("major", "您");
-						json.put("language", (firstLanguage == "french")?"法语":"英语");
-						json.put("visaType", "PR");
-						json.put("capital", "5万");
-						json.put("period", "3年");
-						json.put("intro", "加拿大联邦技术移民项目是由加拿大联邦移民局直接受理的移民项目，联邦技术移民采用快速通道（Express Entry, 'EE'）系统进行申请，具有名额充沛、无职业限制、无加拿大境内居住地要求、审理速度快等优点，最快可在8个月内办理成功并登陆加拿大。 同时，从申请条件上对语言水平等条件要求较高，通常适合学历高，年纪轻，英语好的申请人。");
-						json.put("score", score);
-						json.put("pass", 425);
-						json.put("projectType", "技术移民");
-						jsonObject.put("promote", json);
-						
-						return jsonObject;
-					}else {
-						//语言努力都达不到
-						tips = notStandardLanguage(firstLanguage, englishCLB, frenchCLB);
-						return jsonObject;
-					}
-				}
-			}else {
-				JSONObject jsonAssi = (JSONObject)jsonArray.get(1);//副
-				int score = 0;//总得分
-				boolean isVerb = false;//是否对调
-				int languageNorScore = 0;//语言得分
-				String firstLanguage = "";//主语言
-				int[] englishCLBMain;
-				int[] englishCLBAssi;
-				int[] frenchCLBMain;
-				int[] frenchCLBAssi;
-				
-				//调用有伴侣算法
-				JSONObject scoreJson = EEProjectHave(jsonMain,jsonAssi);
-				//不对调算法结果
-				JSONObject scoreJsonNor = (JSONObject)scoreJson.get("scoreJsonNor");
-				int scoreNor = StaticMethod.nullObject2int(scoreJsonNor.get("titleScore"));//总得分
-				//对调算法
-				JSONObject scoreJsonVerb = (JSONObject)scoreJson.get("scoreJsonVerb");
-				int sorceVerb = StaticMethod.nullObject2int(scoreJsonVerb.get("titleScore"));
-				
-				if(scoreNor < sorceVerb ) {
-					//对调之后分高
-					isVerb = true;
-					score = sorceVerb;
-					languageNorScore = StaticMethod.nullObject2int(scoreJsonVerb.get("question67AssiScore"));//语言得分
-					firstLanguage = StaticMethod.nullObject2String(scoreJsonVerb.get("firstLanguage"));//主语言
-					englishCLBMain = (int[]) scoreJsonVerb.get("englishCLBMain");
-					englishCLBAssi = (int[]) scoreJsonVerb.get("englishCLBAssi");
-					frenchCLBMain = (int[]) scoreJsonVerb.get("frenchCLBMain");
-					frenchCLBAssi = (int[]) scoreJsonVerb.get("frenchCLBAssi");
-				
-				}else {
-					//不对调分高
-					score = scoreNor;
-					languageNorScore = StaticMethod.nullObject2int(scoreJsonNor.get("question67AssiScore"));//语言得分
-					firstLanguage = StaticMethod.nullObject2String(scoreJsonNor.get("firstLanguage"));//主语言
-					englishCLBMain = (int[]) scoreJsonNor.get("englishCLBMain");
-					englishCLBAssi = (int[]) scoreJsonNor.get("englishCLBAssi");
-					frenchCLBMain = (int[]) scoreJsonNor.get("frenchCLBMain");
-					frenchCLBAssi = (int[]) scoreJsonNor.get("frenchCLBAssi");
-				
-				}
-				
-				//未达标提示语言
-				String tips = "";
-				//达标
-				if(score >= 425) {
-					tips = notStandardLanguage(firstLanguage, englishCLBMain, frenchCLBMain);
-					
-					JSONObject json = new JSONObject();
-					json.put("projectName", "加拿大联邦技术移民");
-					json.put("country", "加拿大");
-					json.put("major", (isVerb)?"您伴侣":"您");
-					json.put("language", (firstLanguage == "french")?"法语":"英语");
-					json.put("visaType", "PR");
-					json.put("capital", "5万");
-					json.put("period", "3年");
-					json.put("intro", "加拿大联邦技术移民项目是由加拿大联邦移民局直接受理的移民项目，联邦技术移民采用快速通道（Express Entry, 'EE'）系统进行申请，具有名额充沛、无职业限制、无加拿大境内居住地要求、审理速度快等优点，最快可在8个月内办理成功并登陆加拿大。 同时，从申请条件上对语言水平等条件要求较高，通常适合学历高，年纪轻，英语好的申请人。");
-					json.put("score", score);
-					json.put("pass", 425);
-					json.put("projectType", "技术移民");
-					jsonObject.put("recommend", json);
-					
-					return jsonObject;
-				}
-				//不达标
-				if(score < 425) {
-					int rasieScore = raiseScoreHave(firstLanguage, languageNorScore,englishCLBMain, englishCLBAssi, frenchCLBMain,frenchCLBAssi);
-					if((scoreNor+rasieScore) >= 425) {
-						//语言努力可达标
-						
-						JSONObject json = new JSONObject();
-						json.put("projectName", "加拿大联邦技术移民");
-						json.put("country", "加拿大");
-						json.put("major", (isVerb)?"您伴侣":"您");
-						json.put("language", (firstLanguage == "french")?"法语":"英语");
-						json.put("visaType", "PR");
-						json.put("capital", "5万");
-						json.put("period", "3年");
-						json.put("intro", "加拿大联邦技术移民项目是由加拿大联邦移民局直接受理的移民项目，联邦技术移民采用快速通道（Express Entry, 'EE'）系统进行申请，具有名额充沛、无职业限制、无加拿大境内居住地要求、审理速度快等优点，最快可在8个月内办理成功并登陆加拿大。 同时，从申请条件上对语言水平等条件要求较高，通常适合学历高，年纪轻，英语好的申请人。");
-						json.put("score", score);
-						json.put("pass", 425);
-						json.put("projectType", "技术移民");
-						jsonObject.put("promote", json);
-						
-						return jsonObject;
-					}else {
-						//努力也不达标
-						tips = notStandardLanguage(firstLanguage, englishCLBMain, frenchCLBMain);
-						return jsonObject;
-					}
-				}
-			}
-		}
-		return jsonObject;
+//		// TODO Auto-generated method stub
+//		JSONObject jsonObject = new JSONObject();
+////		String projectName = "EE联邦";
+//		int length = jsonArray.size();
+//		if(length > 0) {
+//			JSONObject jsonMain = (JSONObject)jsonArray.get(0);//主
+//			int count = 0;//总分
+//			//判断主申人是否有伴侣
+//			String isLivingAlone = StaticMethod.nullObject2String(jsonMain.get("question1"));
+//			if("无".equals(isLivingAlone)) {
+//				//调用无伴侣算法
+//				JSONObject scoreJson = EEProjectNone(jsonMain);
+//				int score = StaticMethod.nullObject2int(scoreJson.get("titleScore"));//总得分
+//				int[] englishCLB = (int[]) scoreJson.get("englishCLB");//英语clb等级
+//				int[] frenchCLB = (int[]) scoreJson.get("frenchCLB");//法语clb等级
+//				String firstLanguage = StaticMethod.nullObject2String(scoreJson.get("firstLanguage"));//第一语言 
+//				int languageScore = StaticMethod.nullObject2int(scoreJson.get("question67MainScore"));//语言得分
+//				//未达标提示语言
+//				String tips = "";
+//				//分数达标
+//				if(score >= 425) {
+//					tips = notStandardLanguage(firstLanguage, englishCLB, frenchCLB);
+//					JSONObject json = new JSONObject();
+//					json.put("projectName", "加拿大联邦技术移民");
+//					json.put("country", "加拿大");
+//					json.put("major", "您");
+//					json.put("language", (firstLanguage == "french")?"法语":"英语");
+//					json.put("visaType", "PR");
+//					json.put("capital", "5万");
+//					json.put("period", "3年");
+//					json.put("intro", "加拿大联邦技术移民项目是由加拿大联邦移民局直接受理的移民项目，联邦技术移民采用快速通道（Express Entry, 'EE'）系统进行申请，具有名额充沛、无职业限制、无加拿大境内居住地要求、审理速度快等优点，最快可在8个月内办理成功并登陆加拿大。 同时，从申请条件上对语言水平等条件要求较高，通常适合学历高，年纪轻，英语好的申请人。");
+//					json.put("score", score);
+//					json.put("pass", 425);
+//					json.put("projectType", "技术移民");
+//					jsonObject.put("recommend", json);
+//					return jsonObject;
+//				}
+//				//分数不达标可推荐
+//				if(score < 425) {
+//					int raiseScore = raiseScoreNone(firstLanguage,languageScore,englishCLB, frenchCLB);
+//					if((score+raiseScore) >= 425) {
+//						//语言努力可达标
+//						
+//						JSONObject json = new JSONObject();
+//						json.put("projectName", "加拿大联邦技术移民");
+//						json.put("country", "加拿大");
+//						json.put("major", "您");
+//						json.put("language", (firstLanguage == "french")?"法语":"英语");
+//						json.put("visaType", "PR");
+//						json.put("capital", "5万");
+//						json.put("period", "3年");
+//						json.put("intro", "加拿大联邦技术移民项目是由加拿大联邦移民局直接受理的移民项目，联邦技术移民采用快速通道（Express Entry, 'EE'）系统进行申请，具有名额充沛、无职业限制、无加拿大境内居住地要求、审理速度快等优点，最快可在8个月内办理成功并登陆加拿大。 同时，从申请条件上对语言水平等条件要求较高，通常适合学历高，年纪轻，英语好的申请人。");
+//						json.put("score", score);
+//						json.put("pass", 425);
+//						json.put("projectType", "技术移民");
+//						jsonObject.put("promote", json);
+//						
+//						return jsonObject;
+//					}else {
+//						//语言努力都达不到
+//						tips = notStandardLanguage(firstLanguage, englishCLB, frenchCLB);
+//						return jsonObject;
+//					}
+//				}
+//			}else {
+//				JSONObject jsonAssi = (JSONObject)jsonArray.get(1);//副
+//				int score = 0;//总得分
+//				boolean isVerb = false;//是否对调
+//				int languageNorScore = 0;//语言得分
+//				String firstLanguage = "";//主语言
+//				int[] englishCLBMain;
+//				int[] englishCLBAssi;
+//				int[] frenchCLBMain;
+//				int[] frenchCLBAssi;
+//				
+//				//调用有伴侣算法
+//				JSONObject scoreJson = EEProjectHave(jsonMain,jsonAssi);
+//				//不对调算法结果
+//				JSONObject scoreJsonNor = (JSONObject)scoreJson.get("scoreJsonNor");
+//				int scoreNor = StaticMethod.nullObject2int(scoreJsonNor.get("titleScore"));//总得分
+//				//对调算法
+//				JSONObject scoreJsonVerb = (JSONObject)scoreJson.get("scoreJsonVerb");
+//				int sorceVerb = StaticMethod.nullObject2int(scoreJsonVerb.get("titleScore"));
+//				
+//				if(scoreNor < sorceVerb ) {
+//					//对调之后分高
+//					isVerb = true;
+//					score = sorceVerb;
+//					languageNorScore = StaticMethod.nullObject2int(scoreJsonVerb.get("question67AssiScore"));//语言得分
+//					firstLanguage = StaticMethod.nullObject2String(scoreJsonVerb.get("firstLanguage"));//主语言
+//					englishCLBMain = (int[]) scoreJsonVerb.get("englishCLBMain");
+//					englishCLBAssi = (int[]) scoreJsonVerb.get("englishCLBAssi");
+//					frenchCLBMain = (int[]) scoreJsonVerb.get("frenchCLBMain");
+//					frenchCLBAssi = (int[]) scoreJsonVerb.get("frenchCLBAssi");
+//				
+//				}else {
+//					//不对调分高
+//					score = scoreNor;
+//					languageNorScore = StaticMethod.nullObject2int(scoreJsonNor.get("question67AssiScore"));//语言得分
+//					firstLanguage = StaticMethod.nullObject2String(scoreJsonNor.get("firstLanguage"));//主语言
+//					englishCLBMain = (int[]) scoreJsonNor.get("englishCLBMain");
+//					englishCLBAssi = (int[]) scoreJsonNor.get("englishCLBAssi");
+//					frenchCLBMain = (int[]) scoreJsonNor.get("frenchCLBMain");
+//					frenchCLBAssi = (int[]) scoreJsonNor.get("frenchCLBAssi");
+//				
+//				}
+//				
+//				//未达标提示语言
+//				String tips = "";
+//				//达标
+//				if(score >= 425) {
+//					tips = notStandardLanguage(firstLanguage, englishCLBMain, frenchCLBMain);
+//					
+//					JSONObject json = new JSONObject();
+//					json.put("projectName", "加拿大联邦技术移民");
+//					json.put("country", "加拿大");
+//					json.put("major", (isVerb)?"您伴侣":"您");
+//					json.put("language", (firstLanguage == "french")?"法语":"英语");
+//					json.put("visaType", "PR");
+//					json.put("capital", "5万");
+//					json.put("period", "3年");
+//					json.put("intro", "加拿大联邦技术移民项目是由加拿大联邦移民局直接受理的移民项目，联邦技术移民采用快速通道（Express Entry, 'EE'）系统进行申请，具有名额充沛、无职业限制、无加拿大境内居住地要求、审理速度快等优点，最快可在8个月内办理成功并登陆加拿大。 同时，从申请条件上对语言水平等条件要求较高，通常适合学历高，年纪轻，英语好的申请人。");
+//					json.put("score", score);
+//					json.put("pass", 425);
+//					json.put("projectType", "技术移民");
+//					jsonObject.put("recommend", json);
+//					
+//					return jsonObject;
+//				}
+//				//不达标
+//				if(score < 425) {
+//					int rasieScore = raiseScoreHave(firstLanguage, languageNorScore,englishCLBMain, englishCLBAssi, frenchCLBMain,frenchCLBAssi);
+//					if((scoreNor+rasieScore) >= 425) {
+//						//语言努力可达标
+//						
+//						JSONObject json = new JSONObject();
+//						json.put("projectName", "加拿大联邦技术移民");
+//						json.put("country", "加拿大");
+//						json.put("major", (isVerb)?"您伴侣":"您");
+//						json.put("language", (firstLanguage == "french")?"法语":"英语");
+//						json.put("visaType", "PR");
+//						json.put("capital", "5万");
+//						json.put("period", "3年");
+//						json.put("intro", "加拿大联邦技术移民项目是由加拿大联邦移民局直接受理的移民项目，联邦技术移民采用快速通道（Express Entry, 'EE'）系统进行申请，具有名额充沛、无职业限制、无加拿大境内居住地要求、审理速度快等优点，最快可在8个月内办理成功并登陆加拿大。 同时，从申请条件上对语言水平等条件要求较高，通常适合学历高，年纪轻，英语好的申请人。");
+//						json.put("score", score);
+//						json.put("pass", 425);
+//						json.put("projectType", "技术移民");
+//						jsonObject.put("promote", json);
+//						
+//						return jsonObject;
+//					}else {
+//						//努力也不达标
+//						tips = notStandardLanguage(firstLanguage, englishCLBMain, frenchCLBMain);
+//						return jsonObject;
+//					}
+//				}
+//			}
+//		}
+		return EEutil.getEE(jsonArray);
 	}
 	
 	/**
@@ -671,177 +672,191 @@ public class MarkingOLServiceImpl implements MarkingOLService{
 	 */
 	@Override
 	public JSONObject OAProject(JSONArray jsonArray) throws Exception {
-		// TODO Auto-generated method stub
-		JSONObject jsonObject = new JSONObject();
-		String projectName = "ON安省";
-		boolean workTypeLimit = false;//职业限制
-		int length = jsonArray.size();
-		if(length > 0) {
-			JSONObject jsonMain = (JSONObject)jsonArray.get(0);//主
-			
-			int count = 0;//总分
-			//判断主申人是否有伴侣
-			String isLivingAlone = StaticMethod.nullObject2String(jsonMain.get("question1"));
-			if("无".equals(isLivingAlone)) {
-				
-				JSONArray question5_JSONArray = (JSONArray)jsonMain.get("question5");
-				List list = workType(question5_JSONArray);
-				if(list != null && list.size() > 0) {
-					workTypeLimit = list.contains("维修/操作技师、技工类");
-					workTypeLimit = list.contains("企业咨询类");
-					workTypeLimit = list.contains("计算机类");
-					workTypeLimit = list.contains("广告市场");
-					workTypeLimit = list.contains("行政助理");
-					workTypeLimit = list.contains("金融财会类");
-					workTypeLimit = list.contains("其他");
-				}
-				if(!workTypeLimit) {
-					//职业限制不能申请
-					return jsonObject;
-				}
-				
-				//调用无伴侣算法
-				JSONObject scoreJson = EEProjectNone(jsonMain);
-				int score = StaticMethod.nullObject2int(scoreJson.get("titleScore"));//总得分
-				int[] englishCLB = (int[]) scoreJson.get("englishCLB");//英语clb等级
-				int[] frenchCLB = (int[]) scoreJson.get("frenchCLB");//法语clb等级
-				String firstLanguage = StaticMethod.nullObject2String(scoreJson.get("firstLanguage"));//第一语言 
-				int languageScore = StaticMethod.nullObject2int(scoreJson.get("question67MainScore"));//语言得分
-				//未达标提示语言
-				String tips = "";
-				//分数达标
-				if(score >= 400) {
-					tips = notStandardLanguage(firstLanguage, englishCLB, frenchCLB);
-					JSONObject json = new JSONObject();
-					json.put("projectName", "安大略省技术移民");
-					json.put("country", "加拿大");
-					json.put("major", "您");
-					json.put("language", (firstLanguage == "french")?"法语":"英语");
-					json.put("visaType", "PR");
-					json.put("capital", "5万");
-					json.put("period", "3年");
-					json.put("intro", "该项目属于省提名移民项目；首先经安省移民局审批获得省提名，再经联邦移民局进行健康、安全等审核。申请人须表明有意向居住在提名省份，获得永居身份后通常可迁徙至加拿大任意地区居住。该项目采用快速通道（Express Entry, 'EE'）系统进行申请，需要被动接受邀请；审理速度相对较快，但通常不定期发邀请。同时要求申请人职业为安省非限制类职业。");
-					json.put("score", score);
-					json.put("pass", 425);
-					json.put("projectType", "技术移民");
-					jsonObject.put("recommend", json);
-					return jsonObject;
-				}
-				//分数不达标可推荐
-				if(score < 400) {
-					int raiseScore = raiseScoreNone(firstLanguage,languageScore,englishCLB, frenchCLB);
-					if((score+raiseScore) >= 400) {
-						//语言努力可达标
-						JSONObject json = new JSONObject();
-						json.put("projectName", "安大略省技术移民");
-						json.put("country", "加拿大");
-						json.put("major", "您");
-						json.put("language", (firstLanguage == "french")?"法语":"英语");
-						json.put("visaType", "PR");
-						json.put("capital", "5万");
-						json.put("period", "3年");
-						json.put("intro", "该项目属于省提名移民项目；首先经安省移民局审批获得省提名，再经联邦移民局进行健康、安全等审核。申请人须表明有意向居住在提名省份，获得永居身份后通常可迁徙至加拿大任意地区居住。该项目采用快速通道（Express Entry, 'EE'）系统进行申请，需要被动接受邀请；审理速度相对较快，但通常不定期发邀请。同时要求申请人职业为安省非限制类职业。");
-						json.put("score", score);
-						json.put("pass", 425);
-						json.put("projectType", "技术移民");
-						jsonObject.put("promote", json);
-						return jsonObject;
-					}else {
-						//语言努力都达不到
-						tips = notStandardLanguage(firstLanguage, englishCLB, frenchCLB);
-						return jsonObject;
-					}
-				}
-			}else {
-				JSONObject jsonAssi = (JSONObject)jsonArray.get(1);//副
-				int score = 0;//总得分
-				boolean isVerb = false;//是否对调
-				int languageNorScore = 0;//语言得分
-				String firstLanguage = "";//主语言
-				int[] englishCLBMain;
-				int[] englishCLBAssi;
-				int[] frenchCLBMain;
-				int[] frenchCLBAssi;
-				
-				//调用有伴侣算法
-				JSONObject scoreJson = EEProjectHave(jsonMain,jsonAssi);
-				//不对调算法结果
-				JSONObject scoreJsonNor = (JSONObject)scoreJson.get("scoreJsonNor");
-				int scoreNor = StaticMethod.nullObject2int(scoreJsonNor.get("titleScore"));//总得分
-				//对调算法
-				JSONObject scoreJsonVerb = (JSONObject)scoreJson.get("scoreJsonVerb");
-				int sorceVerb = StaticMethod.nullObject2int(scoreJsonVerb.get("titleScore"));
-				
-				if(scoreNor < sorceVerb ) {
-					//对调之后分高
-					isVerb = true;
-					score = sorceVerb;
-					languageNorScore = StaticMethod.nullObject2int(scoreJsonVerb.get("question67AssiScore"));//语言得分
-					firstLanguage = StaticMethod.nullObject2String(scoreJsonVerb.get("firstLanguage"));//主语言
-					englishCLBMain = (int[]) scoreJsonVerb.get("englishCLBMain");
-					englishCLBAssi = (int[]) scoreJsonVerb.get("englishCLBAssi");
-					frenchCLBMain = (int[]) scoreJsonVerb.get("frenchCLBMain");
-					frenchCLBAssi = (int[]) scoreJsonVerb.get("frenchCLBAssi");
-				}else {
-					//不对调分高
-					score = scoreNor;
-					languageNorScore = StaticMethod.nullObject2int(scoreJsonNor.get("question67AssiScore"));//语言得分
-					firstLanguage = StaticMethod.nullObject2String(scoreJsonNor.get("firstLanguage"));//主语言
-					englishCLBMain = (int[]) scoreJsonNor.get("englishCLBMain");
-					englishCLBAssi = (int[]) scoreJsonNor.get("englishCLBAssi");
-					frenchCLBMain = (int[]) scoreJsonNor.get("frenchCLBMain");
-					frenchCLBAssi = (int[]) scoreJsonNor.get("frenchCLBAssi");
-				}
-				
-				//未达标提示语言
-				String tips = "";
-				//达标
-				if(score >= 400) {
-					tips = notStandardLanguage(firstLanguage, englishCLBMain, frenchCLBMain);
-					JSONObject json = new JSONObject();
-					json.put("projectName", "安大略省技术移民");
-					json.put("country", "加拿大");
-					json.put("major", (isVerb)?"您伴侣":"您");
-					json.put("language", (firstLanguage == "french")?"法语":"英语");
-					json.put("visaType", "PR");
-					json.put("capital", "5万");
-					json.put("period", "3年");
-					json.put("intro", "该项目属于省提名移民项目；首先经安省移民局审批获得省提名，再经联邦移民局进行健康、安全等审核。申请人须表明有意向居住在提名省份，获得永居身份后通常可迁徙至加拿大任意地区居住。该项目采用快速通道（Express Entry, 'EE'）系统进行申请，需要被动接受邀请；审理速度相对较快，但通常不定期发邀请。同时要求申请人职业为安省非限制类职业。");
-					json.put("score", score);
-					json.put("pass", 425);
-					json.put("projectType", "技术移民");
-					jsonObject.put("recommend", json);
-					return jsonObject;
-				}
-				//不达标
-				if(score < 400) {
-					int rasieScore = raiseScoreHave(firstLanguage, languageNorScore,englishCLBMain, englishCLBAssi, frenchCLBMain,frenchCLBAssi);
-					if((scoreNor+rasieScore) >= 400) {
-						//语言努力可达标
-						JSONObject json = new JSONObject();
-						json.put("projectName", "安大略省技术移民");
-						json.put("country", "加拿大");
-						json.put("major", (isVerb)?"您伴侣":"您");
-						json.put("language", (firstLanguage == "french")?"法语":"英语");
-						json.put("visaType", "PR");
-						json.put("capital", "5万");
-						json.put("period", "3年");
-						json.put("intro", "该项目属于省提名移民项目；首先经安省移民局审批获得省提名，再经联邦移民局进行健康、安全等审核。申请人须表明有意向居住在提名省份，获得永居身份后通常可迁徙至加拿大任意地区居住。该项目采用快速通道（Express Entry, 'EE'）系统进行申请，需要被动接受邀请；审理速度相对较快，但通常不定期发邀请。同时要求申请人职业为安省非限制类职业。");
-						json.put("score", score);
-						json.put("pass", 425);
-						json.put("projectType", "技术移民");
-						jsonObject.put("promote", json);
-						return jsonObject;
-					}else {
-						//努力也不达标
-						tips = notStandardLanguage(firstLanguage, englishCLBMain, frenchCLBMain);
-						return jsonObject;
-					}
-				}
-			}
-		}
-		
-		return jsonObject;
+//		// TODO Auto-generated method stub
+//		JSONObject jsonObject = new JSONObject();
+//		String projectName = "ON安省";
+//		boolean workTypeLimit = false;//职业限制
+//		int length = jsonArray.size();
+//		if(length > 0) {
+//			JSONObject jsonMain = (JSONObject)jsonArray.get(0);//主
+//			
+//			int count = 0;//总分
+//			//判断主申人是否有伴侣
+//			String isLivingAlone = StaticMethod.nullObject2String(jsonMain.get("question1"));
+//			if("无".equals(isLivingAlone)) {
+//				int workFlag = 0;
+//				JSONArray question5_JSONArray = (JSONArray)jsonMain.get("question5");
+//				List list = workType(question5_JSONArray);
+//				if(list != null && list.size() > 0) {
+//					if(list.contains("维修/操作技师、技工类")){
+//						workFlag += 1;
+//					}
+//					if(list.contains("企业咨询类")){
+//						workFlag += 1;				
+//					}
+//					if(list.contains("计算机类")){
+//						workFlag += 1;
+//					}
+//					if(list.contains("广告市场")){
+//						workFlag += 1;
+//					}
+//					if(list.contains("行政助理")){
+//						workFlag += 1;
+//					}
+//					if(list.contains("金融财会类")){
+//						workFlag += 1;
+//					}
+//					if(list.contains("其他")){
+//						workFlag += 1;
+//					}
+//				}
+//				if(workFlag==0) {
+//					//职业限制不能申请
+//					return jsonObject;
+//				}
+//				
+//				//调用无伴侣算法
+//				JSONObject scoreJson = EEProjectNone(jsonMain);
+//				int score = StaticMethod.nullObject2int(scoreJson.get("titleScore"));//总得分
+//				int[] englishCLB = (int[]) scoreJson.get("englishCLB");//英语clb等级
+//				int[] frenchCLB = (int[]) scoreJson.get("frenchCLB");//法语clb等级
+//				String firstLanguage = StaticMethod.nullObject2String(scoreJson.get("firstLanguage"));//第一语言 
+//				int languageScore = StaticMethod.nullObject2int(scoreJson.get("question67MainScore"));//语言得分
+//				//未达标提示语言
+//				String tips = "";
+//				//分数达标
+//				if(score >= 400) {
+//					tips = notStandardLanguage(firstLanguage, englishCLB, frenchCLB);
+//					JSONObject json = new JSONObject();
+//					json.put("projectName", "安大略省技术移民");
+//					json.put("country", "加拿大");
+//					json.put("major", "您");
+//					json.put("language", (firstLanguage == "french")?"法语":"英语");
+//					json.put("visaType", "PR");
+//					json.put("capital", "5万");
+//					json.put("period", "3年");
+//					json.put("intro", "该项目属于省提名移民项目；首先经安省移民局审批获得省提名，再经联邦移民局进行健康、安全等审核。申请人须表明有意向居住在提名省份，获得永居身份后通常可迁徙至加拿大任意地区居住。该项目采用快速通道（Express Entry, 'EE'）系统进行申请，需要被动接受邀请；审理速度相对较快，但通常不定期发邀请。同时要求申请人职业为安省非限制类职业。");
+//					json.put("score", score);
+//					json.put("pass", 400);
+//					json.put("projectType", "技术移民");
+//					jsonObject.put("recommend", json);
+//					return jsonObject;
+//				}
+//				//分数不达标可推荐
+//				if(score < 400) {
+//					int raiseScore = raiseScoreNone(firstLanguage,languageScore,englishCLB, frenchCLB);
+//					if((score+raiseScore) >= 400) {
+//						//语言努力可达标
+//						JSONObject json = new JSONObject();
+//						json.put("projectName", "安大略省技术移民");
+//						json.put("country", "加拿大");
+//						json.put("major", "您");
+//						json.put("language", (firstLanguage == "french")?"法语":"英语");
+//						json.put("visaType", "PR");
+//						json.put("capital", "5万");
+//						json.put("period", "3年");
+//						json.put("intro", "该项目属于省提名移民项目；首先经安省移民局审批获得省提名，再经联邦移民局进行健康、安全等审核。申请人须表明有意向居住在提名省份，获得永居身份后通常可迁徙至加拿大任意地区居住。该项目采用快速通道（Express Entry, 'EE'）系统进行申请，需要被动接受邀请；审理速度相对较快，但通常不定期发邀请。同时要求申请人职业为安省非限制类职业。");
+//						json.put("score", score);
+//						json.put("pass", 400);
+//						json.put("projectType", "技术移民");
+//						jsonObject.put("promote", json);
+//						return jsonObject;
+//					}else {
+//						//语言努力都达不到
+//						tips = notStandardLanguage(firstLanguage, englishCLB, frenchCLB);
+//						return jsonObject;
+//					}
+//				}
+//			}else {
+//				JSONObject jsonAssi = (JSONObject)jsonArray.get(1);//副
+//				int score = 0;//总得分
+//				boolean isVerb = false;//是否对调
+//				int languageNorScore = 0;//语言得分
+//				String firstLanguage = "";//主语言
+//				int[] englishCLBMain;
+//				int[] englishCLBAssi;
+//				int[] frenchCLBMain;
+//				int[] frenchCLBAssi;
+//				
+//				//调用有伴侣算法
+//				JSONObject scoreJson = EEProjectHave(jsonMain,jsonAssi);
+//				//不对调算法结果
+//				JSONObject scoreJsonNor = (JSONObject)scoreJson.get("scoreJsonNor");
+//				int scoreNor = StaticMethod.nullObject2int(scoreJsonNor.get("titleScore"));//总得分
+//				//对调算法
+//				JSONObject scoreJsonVerb = (JSONObject)scoreJson.get("scoreJsonVerb");
+//				int sorceVerb = StaticMethod.nullObject2int(scoreJsonVerb.get("titleScore"));
+//				
+//				if(scoreNor < sorceVerb ) {
+//					//对调之后分高
+//					isVerb = true;
+//					score = sorceVerb;
+//					languageNorScore = StaticMethod.nullObject2int(scoreJsonVerb.get("question67AssiScore"));//语言得分
+//					firstLanguage = StaticMethod.nullObject2String(scoreJsonVerb.get("firstLanguage"));//主语言
+//					englishCLBMain = (int[]) scoreJsonVerb.get("englishCLBMain");
+//					englishCLBAssi = (int[]) scoreJsonVerb.get("englishCLBAssi");
+//					frenchCLBMain = (int[]) scoreJsonVerb.get("frenchCLBMain");
+//					frenchCLBAssi = (int[]) scoreJsonVerb.get("frenchCLBAssi");
+//				}else {
+//					//不对调分高
+//					score = scoreNor;
+//					languageNorScore = StaticMethod.nullObject2int(scoreJsonNor.get("question67AssiScore"));//语言得分
+//					firstLanguage = StaticMethod.nullObject2String(scoreJsonNor.get("firstLanguage"));//主语言
+//					englishCLBMain = (int[]) scoreJsonNor.get("englishCLBMain");
+//					englishCLBAssi = (int[]) scoreJsonNor.get("englishCLBAssi");
+//					frenchCLBMain = (int[]) scoreJsonNor.get("frenchCLBMain");
+//					frenchCLBAssi = (int[]) scoreJsonNor.get("frenchCLBAssi");
+//				}
+//				
+//				//未达标提示语言
+//				String tips = "";
+//				//达标
+//				if(score >= 400) {
+//					tips = notStandardLanguage(firstLanguage, englishCLBMain, frenchCLBMain);
+//					JSONObject json = new JSONObject();
+//					json.put("projectName", "安大略省技术移民");
+//					json.put("country", "加拿大");
+//					json.put("major", (isVerb)?"您伴侣":"您");
+//					json.put("language", (firstLanguage == "french")?"法语":"英语");
+//					json.put("visaType", "PR");
+//					json.put("capital", "5万");
+//					json.put("period", "3年");
+//					json.put("intro", "该项目属于省提名移民项目；首先经安省移民局审批获得省提名，再经联邦移民局进行健康、安全等审核。申请人须表明有意向居住在提名省份，获得永居身份后通常可迁徙至加拿大任意地区居住。该项目采用快速通道（Express Entry, 'EE'）系统进行申请，需要被动接受邀请；审理速度相对较快，但通常不定期发邀请。同时要求申请人职业为安省非限制类职业。");
+//					json.put("score", score);
+//					json.put("pass", 400);
+//					json.put("projectType", "技术移民");
+//					jsonObject.put("recommend", json);
+//					return jsonObject;
+//				}
+//				//不达标
+//				if(score < 400) {
+//					int rasieScore = raiseScoreHave(firstLanguage, languageNorScore,englishCLBMain, englishCLBAssi, frenchCLBMain,frenchCLBAssi);
+//					if((scoreNor+rasieScore) >= 400) {
+//						//语言努力可达标
+//						JSONObject json = new JSONObject();
+//						json.put("projectName", "安大略省技术移民");
+//						json.put("country", "加拿大");
+//						json.put("major", (isVerb)?"您伴侣":"您");
+//						json.put("language", (firstLanguage == "french")?"法语":"英语");
+//						json.put("visaType", "PR");
+//						json.put("capital", "5万");
+//						json.put("period", "3年");
+//						json.put("intro", "该项目属于省提名移民项目；首先经安省移民局审批获得省提名，再经联邦移民局进行健康、安全等审核。申请人须表明有意向居住在提名省份，获得永居身份后通常可迁徙至加拿大任意地区居住。该项目采用快速通道（Express Entry, 'EE'）系统进行申请，需要被动接受邀请；审理速度相对较快，但通常不定期发邀请。同时要求申请人职业为安省非限制类职业。");
+//						json.put("score", score);
+//						json.put("pass", 400);
+//						json.put("projectType", "技术移民");
+//						jsonObject.put("promote", json);
+//						return jsonObject;
+//					}else {
+//						//努力也不达标
+//						tips = notStandardLanguage(firstLanguage, englishCLBMain, frenchCLBMain);
+//						return jsonObject;
+//					}
+//				}
+//			}
+//		}
+//		
+		return EEutil.getON(jsonArray);
 	}
 	
 	/**
@@ -957,33 +972,33 @@ public class MarkingOLServiceImpl implements MarkingOLService{
 		//额外加分算法 start
 		int enCLB = getMinNumber(englishCLBLevel);
 		//学历/语言奖励分
-		if(enCLB >= 7 && ("本科（4年制）".equals(certificate) || "本科（3年制）".equals(certificate) || "本科（2年制）".equals(certificate) || "本科（1年制）".equals(certificate) || "专科（文科）".equals(certificate) || "专科（理科）".equals(certificate))) {
-			otherCount1 = 13;
-		}else if(enCLB >= 7 && ("双学历".equals(certificate) || "博士".equals(certificate) || "硕士".equals(certificate))) {
-			otherCount1 = 25;
+		if(enCLB >= 9 && ("双学历".equals(certificate) || "博士".equals(certificate) || "硕士".equals(certificate))) {
+			otherCount1 = 50;
 		}else if(enCLB >= 9 && ("本科（4年制）".equals(certificate) || "本科（3年制）".equals(certificate) || "本科（2年制）".equals(certificate) || "本科（1年制）".equals(certificate) || "专科（文科）".equals(certificate) || "专科（理科）".equals(certificate))) {
 			otherCount1 = 25;
-		}else if(enCLB >= 9 && ("双学历".equals(certificate) || "博士".equals(certificate) || "硕士".equals(certificate))) {
-			otherCount1 = 50;
+		}else if(enCLB >= 7 && ("双学历".equals(certificate) || "博士".equals(certificate) || "硕士".equals(certificate))) {
+			otherCount1 = 25;
+		}else if(enCLB >= 7 && ("本科（4年制）".equals(certificate) || "本科（3年制）".equals(certificate) || "本科（2年制）".equals(certificate) || "本科（1年制）".equals(certificate) || "专科（文科）".equals(certificate) || "专科（理科）".equals(certificate))) {
+			otherCount1 = 13;
 		}
 		//工作/语言奖励分
 		JSONArray question5_JSONArray = (JSONArray)jsonMain.get("question5");
 		int worktime = worktime(question5_JSONArray);//工作时间
-		if(enCLB >= 7 && worktime>=1 && worktime <3) {
-			otherCount2 = 13;
-		}else if(enCLB >= 7 &&  worktime >= 3) {
-			otherCount2 = 25;
+		if(enCLB >= 9 && worktime >= 3) {
+			otherCount2 = 50;
 		}else if(enCLB >= 9 && worktime>=1 && worktime <3) {
 			otherCount2 = 25;
-		}else if(enCLB >= 9 && worktime >= 3) {
-			otherCount2 = 50;
+		}else if(enCLB >= 7 &&  worktime >= 3) {
+			otherCount2 = 25;
+		}else if(enCLB >= 7 && worktime>=1 && worktime <3) {
+			otherCount2 = 13;
 		}
 		//双语言奖励分
 		int frCLB = getMinNumber(frenchCLBLevel);
-		if(enCLB <= 4 && frCLB >= 7) {
-			otherCount3 = 15;
-		}else if(enCLB >= 5 && frCLB >= 7) {
+		if(enCLB >= 5 && frCLB >= 7) {
 			otherCount3 = 30;
+		}else if(enCLB <= 4 && frCLB >= 7) {
+			otherCount3 = 15;
 		}
 		//额外总加分
 		otherCount = otherCount1 + otherCount2 + otherCount3;
@@ -1167,33 +1182,33 @@ public class MarkingOLServiceImpl implements MarkingOLService{
 		//额外加分算法 start
 		int enCLB = getMinNumber(englishCLBLevelMain);
 		//学历/语言奖励分
-		if(enCLB >= 7 && ("本科（4年制）".equals(certificateMain) || "本科（3年制）".equals(certificateMain) || "本科（2年制）".equals(certificateMain) || "本科（1年制）".equals(certificateMain) || "专科（文科）".equals(certificateMain) || "专科（理科）".equals(certificateMain))) {
-			otherCount1 = 13;
-		}else if(enCLB >= 7 && ("双学历".equals(certificateMain) || "博士".equals(certificateMain) || "硕士".equals(certificateMain))) {
-			otherCount1 = 25;
+		if(enCLB >= 9 && ("双学历".equals(certificateMain) || "博士".equals(certificateMain) || "硕士".equals(certificateMain))) {
+			otherCount1 = 50;
 		}else if(enCLB >= 9 && ("本科（4年制）".equals(certificateMain) || "本科（3年制）".equals(certificateMain) || "本科（2年制）".equals(certificateMain) || "本科（1年制）".equals(certificateMain) || "专科（文科）".equals(certificateMain) || "专科（理科）".equals(certificateMain))) {
 			otherCount1 = 25;
-		}else if(enCLB >= 9 && ("双学历".equals(certificateMain) || "博士".equals(certificateMain) || "硕士".equals(certificateMain))) {
-			otherCount1 = 50;
+		}else if(enCLB >= 7 && ("双学历".equals(certificateMain) || "博士".equals(certificateMain) || "硕士".equals(certificateMain))) {
+			otherCount1 = 25;
+		}else if(enCLB >= 7 && ("本科（4年制）".equals(certificateMain) || "本科（3年制）".equals(certificateMain) || "本科（2年制）".equals(certificateMain) || "本科（1年制）".equals(certificateMain) || "专科（文科）".equals(certificateMain) || "专科（理科）".equals(certificateMain))) {
+			otherCount1 = 13;
 		}
 		//工作/语言奖励分
 		JSONArray question5_JSONArray = (JSONArray)jsonMain.get("question5");
 		int worktime = worktime(question5_JSONArray);//工作时间
-		if(enCLB >= 7 && worktime>=1 && worktime <3) {
-			otherCount2 = 13;
-		}else if(enCLB >= 7 &&  worktime >= 3) {
-			otherCount2 = 25;
+		if(enCLB >= 9 && worktime >= 3) {
+			otherCount2 = 50;
 		}else if(enCLB >= 9 && worktime>=1 && worktime <3) {
 			otherCount2 = 25;
-		}else if(enCLB >= 9 && worktime >= 3) {
-			otherCount2 = 50;
+		}else if(enCLB >= 7 &&  worktime >= 3) {
+			otherCount2 = 25;
+		}else if(enCLB >= 7 && worktime>=1 && worktime <3) {
+			otherCount2 = 13;
 		}
 		//双语言奖励分
 		int frCLB = getMinNumber(frenchCLBLevelMain);
-		if(enCLB <= 4 && frCLB >= 7) {
-			otherCount3 = 15;
-		}else if(enCLB >= 5 && frCLB >= 7) {
+		if(enCLB >= 5 && frCLB >= 7) {
 			otherCount3 = 30;
+		}else if(enCLB <= 4 && frCLB >= 7) {
+			otherCount3 = 15;
 		}
 		//额外总加分
 		otherCount = otherCount1 + otherCount2 + otherCount3;
@@ -1403,7 +1418,7 @@ public class MarkingOLServiceImpl implements MarkingOLService{
 			
 		}else {
 			//主申第一语言是英语 英语增加2档
-			enL = ((enL+2)>10)?10:(frL+2);
+			enL = ((enL+2)>10)?10:(enL+2);
 			enS = ((enS+2)>10)?10:(enS+2);
 			enR = ((enR+2)>10)?10:(enR+2);
 			enW = ((enW+2)>10)?10:(enW+2);
@@ -1567,10 +1582,9 @@ public class MarkingOLServiceImpl implements MarkingOLService{
 		}			
 		
 		//语言1副得分
-		languegeOneCountAssi = languegeOnelisteningCountMain + languegeOnespeakingCountMain + languegeOnereadingCountMain + languegeOnewritingCountMain;
+		languegeOneCountAssi = languegeOnelisteningCountAssi + languegeOnespeakingCountAssi + languegeOnereadingCountAssi + languegeOnewritingCountAssi;
 
-		//语言1 得分
-		languegeOneCount = languegeOneCountMain + languegeOneCountAssi;
+		
 		//英语CLB end		
 		
 		//法语CLB start 只考虑主申
@@ -1625,13 +1639,22 @@ public class MarkingOLServiceImpl implements MarkingOLService{
 		
 		//语言2的主得分
 		languegeTwoCountMain = languegeTwolisteningCountMain + languegeTwolisteningCountMain + languegeTwolisteningCountMain + languegeTwolisteningCountMain;
-		
+		//主申第一语言得分
+		languegeOneCountMain = languegeOneCountMain>128?128:languegeOneCountMain;
+		//主申第二语言得分
+		languegeTwoCountMain = languegeTwoCountMain>22?22:languegeTwoCountMain;
+		//主申语言总分
+		int mainlanguegeScore = languegeOneCountMain+languegeTwoCountMain;
+		//副申语言得分（副申语言一得分）
+		int AssilanguegeScore = languegeOneCountAssi>20?20:languegeOneCountAssi;
+		//语言1 得分
+		languegeOneCount = languegeOneCountMain + languegeOneCountAssi;
 		//语言2的总得分
 		languegeTwoCount = languegeTwoCountMain + languegeTwoCountAssi;
 		//法语CLB end
 		
 		//语言总得分
-		languageScore = languegeOneCount + languegeTwoCountMain;
+		languageScore = mainlanguegeScore + AssilanguegeScore;
 		jsonObj.put("languageScore", languageScore);//语言总得分
 		jsonObj.put("languegeOneCount", languegeOneCount);//语言1总得分
 		jsonObj.put("languegeTwoCount", languegeTwoCount);//语言2总得分
@@ -2175,7 +2198,7 @@ public class MarkingOLServiceImpl implements MarkingOLService{
 	    int reading = StaticMethod.nullObject2int(question6.get("reading"));
 	    int writing = StaticMethod.nullObject2int(question6.get("writing"));
 	    //听CLB
-	    if(listening == 8.5) {
+	    if(listening >= 8.5) {
 	    	CLBL = 10;
 	    }else if(listening == 8) {
 	    	CLBL = 9;
@@ -2193,7 +2216,7 @@ public class MarkingOLServiceImpl implements MarkingOLService{
 	    	CLBL = 3;
 	    }
 	    //说CLB
-	    if(speaking == 7.5) {
+	    if(speaking >= 7.5) {
 	    	CLBS = 10;
 	    }else if(speaking == 7) {
 	    	CLBS = 9;
@@ -2211,7 +2234,7 @@ public class MarkingOLServiceImpl implements MarkingOLService{
 	    	CLBS = 3;
 	    }
 	    //读CLB
-	    if(reading == 8) {
+	    if(reading >= 8) {
 	    	CLBR = 10;
 	    }else if(reading >= 7 && reading < 8) {
 	    	CLBR = 9;
@@ -2229,7 +2252,7 @@ public class MarkingOLServiceImpl implements MarkingOLService{
 	    	CLBR = 3;
 	    }
 	    //写CLB
-	    if(writing == 7.5) {
+	    if(writing >= 7.5) {
 	    	CLBW = 10;
 	    }else if(writing == 7) {
 	    	CLBW = 9;
@@ -2291,7 +2314,7 @@ public class MarkingOLServiceImpl implements MarkingOLService{
 	    }else if("不会".equals(speaking)){
 	    	CLBS = 3; 
 	    }else {
-    		CLBL = 2;
+	    	CLBS = 2;
 	    }
 	    //读
 	    if("高".equals(reading)) {
@@ -2305,21 +2328,21 @@ public class MarkingOLServiceImpl implements MarkingOLService{
 	    }else if("不会".equals(reading)){
 	    	CLBR = 3; 
 	    }else {
-    		CLBL = 2;
+	    	CLBR = 2;
 	    }
 	    //写
 	    if("高".equals(writing)) {
-	    	CLBR = 10; 
+	    	CLBW = 10; 
 	    }else if("中".equals(writing)){
-	    	CLBR = 7; 
+	    	CLBW = 7; 
 	    }else if("低".equals(writing)){
-	    	CLBR = 6; 
+	    	CLBW = 6; 
 	    }else if("入门".equals(writing)){
-	    	CLBR = 5; 
+	    	CLBW = 5; 
 	    }else if("不会".equals(writing)){
-	    	CLBR = 3; 
+	    	CLBW = 3; 
 	    }else {
-    		CLBL = 2;
+	    	CLBW = 2;
 	    }
 	    int[] array = {CLBL,CLBS,CLBR,CLBW};
 	    return array;

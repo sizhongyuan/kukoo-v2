@@ -44,7 +44,7 @@ public class NSutil {
 					if(scorePrimary.getIntValue("score")+scorePrimary.getIntValue("languageScoreUp")+scoreSecondary.getIntValue("languageScoreUp")+scoreSecondary.getIntValue("score")<67){
 						//主次交换后升档是否通过
 						if(scorePrimary2.getIntValue("score")+scorePrimary2.getIntValue("languageScoreUp")+scoreSecondary2.getIntValue("score")+scoreSecondary2.getIntValue("languageScoreUp")<67){
-							reJson.put("score", scorePrimary.getIntValue("score")+scorePrimary.getIntValue("languageScoreUp")+scoreSecondary.getIntValue("score")+scoreSecondary.getIntValue("languageScoreUp"));
+							reJson.put("score", scorePrimary.getIntValue("score")+scorePrimary.getIntValue("languageScore")+scoreSecondary.getIntValue("score")+scoreSecondary.getIntValue("languageScore"));
 							//主申请人
 							reJson.put("major", "配偶");
 							//主申语言
@@ -55,7 +55,7 @@ public class NSutil {
 							//主申请人
 							reJson.put("major", "配偶");
 							//成绩
-							reJson.put("score", scorePrimary2.getIntValue("score")+scorePrimary2.getIntValue("languageScoreUp")+scoreSecondary2.getIntValue("score")+scoreSecondary2.getIntValue("languageScoreUp"));
+							reJson.put("score", scorePrimary2.getIntValue("score")+scorePrimary2.getIntValue("languageScore")+scoreSecondary2.getIntValue("score")+scoreSecondary2.getIntValue("languageScore"));
 							//主申语言
 							reJson.put("language", scorePrimary2.get("language"));
 							//主申工作年限是否再0-1年  在为1 不在为0
@@ -74,7 +74,7 @@ public class NSutil {
 						//主申请人
 						reJson.put("major", "您");
 						//成绩
-						reJson.put("score", scorePrimary.getIntValue("score")+scorePrimary.getIntValue("languageScoreUp")+scoreSecondary.getIntValue("languageScoreUp")+scoreSecondary.getIntValue("score"));
+						reJson.put("score", scorePrimary.getIntValue("score")+scorePrimary.getIntValue("languageScore")+scoreSecondary.getIntValue("languageScore")+scoreSecondary.getIntValue("score"));
 						//主申语言
 						reJson.put("language", scorePrimary.get("language"));
 						//主申工作年限是否再0-1年  在为1 不在为0
@@ -144,7 +144,7 @@ public class NSutil {
 					//主申请人
 					reJson.put("major", "您");
 					//成绩
-					reJson.put("score", scorePrimary.getIntValue("score")+scorePrimary.getIntValue("languageScoreUp"));
+					reJson.put("score", scorePrimary.getIntValue("score")+scorePrimary.getIntValue("languageScore"));
 					//主申语言
 					reJson.put("language", scorePrimary.get("language"));
 					//是否升档 0：否
@@ -685,47 +685,47 @@ public class NSutil {
 		//副申请得分
 		int score = 0;
 		//第五题 
-		int careerFlag = 0;
-		JSONArray q5 = (JSONArray) questionMain.get("question5");
-		int workTime = 0;
-		//检测职业是否都不符合要求		
-		for(int i=0;i<q5.size();i++){
-			JSONObject answer = q5.getJSONObject(i);
-			switch (StaticMethod.nullObject2String(answer.get("profession"))) {
-			case "计算机类":
-				careerFlag+=1;
-				break;
-			case "社会及社区工作":
-				careerFlag+=1;
-				break;
-			case "土木、建筑类":
-				careerFlag+=1;
-				break;
-			case "大专及职业院校教师":
-				careerFlag+=1;
-				break;
-			case "法律相关":
-				careerFlag+=1;
-				break;
-			case "广告市场":
-				careerFlag+=1;
-				break;
-			case "行政助理":
-				careerFlag+=1;
-				break;
-			case "护士":
-				careerFlag+=1;
-				break;
-			case "金融财会类":
-				careerFlag+=1;
-				break;
-			default:
-				break;
-			}
-		}
-		if(careerFlag==0){//都不符合时得分为0  
-			return failJson;
-		}
+//		int careerFlag = 0;
+//		JSONArray q5 = (JSONArray) questionMain.get("question5");
+//		int workTime = 0;
+//		//检测职业是否都不符合要求		
+//		for(int i=0;i<q5.size();i++){
+//			JSONObject answer = q5.getJSONObject(i);
+//			switch (StaticMethod.nullObject2String(answer.get("profession"))) {
+//			case "计算机类":
+//				careerFlag+=1;
+//				break;
+//			case "社会及社区工作":
+//				careerFlag+=1;
+//				break;
+//			case "土木、建筑类":
+//				careerFlag+=1;
+//				break;
+//			case "大专及职业院校教师":
+//				careerFlag+=1;
+//				break;
+//			case "法律相关":
+//				careerFlag+=1;
+//				break;
+//			case "广告市场":
+//				careerFlag+=1;
+//				break;
+//			case "行政助理":
+//				careerFlag+=1;
+//				break;
+//			case "护士":
+//				careerFlag+=1;
+//				break;
+//			case "金融财会类":
+//				careerFlag+=1;
+//				break;
+//			default:
+//				break;
+//			}
+//		}
+//		if(careerFlag==0){//都不符合时得分为0  
+//			return failJson;
+//		}
 		
 
 		//第六题

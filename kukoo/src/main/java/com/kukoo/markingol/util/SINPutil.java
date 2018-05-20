@@ -46,7 +46,7 @@ public class SINPutil {
 							//主申请人
 							reJson.put("major", "配偶");
 							//成绩
-							reJson.put("score", scorePrimary2.getIntValue("score")+scorePrimary2.getIntValue("languageScoreUp"));
+							reJson.put("score", scorePrimary2.getIntValue("score")+scorePrimary2.getIntValue("languageScore"));
 							//主申语言
 							reJson.put("language", scorePrimary.get("language"));
 							//是否升档 0：否
@@ -60,7 +60,7 @@ public class SINPutil {
 						//主申请人
 						reJson.put("major", "您");
 						//成绩
-						reJson.put("score", scorePrimary.getIntValue("score")+scorePrimary.getIntValue("languageScoreUp"));
+						reJson.put("score", scorePrimary.getIntValue("score")+scorePrimary.getIntValue("languageScore"));
 						//主申语言
 						reJson.put("language", scorePrimary.get("language"));
 						//是否升档 0：否
@@ -108,7 +108,7 @@ public class SINPutil {
 					//主申请人
 					reJson.put("major", "您");
 					//成绩
-					reJson.put("score", scorePrimary.getIntValue("score")+scorePrimary.getIntValue("languageScoreUp"));
+					reJson.put("score", scorePrimary.getIntValue("score")+scorePrimary.getIntValue("languageScore"));
 					//主申语言
 					reJson.put("language", scorePrimary.get("language"));
 					//通过方式（绿手green||黄手yellow||未通过none）
@@ -117,7 +117,7 @@ public class SINPutil {
 					//主申请人
 					reJson.put("major", "您");
 					//成绩
-					reJson.put("score", scorePrimary.getIntValue("score")+scorePrimary.getIntValue("languageScoreUp"));
+					reJson.put("score", scorePrimary.getIntValue("score")+scorePrimary.getIntValue("languageScore"));
 					//主申语言
 					reJson.put("language", scorePrimary.get("language"));
 					//是否升档 0：否
