@@ -60,7 +60,7 @@ public class QSWutil {
 					//主申请人
 					reJson.put("major", "您");
 					//通过成绩
-					reJson.put("score", scorePrimary.getIntValue("score")+scorePrimary.getIntValue("languageScore")+scoreSecondary.getIntValue("score")+scoreSecondary.getIntValue("languageScore"));
+					reJson.put("score", scorePrimary.getIntValue("score")+scorePrimary.getIntValue("languageScore")+scorePrimary.getByteValue("childScore")+scoreSecondary.getIntValue("score")+scoreSecondary.getIntValue("languageScore"));
 					//主申语言
 					reJson.put("language", scorePrimary.get("language"));
 					//子女得分
