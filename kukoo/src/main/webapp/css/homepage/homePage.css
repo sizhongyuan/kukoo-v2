@@ -1,0 +1,78 @@
+/* 巨幕 start */
+/* 多出浏览器部分隐藏 */
+/* .background {
+	overflow: hidden;
+	height: 550px;
+} */
+/* .aaa {
+	background-image: url(../../img/homepage/homePage.jpeg);
+	background-size: cover;
+} */
+.row {
+    /* margin-bottom: 200px; */
+    /* position: relative;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: -140px; */
+    position:absolute;
+    left: 20%;
+    right: 20%;
+    top: 70%;
+    background: rgba(102,102,102,.6);
+    padding: 12px;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+@media (max-width: 992px){
+	.row {
+		margin-top: 0px;
+	    margin-right: 0px;
+	    margin-left: 0px;
+	}
+}
+/* @media (max-width: 992px){
+	.input-bottom {
+		margin-top: 10px;
+	}
+} */
+.input-size {
+	/* width: 28%; */
+	width: 42%;
+    float: left;
+}
+@media (max-width: 992px){
+	.input-size {
+		width: 100%;
+	    margin-bottom: 10px;
+	}
+}
+.button-size {
+	width: 16%;
+    float: left;
+}
+@media (max-width: 992px){
+	.button-size {
+		width: 100%;
+	}
+}
+.form-control {
+	height: 50px;
+}
+.botton-item {
+	border-radius: 0px 4px 4px 0px;
+	background-color: #16a2d3;
+	border-style: none;
+	color: #ffffff;
+}
+.search-icon {
+	position: relative;
+	float: left;
+}
+/* [class*="col-"] {
+    padding-top: 13px;
+    background-color: #eee;
+    background-color: rgba(86,61,124,.15);
+    border: 1px solid #ddd;
+    border: 1px solid rgba(86,61,124,.2);
+} */
+/* 巨幕 end */

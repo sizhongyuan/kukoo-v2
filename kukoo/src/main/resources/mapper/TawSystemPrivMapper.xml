@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<!-- 权限模型mybatis mapper 文件配置 -->
+<mapper namespace="com.kukoo.system.priv.dao.TawSystemPrivMapper">
+	<!-- 根据操作权限ID获取权限模型 -->
+	<select id="queryTawSystemPrivByOperationId" parameterType="java.lang.String" resultType="com.kukoo.system.priv.model.TawSystemPriv">
+		SELECT
+			APPID,
+			MODULEID,
+			OPEARTIONID,
+			OPERATIONCONTENT
+		FROM
+			TAW_SYSTEM_PRIV
+		WHERE
+			OPEARTIONID=#{operationId}
+	</select>
+	<!-- 保存权限模型对象 -->
+	<insert id="saveTawSystemPriv" parameterType="com.kukoo.system.priv.model.TawSystemPriv">
+	insert into TAW_SYSTEM_PRIV
+		(
+			APPID,
+			MODULEID,
+			OPEARTIONID,
+			OPERATIONCONTENT
+		)
+		values
+		(
+			#{appId,jdbcType=VARCHAR},
+			#{moduleId,jdbcType=VARCHAR},
+			#{operationId,jdbcType=VARCHAR},
+			#{operationContent,jdbcType=VARCHAR}
+		)
+	</insert>
+	<!-- 根据 条件 查询权限模型对象集合 -->
+	<select id="queryTawSystem" parameterType="java.lang.String" resultType="java.util.HashMap">
+		SELECT
+			APPID,
+			MODULEID,
+			OPEARTIONID,
+			OPERATIONCONTENT
+		FROM
+			TAW_SYSTEM_PRIV
+		WHERE
+			${conditions}
+	</select>
+	<!-- 根据操作权限ID删除权限模型对象 -->
+	<delete id="deleteTawSystemPriv" parameterType="java.lang.String">  
+        delete from TAW_SYSTEM_PRIV where OPEARTIONID = #{operationId,jdbcType=VARCHAR}
+    </delete>
+</mapper>
+<!-- 建表语句 -->
+<!-- create table TAW_SYSTEM_USER_PRIV(
+ id int primary key auto_increment COMMENT '主键',
+ USERID varchar(255) COMMENT '用户id',
+ TYPE VARCHAR(10) COMMENT '权限类型',
+ OPERATIONID varchar(255) COMMENT '权限id'
+); -->

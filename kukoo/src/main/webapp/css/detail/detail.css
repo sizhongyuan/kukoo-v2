@@ -1,0 +1,301 @@
+/* padding去除 start*/
+.padding-clear{
+	padding:0;
+}
+/* padding去除 end*/
+
+/* td 内容 居中 start*/
+td{
+	text-align:center;
+}
+/* td 内容 居中 end*/
+
+/* body内边距 start*/
+body {
+        padding-top: 40px;
+        padding-bottom: 40px;
+      }
+/* body内边距 end*/
+      
+     /*  .sidebar-nav {
+        padding: 9px 0;
+      } */
+ /* container内边距 start*/
+.container-padding{
+	padding:0px 90px 0px 90px;
+}
+/* container内边距 end*/
+
+/* row100% start*/
+.row-full{
+	width:100%;
+}
+/* row100% end*/
+
+/* 上左row内边距 start*/
+.top-left-row{
+	max-width:1000px;
+}
+/* 上左row内边距 end*/
+
+/* 上左部分div start*/
+.leaderboard {
+  max-width:670px;
+  min-height:200px;
+  padding: 18px 78px 32px 44px;
+  background-color:#f8f8f8;
+  font-size:14px;
+  color:#666666;
+  float:left;
+}
+@media (max-width: 1024px){
+	.leaderboard {
+		  width:100%;
+		  min-height:200px;
+		  padding: 18px 78px 32px 44px;
+		  background-color:#f8f8f8;
+		  font-size:14px;
+		  color:#666666;
+		  float:left;
+		}
+}
+.leaderboardMargin{
+	margin:0px 78px 0px 24px;
+	width:100%;
+}
+.leaderboard p {
+  font-size: 20px;
+  top: 18px;
+  bottom: 16px;
+  color:#333333;
+}
+/* 上左部分div end*/
+
+/* 上左部分名称宽度 start*/
+.name-width{
+	width:100px;
+}
+@media (max-width: 1024px){
+	.name-width{
+		max-width:100px;
+	}
+}
+/* 上左部分名称宽度 end*/
+
+/* 上右部分详情宽度 start*/
+.desc-width{
+	width:100px;
+	width:434px;
+	line-height:20px;
+}
+@media (max-width: 1024px){
+	.desc-width{
+		width:100%;
+		line-height:20px;
+	}
+}
+/* 上右部分详情宽度 end*/
+
+/* 更多详情 start*/
+.more-style{
+	margin-bottom:12px;
+	padding:0;
+	width:534px;
+}
+@media (max-width: 1024px){
+	.more-style{
+		margin-bottom:12px;
+		padding:0;
+		width:100%;
+	}
+}
+/* 更多详情 end*/
+
+/* 更多详情点击 start*/
+.more-click-style{
+	font-size:12px;
+	color:rgb(51,108,172);
+	float:right;
+	cursor:pointer;
+	margin-top:10px;
+}
+/* 更多详情点击 end*/
+
+/* 星星 start*/
+.star-style{
+	cursor:pointer;
+	float:right;
+	margin-right:-10px；
+}
+/* 星星 end*/
+
+/* 左上button div start*/
+.left-button-div{
+	float:right;
+	margin-top:-5px;
+}
+/* 左上button div end*/
+
+/* 左上button left right start*/
+.left-left-button,.left-right-button{
+	width:72px;
+	height:28px;
+	color:#FFFFFF;
+	font-size:10px;
+	background-color:rgb(80,81,85);
+	border-radius:0;
+}
+/* 左上button left right end*/
+
+/* 左上button right start*/
+.left-right-button{
+	margin-left:10px;
+	background-color:#16a2d3;
+}
+/* 左上button right end*/
+
+/* 右上div start*/
+.right-div{
+	min-height:240px;
+	min-width:260px;
+	box-shadow: 0px 0px 5px #888888;
+	float:right;
+	padding:38px 30px 24px 30px;
+}
+@media (max-width: 1024px){
+	.right-div{
+		min-height:240px;
+		width:100%;
+		box-shadow: 0px 0px 5px #888888;
+		margin-top:20px;
+		padding:38px 30px 24px 30px;
+	}
+}
+/* 右上div end*/
+
+/* 右上table start*/
+.right-table{
+	font-size:12px;
+	color:#666666;
+}
+/* 右上table end*/
+
+/* 右上button start*/
+.right-button{
+	width:72px;
+	height:28px;
+	color:#FFFFFF;
+	font-size:8px;
+	background-color:#16a2d3;
+	border-radius:0;
+}
+/* 右上button end*/
+
+/* 右上分享图标 start*/
+.share-img{
+	float:right;
+	margin-top:5px;
+}
+/* 右上分享图标 end*/
+
+/* 右上分享 start*/
+.share{
+	cursor:pointer;
+	float:right;
+	color:#666666;
+	font-size:12px;
+	margin-top:5px;
+}
+/* 右上分享 end*/
+
+/* 下div row 上边距 start*/
+.bottom-row-div{
+	margin-top:16px;
+}
+/* 下div row 上边距 end*/
+
+/* 下div start*/
+.bottom-div{
+	height:500px;
+	max-width:670px;
+	box-shadow: 0px 0px 5px #888888;
+	padding:0;
+}
+@media (max-width: 1024px){
+	.bottom-div{
+		height:800px;
+		max-width:670px;
+		box-shadow: 0px 0px 5px #888888;
+		padding:0;
+	}
+}
+/* 下div end*/
+
+/* tab 页div start*/
+.tab-div{
+	height: 443px; 
+	overflow: auto; 
+	padding: 24px 45px 30px 45px; 
+	font-size: 12px;
+	line-height: 20px;
+}
+@media (max-width: 1024px){
+	.tab-div{
+		height: 460px; 
+		overflow: auto; 
+		padding: 24px 45px 30px 45px; 
+		font-size: 12px;
+		line-height: 20px;
+	}
+}
+/* tab 页div end*/
+
+/* tab 页table 表头 start*/
+.tab-table-thead{
+	background-color: #16a2d3; 
+	color: #FFFFFF;
+	text-align:center;
+}
+/* tab 页table 表头 end*/
+
+/* tab 页table 表头 居中 start*/
+.tab-table-thead th{
+	text-align:center;
+}
+/* tab 页table 表头 居中 end*/
+
+/* tab start */
+.nav>li>a {
+	margin:0;
+	border-radius: 0px;
+	background-color:rgb(240,240,240);
+	
+}
+.nav>li{
+	-webkit-border-radius: 0 !important;
+	-moz-border-radius: 0 !important;
+     border-radius: 0 !important;
+}
+
+.nav-tabs.nav-justified>li>a{
+	border-radius:0 !important;
+	font-size:13px;
+	color:#333333;
+}
+/* tab end */
+
+/* echarts div style start */
+.charts{
+        width: 580px;
+        height: 500px;
+        margin: 24px 0px;
+}
+@media (max-width: 1024px){
+	.charts{
+        width: 400px;
+        height: 500px;
+        margin: 24px 0px;
+	}
+}
+/* echarts div style end */
+

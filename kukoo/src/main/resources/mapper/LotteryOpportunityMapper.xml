@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<!-- 用户mybatis mapper 文件配置 -->
+<mapper namespace="com.kukoo.luckdraw.dao.LotteryOpportunityMapper">
+	<!--配置一个resultMap 指定返回的类型 -->
+    <resultMap id="BaseResultMap" type="com.kukoo.luckdraw.model.LotteryOpportunity">
+        <id column="id" property="id" />
+        <result column="lottery_url" property="lotteryUrl" />
+        <result column="lottery_num" property="lotteryNum" />
+        <result column="create_time" property="createTime" />
+        <result column="lottery_user_id" property="lotteryUserId" />
+    </resultMap>
+    
+	<insert id="saveLotteryOpportunity" parameterType="com.kukoo.luckdraw.model.LotteryOpportunity">
+		<!-- <selectKey keyProperty="id" resultType="string" order="BEFORE">
+			select REPLACE(UUID(),'-','')
+		</selectKey> -->
+		insert into tt_lottery_opportunity
+		(
+			ID,
+			lottery_url,
+			lottery_num,
+			create_time,
+			lottery_user_id
+		)
+		values
+		(
+			#{id,jdbcType=VARCHAR},
+			#{lotteryUrl,jdbcType=VARCHAR},
+			#{lotteryNum,jdbcType=VARCHAR},
+			#{createTime,jdbcType=VARCHAR},
+			#{lotteryUserId,jdbcType=VARCHAR}
+		)
+	</insert>
+	
+	<select id="queryLotteryOpportunityList"  resultType="java.util.Map" >
+        select * from tt_lottery_opportunity
+    </select>
+    
+    <select id="queryLotteryOpportunity" parameterType="String"  resultMap="BaseResultMap" >
+        select id,lottery_Url,lottery_Num,create_Time,lottery_User_Id from tt_lottery_opportunity 
+        	where id = #{id} and lottery_User_Id = #{userId} and lottery_num &gt; 0
+    </select>
+    
+    <update id="updateLotteryOpportunity" parameterType="com.kukoo.luckdraw.model.LotteryOpportunity">
+    		UPDATE tt_lottery_opportunity
+        <set> 
+            <if test="lotteryUrl != null">
+                lottery_Url = #{lotteryUrl},
+            </if>
+            <if test="lotteryNum != null">
+                lottery_Num = #{lotteryNum},
+            </if>
+            <if test="createTime != null">
+                create_Time = #{createTime},
+            </if>
+            <if test="lotteryUrl != null">
+                lottery_User_Id = #{lotteryUserId},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+</mapper>

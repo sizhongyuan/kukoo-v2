@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<!-- 用户mybatis mapper 文件配置 -->
+<mapper namespace="com.kukoo.markingol.dao.MarkingOLMapper">
+	
+	<!-- 根据专业中文名称查询得分等信息 -->
+	<select id="queryQSWprofessionByName"  parameterType="java.lang.String" resultType="java.util.HashMap">
+		select * from qsw_profession where ${professionCnName} ORDER BY primary_score desc
+	</select>
+	<!-- 获取所有魁北克专业 -->
+	<select id="getAllProfession"  resultType="java.util.HashMap">
+		select * from qsw_profession ORDER BY id asc
+	</select>
+	
+
+	<insert id="addMarkingOL" parameterType="com.kukoo.markingol.model.MarkingOL">
+		<selectKey keyProperty="id" resultType="string" order="BEFORE">
+			select REPLACE(UUID(),'-','')
+		</selectKey>
+		insert into tt_markingOL
+		(
+			ID,
+			ANSWER_TIME,
+			USER_ID,
+			USER_IP,
+			QUESTIONONE_MAIN,
+			QUESTIONONE_ASSI,
+			QUESTIONTWO_MAIN,
+			QUESTIONTWO_ASSI,
+			QUESTIONTHREE_MAIN,
+			QUESTIONTHREE_ASSI,
+			QUESTIONFOUR_MAIN,
+			QUESTIONFOUR_ASSI,
+			QUESTIONFIVE_MAIN,
+			QUESTIONFIVE_ASSI,
+			QUESTIONSIX_MAIN,
+			QUESTIONSIX_ASSI,
+			QUESTIONSEVEN_MAIN,
+			QUESTIONSEVEN_ASSI,
+			SCORE,
+			RECOMMENDED_PROJECT,
+			TRY_PROJECT
+		)
+		values
+		(
+			#{id,jdbcType=VARCHAR},
+			#{answer_time,jdbcType=DATE},
+			#{user_id,jdbcType=VARCHAR},
+			#{user_ip,jdbcType=VARCHAR},
+			#{questionone_main,jdbcType=VARCHAR},
+			#{questionone_assi,jdbcType=DATE},
+			#{questiontwo_main,jdbcType=VARCHAR},
+			#{questiontwo_assi,jdbcType=DATE},
+			#{questionthree_main,jdbcType=DATE},
+			#{questionthree_assi,jdbcType=DATE},
+			#{questionfour_main,jdbcType=DATE},
+			#{questionfour_assi,jdbcType=DATE},
+			#{questionfive_main,jdbcType=DATE},
+			#{questionfive_assi,jdbcType=DATE},
+			#{questionsix_main,jdbcType=DATE},
+			#{questionsix_assi,jdbcType=DATE},
+			#{questionseven_main,jdbcType=DATE},
+			#{questionseven_assi,jdbcType=DATE},
+			#{score,jdbcType=DATE},
+			#{recommended_project,jdbcType=DATE},
+			#{try_project,jdbcType=DATE}
+		)
+	</insert>
+</mapper>

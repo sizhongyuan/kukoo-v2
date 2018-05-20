@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<!-- 项目信息mybatis mapper 文件配置 -->
+<mapper namespace="com.kukoo.project.dao.ProjectMapper">
+	<!-- 根据id获取项目信息对象 -->
+	<select id="queryProjectModelById" parameterType="java.lang.String" resultType="com.kukoo.project.model.ProjectModel">
+		SELECT
+			ID,
+			PROJECT_NAME,
+			COUNTRY,
+			DESCRIPTION,
+			PICTURE,
+			STATUS,
+			URL,
+			VISA_TYPE,
+			PERIOD,
+			LIVING_CONDITION,
+			COST,
+			CREATE_TIME,
+			CREATE_USER_ID,
+			DELETED
+		FROM
+			TT_PROJECT
+		WHERE
+			ID=#{id}
+	</select>
+	<!-- 保存项目信息对象 -->
+	<insert id="saveProjectModel" parameterType="com.kukoo.project.model.ProjectModel">
+	insert into TAW_SYSTEM_PRIV
+		(
+			PROJECT_NAME,
+			COUNTRY,
+			DESCRIPTION,
+			PICTURE,
+			STATUS,
+			URL,
+			VISA_TYPE,
+			PERIOD,
+			LIVING_CONDITION,
+			COST,
+			CREATE_TIME,
+			CREATE_USER_ID,
+			DELETED
+		)
+		values
+		(
+			#{projectName,jdbcType=VARCHAR},
+			#{country,jdbcType=VARCHAR},
+			#{description,jdbcType=VARCHAR},
+			#{picture,jdbcType=VARCHAR},
+			#{status,jdbcType=VARCHAR},
+			#{url,jdbcType=VARCHAR},
+			#{visa_type,jdbcType=VARCHAR},
+			#{period,jdbcType=VARCHAR},
+			#{livingCondition,jdbcType=VARCHAR},
+			#{cost,jdbcType=VARCHAR},
+			#{createTime,jdbcType=DATE},
+			#{createUserId,jdbcType=VARCHAR},
+			#{deleted,jdbcType=VARCHAR},
+		)
+	</insert>
+	<!-- 根据 条件 查询项目信息对象 -->
+	<select id="queryProjectModel" parameterType="java.lang.String" resultType="java.util.HashMap">
+		SELECT
+			ID,
+			PROJECT_NAME,
+			COUNTRY,
+			DESCRIPTION,
+			PICTURE,
+			STATUS,
+			URL,
+			VISA_TYPE,
+			PERIOD,
+			LIVING_CONDITION,
+			COST,
+			CREATE_TIME,
+			CREATE_USER_ID,
+			DELETED
+		FROM
+			TT_PROJECT
+		WHERE
+			${conditions}
+	</select>
+	<!-- 根据id删除项目信息对象 -->
+	<delete id="deleteProjectModel" parameterType="java.lang.String">  
+        delete from TT_PROJECT where ID = #{id,jdbcType=VARCHAR}
+    </delete>
+</mapper>
+<!-- 建表语句 -->
+<!-- create table TT_PROJECT(
+ `id` INT NOT NULL AUTO_INCREMENT COMMENT '项目信息表主键',
+  `project_name` VARCHAR(200) NULL COMMENT '项目名称',
+  `country` VARCHAR(200) NULL COMMENT '国家',
+  `description` VARCHAR(2000) NULL COMMENT '简介',
+  `picture` VARCHAR(200) NULL COMMENT '图片',
+  `status` VARCHAR(32) NULL COMMENT '状态',
+  `url` VARCHAR(200) NULL COMMENT '官网地址',
+  `visa_type` VARCHAR(32) NULL COMMENT '签证类别',
+  `period` VARCHAR(32) NULL COMMENT '办理周期',
+  `living_condition` VARCHAR(200) NULL COMMENT '居住条件',
+  `cost` VARCHAR(32) NULL COMMENT '总费用',
+  `create_time` DATETIME NULL COMMENT '创建时间',
+  `create_useri_d` VARCHAR(32) NULL COMMENT '创建人',
+  `deleted` INT NULL COMMENT '删除标识',
+  PRIMARY KEY (`id`)
+); -->

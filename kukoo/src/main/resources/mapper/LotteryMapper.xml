@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<!-- 用户mybatis mapper 文件配置 -->
+<mapper namespace="com.kukoo.luckdraw.dao.LotteryMapper">
+	<!--配置一个resultMap 指定返回的类型 -->
+    <resultMap id="BaseLotteryMap" type="com.kukoo.luckdraw.model.Lottery">
+        <id column="id" property="id" />
+        <result column="lno" property="lno" />
+        <result column="name" property="name" />
+        <result column="rate" property="rate" />
+        <result column="img_route" property="imgRoute" />
+        <result column="num" property="num" />
+    </resultMap>
+    
+	<insert id="saveLottery" parameterType="com.kukoo.luckdraw.model.Lottery">
+		<selectKey keyProperty="id" resultType="string" order="BEFORE">
+			select REPLACE(UUID(),'-','')
+		</selectKey>
+		insert into tt_lottery
+		(
+			id,
+			lno,
+			name,
+			rate,
+			img_route,
+			num
+		)
+		values
+		(
+			#{id,jdbcType=VARCHAR},
+			#{lno,jdbcType=VARCHAR},
+			#{name,jdbcType=VARCHAR},
+			#{rate,jdbcType=VARCHAR},
+			#{imgRoute,jdbcType=VARCHAR},
+			#{num,jdbcType=VARCHAR}
+			
+		)
+	</insert>
+	
+	<select id="queryLotteryList"  resultType="java.util.Map" >
+        select id,lno,name,rate,img_route,num from tt_lottery
+    </select>
+    
+    <select id="queryLottery"  resultMap="BaseLotteryMap">
+        select lno,name,rate,img_route,num from tt_lottery
+    </select>
+    
+    <select id="queryLotteryById" parameterType="String"  resultMap="BaseLotteryMap" >
+        select id,lno,name,rate,img_route,num from tt_lottery where id = #{id}
+    </select>
+    
+    <update id="updateLottery" parameterType="com.kukoo.luckdraw.model.Lottery">
+    		UPDATE tt_lottery
+        <set> 
+            <if test="name != null">
+                name = #{name},
+            </if>
+            <if test="rate != null">
+                rate = #{rate},
+            </if>
+            <if test="imgRoute != null">
+                img_route = #{imgRoute},
+            </if>
+            <if test="num != null">
+                num = #{num},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+</mapper>

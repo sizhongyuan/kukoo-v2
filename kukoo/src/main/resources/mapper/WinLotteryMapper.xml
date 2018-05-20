@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<!-- 用户mybatis mapper 文件配置 -->
+<mapper namespace="com.kukoo.luckdraw.dao.WinLotteryMapper">
+	<!--配置一个resultMap 指定返回的类型 -->
+    <resultMap id="winLotteryMapper" type="com.kukoo.luckdraw.model.WinLottery">
+        <id column="id" property="id" />
+        <result column="lottery_id" property="lotteryId" />
+        <result column="win_user_id" property="winUserId" />
+        <result column="win_phone" property="winPhone" />
+        <result column="win_time" property="winTime" />
+        <result column="is_give_out" property="isGiveOut" />
+    </resultMap>
+    
+	<insert id="saveWinLottery" parameterType="com.kukoo.luckdraw.model.WinLottery">
+		<selectKey keyProperty="id" resultType="string" order="BEFORE">
+			select REPLACE(UUID(),'-','')
+		</selectKey>
+		insert into tt_winlottery
+		(
+			ID,
+			lottery_id,
+			win_user_id,
+			win_phone,
+			win_time,
+			is_give_out
+		)
+		values
+		(
+			#{id,jdbcType=VARCHAR},
+			#{lotteryId,jdbcType=VARCHAR},
+			#{winUserId,jdbcType=VARCHAR},
+			#{winPhone,jdbcType=VARCHAR},
+			#{winTime,jdbcType=VARCHAR},
+			#{isGiveOut,jdbcType=VARCHAR}
+		)
+	</insert>
+	
+	<select id="queryWinLotteryList"  resultType="java.util.Map" >
+        select w.win_user_id,w.win_phone,w.win_time,w.lottery_id,l.name,w.is_give_out 
+        		from tt_winlottery w left join tt_lottery l 
+        		on w.lottery_id=l.lno
+        	 where win_user_id = #{userId}
+    </select>
+    
+    <select id="queryAllWinLotteryList"  resultType="java.util.Map" >
+        select w.win_user_id,w.win_phone,w.win_time,w.lottery_id,l.name,w.is_give_out 
+        		from tt_winlottery w left join tt_lottery l 
+        		on w.lottery_id=l.lno
+    </select>
+    
+    <update id="updateWinLottery" parameterType="com.kukoo.luckdraw.model.WinLottery">
+    		UPDATE tt_winlottery
+        <set> 
+            <if test="lotteryId != null">
+                lotteryId = #{lotteryId},
+            </if>
+            <if test="winUserId != null">
+                winUserId = #{winUserId},
+            </if>
+            <if test="winPhone != null">
+                winPhone = #{winPhone},
+            </if>
+            <if test="winTime != null">
+                winTime = #{winTime},
+            </if>
+            <if test="isGiveOut != null">
+                isGiveOut = #{isGiveOut},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+</mapper>

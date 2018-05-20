@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<!-- 权限模型mybatis mapper 文件配置 -->
+<mapper namespace="com.kukoo.system.priv.dao.TawSystemUserPrivMapper">
+	<!-- 根据 条件 查询用户权限 -->
+	<select id="queryByUserId" parameterType="java.lang.String" resultType="java.util.HashMap">
+		SELECT
+			ID,
+			USERID,
+			TYPE,
+			OPERATIONID
+		FROM
+			TAW_SYSTEM_USER_PRIV
+		WHERE
+			{conditions}
+	</select>
+	<!-- 保存用户权限关联对象 -->
+	<insert id="saveTawSystemUserPriv" parameterType="com.kukoo.system.priv.model.TawSystemUserPriv">
+	insert into TAW_SYSTEM_PRIV
+		(
+			USERID,
+			TYPE,
+			OPERATIONID
+		)
+		values
+		(
+			#{userId,jdbcType=VARCHAR},
+			#{type,jdbcType=VARCHAR},
+			#{operationId,jdbcType=VARCHAR}
+		)
+	</insert>
+	<!-- 删除用户权限关联对象 -->
+	<delete id="deleteTawSystemUserPriv" parameterType="int">  
+        delete from TAW_SYSTEM_USER_PRIV where ID = #{id,jdbcType=INTEGER}
+    </delete>
+</mapper>
+<!-- 建表语句 -->
+<!-- create table TAW_SYSTEM_PRIV (
+	APPID varchar(255) COMMENT '应用id',
+	MODULEID varchar(255) COMMENT '模块id',
+	OPEARTIONID varchar(255) primary key COMMENT '权限id',
+	OPERATIONCONTENT varchar(500) COMMENT '权限内容'
+) -->
+

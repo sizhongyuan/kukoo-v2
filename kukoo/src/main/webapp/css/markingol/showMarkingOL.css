@@ -1,0 +1,544 @@
+@CHARSET "UTF-8";
+* {
+  background-repeat: no-repeat;
+}
+
+.title {
+  padding-bottom: 10px;
+}
+
+.inner {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 910px;
+}
+
+p {
+  padding: 0;
+  display: block;
+  -webkit-margin-before: 1em;
+  -webkit-margin-after: 1em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+}
+
+}
+
+/* div dd {
+    background: #F8F8F8;
+    cursor: pointer;
+    padding: 8px 8px 8px 30px;
+    border: 1px #F8F8F8 solid;
+    margin-top: 12px;
+} */
+
+/* .container dd :hover {
+  z-index: 99;
+  background-color: #ffffff;
+  -webkit-transform: scale(0.98, 1.05);
+  transform: scale(0.98, 1.05);
+  -webkit-box-shadow: 3px 3px 3px#d3c998;
+  -moz-box-shadow: 3px 3px 3px#d3c998;
+  box-shadow: 3px 3px 3px#d3c998;
+} */
+
+.title_index {
+  float: left;
+  font-size: 24px;
+}
+
+.title_text {
+  font-weight: normal;
+  margin: 0;
+  vertical-align: top;
+}
+
+.title_text {
+  color: #333333;
+  vertical-align: middle;
+}
+
+.inputs {
+  font-size: 0;
+}
+
+input[type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+input {
+  line-height: normal;
+}
+
+button, input, optgroup, select, textarea {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+select {
+  padding-bottom: 0px;
+}
+
+.survey_form_checkbox {
+  -webkit-appearance: none;
+  width: 0;
+  height: 0;
+  visibility: hidden;
+  border: none;
+  float: left;
+}
+
+.option_item {
+  display: inline-block;
+  zoom: 1;
+  vertical-align: top;
+  position: relative;
+  margin-left: -10px;
+  margin-right: 10px;
+  margin-top: 2px;
+}
+
+.survey_wrap {
+  width: 100%;
+  max-width: 1000px;
+  min-width: 730px;
+  border: 0px solid #ffffff;
+  position: relative;
+  background-color: #ffffff;
+  font-size: 14px;
+  line-height: 1.8em;
+  margin: auto;
+}
+
+.option_item label {
+  position: relative;
+  overflow: hidden;
+  zoom: 1;
+  min-height: 40px;
+  display: block;
+  padding-left: 10px;
+}
+
+.inputs label {
+  cursor: pointer;
+}
+
+.stat {
+  display: none;
+  text-align: right;
+  position: absolute;
+  top: 7px;
+  left: 30px;
+  right: 0;
+  height: 25px;
+  font-size: 14px;
+}
+
+.survey_form_ui {
+  background-image: url(../../img/markingol/quan.png);
+}
+
+.survey_form_checkbox[type="radio"]+label .survey_form_ui {
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+}
+
+.survey_form_ui {
+  float: left;
+  margin-top: 12px;
+  margin-bottom: 4px;
+}
+
+.survey_form_ui {
+  display: inline-block;
+  zoom: 1;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 16px;
+  height: 16px;
+  margin-top: 10px;
+  margin-right: 5px;
+  border: 1px solid #b8b8b8;
+  background-color: #fafafa;
+  vertical-align: top;
+}
+
+.survey_form_checkbox:checked+label .survey_form_ui {
+  -webkit-background-size: 100%;
+  background-size: 100%;
+  background-color: #479de6;
+  border: none;
+}
+
+i, cite, em, var, address, dfn {
+  font-style: italic;
+}
+
+.option_item .option_text {
+  display: block;
+  z-index: 1;
+  position: relative;
+  margin-top: 7px;
+  margin-right: 10px;
+}
+
+.question .option_text {
+  font-size: 14px;
+  color: #333333;
+  vertical-align: middle;
+}
+
+.question .option_text {
+  display: inline-block;
+  zoom: 1;
+}
+
+.option_text p {
+  margin: 0px;
+}
+
+.description {
+  font-size: 12px;
+  padding-bottom: 10px;
+  margin-top: 5px;
+}
+
+.survey_control {
+  overflow: hidden;
+  text-align: center;
+  padding: 30px 0;
+}
+
+.survey_btn {
+  cursor: pointer;
+  display: inline-block;
+  zoom: 1;
+  background-color: #479de6;
+  border-radius: 3px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-weight: bold;
+  margin: 0 10px;
+  width: 85px;
+  padding: 0 10px;
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.survey_form_checkbox+label:hover, .survey_form_checkbox+label:active {
+  background-color: #f5f5f5;
+}
+
+.bs-docs-container {
+  padding: 40px;
+}
+
+.page_survey .tips_error {
+  background-color: #d92424;
+  color: #ffeae6;
+  padding: 0 10px;
+  line-height: 1.2;
+  border-radius: 11px;
+  -webkit-border-radius: 11px;
+}
+
+.page_survey .tips_error:focus {
+  outline: none;
+}
+
+.survey_form_checkbox i {
+  vertical-align: middle;
+}
+
+.page-title2 {
+  font-size: 24px;
+}
+
+.main {}
+
+.item1 {
+  width: 100%;
+  height: auto;
+  margin-bottom: 30px;
+}
+
+.item1 .pen {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  background-color: #F5F4F5;
+}
+
+.item1 .ti {
+  width: 50px;
+  height: 50px;
+  background-color: #39A4D1;
+  text-align: center;
+  float: left;
+  color: #fff;
+  font-size: 18px;
+}
+
+.item1 .question {
+  height: 50px;
+  float: left;
+  margin-left: 20px;
+  font-size: 16px;
+}
+
+.item1 .content {
+  width: 100%;
+  padding-top: 10px;
+}
+
+.item1 .content .details {
+  width: 90%;
+  margin: 0px 70px 0px 70px;
+  /* margin-top: 20px; */
+  font-size: 14px;
+}
+
+.item1 .details .subtitle {
+  width: 100%;
+  height: 42px;
+  line-height: 42px;
+}
+
+.item1 .details .qas {
+  width: 100%;
+}
+
+.item1 .select-style {
+  width: 44%;
+  margin-left: 3%;
+}
+
+.item1 .oneline {
+  width: 92%;
+}
+
+.item1 .color0 {
+  color: #6b6d6f !important;
+}
+
+.item1 .color1 {
+  /* color: #7b48b7; */
+  color: #6b6d6f !important;
+}
+
+.item1 .color2 {
+  /* color: #c6295f; */
+  color: #6b6d6f !important;
+}
+
+.item1 .color3 {
+  /* color: #65D0B3 !important; */
+  color: #6b6d6f !important;
+}
+
+.item1 .qas .q {
+  width: 70%;
+  float: left;
+  height: 42px;
+  line-height: 42px;
+}
+
+.item1 .qas .a {
+  width: 30%;
+  float: right;
+}
+
+.item1 .a div {
+  float: left;
+}
+
+.clear {
+  float: none !important;
+  clear: both !important;
+}
+
+.timeline {
+  padding-top: 26px;
+  height: 200px;
+  position: relative;
+  padding: 20px 90px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.timeline .areas {}
+
+.timeline .spots {}
+
+.timeline .areas .on {
+  background-color: #f7ce96;
+  color: #fff;
+  overflow: inherit;
+  z-index: 2;
+}
+
+.timeline .area {
+  position: absolute;
+  height: 35px;
+  background-color: #f9e9cf;
+  top: -35px;
+  border-radius: 8px 8px 0 0;
+  text-align: center;
+  line-height: 30px;
+  color: #d89640;
+  font-size: 12px;
+  overflow: hidden;
+  padding: 0 6px;
+  z-index: 1;
+}
+
+.timeline .lbar {
+  height: 35px;
+  width: 5px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  cursor: w-resize;
+}
+
+.timeline .rbar {
+  height: 35px;
+  width: 5px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: w-resize;
+}
+
+.timeline .ctxt {
+  width: 100%;
+  overflow: hidden;
+  height: 100%;
+  line-height: 14px;
+  padding-top: 4px;
+  display: block;
+  white-space: nowrap;
+}
+
+.timeline .ltxt {
+  position: absolute;
+  left: -20px;
+  top: -25px;
+  color: #37a2d6;
+  font-size: 12px;
+}
+
+.timeline .rtxt {
+  position: absolute;
+  right: -20px;
+  top: -25px;
+  color: #37a2d6;
+  font-size: 12px;
+}
+
+.timeline .spot {
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  background-color: #ECAA62;
+  border-radius: 8px;
+  top: -2px;
+  z-index: 3;
+}
+
+.timeline .spot span {
+  position: absolute;
+  width: 60px;
+  text-align: center;
+  left: -25px;
+  top: 10px;
+  color: #EFAC54;
+  font-size: 12px;
+  font-weight: 100;
+}
+
+.timeline .line {
+  height: 4px;
+  background-color: #EFAC54;
+}
+
+.timeline .ti {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background-color: #666;
+  z-index: 2;
+  color: #fff;
+  line-height: 60px;
+  text-align: center;
+  border-radius: 50px;
+  left: -30px;
+  top: -30px;
+}
+
+.timeline .add {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: #888;
+  z-index: 2;
+  color: #fff;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 50px;
+  right: -70px;
+  top: -15px;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.timeline .add:hover {
+  background-color: #444;
+}
+
+.timeline .c {
+  width: 90%;
+  height: 50px;
+  position: absolute;
+  right: 0;
+}
+
+.myWife .ti {
+  line-height: 15px;
+  padding-top: 15px;
+}
+
+.mine {
+  height: 100px;
+  position: relative;
+}
+
+.myWife {
+  height: 100px;
+  position: relative;
+}
+
+.modal-body li:hover {
+  background-color: #eee;
+}
+
+.btns {
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+.btns span {
+  cursor: pointer;
+}
+
+.clear {
+  float: none;
+  clear: both;
+}

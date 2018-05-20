@@ -1,0 +1,67 @@
+/* 导航条样式 start */
+
+/* 导航条宽度 */
+
+.navbar {
+  min-height: 60px;
+}
+
+/* 导航条默认颜色 */
+
+.navbar-default {
+  background-color: #ffffff;
+  border-color: #ffffff;
+}
+
+/* 导航条文字颜色 */
+
+.navbar-default .navbar-nav>li>a {
+  color: #333333;
+}
+
+/* 导航条首页图标高度 */
+
+.navbar-brand {
+  padding-top: 20px;
+}
+
+/* 导航条文字高度 */
+
+.nav>li>a {
+  padding-top: 20px;
+}
+
+/* 导航条样式 end */
+
+/* body {
+	padding-top: 30px;
+} */
+
+.iframe-top {
+  padding-top: 60px;
+}
+
+/* 底部备案号说明条 start */
+
+/* .copyright {
+    background: #111;
+    font-size: 13px;
+    text-align: center;
+    color: #555;
+    padding-top: 14px;
+    padding-bottom: 20px;
+    border-top: 1px solid #303030;
+}
+.copyright a {
+    color: #555;
+} */
+
+/* 底部备案号说明条 end */
+
+/* 导航条宽度 */
+
+.local-page-title {
+  margin: 100px 0 0 0;
+  font-size: 24px;
+  line-height: 38px;
+}

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<!-- 用户mybatis mapper 文件配置 -->
+<mapper namespace="com.kukoo.base.mapper.UserMapper">
+	<!-- 根据手机号查询用户对象 -->
+	<select id="queryUserByMobile" parameterType="string" resultType="com.kukoo.base.model.User">
+		SELECT
+			ID,
+			USER_PHOTO,
+			EMAIL,
+			PASSWORD,
+			USER_NAME,
+			STATUS,
+			REGIST_TIME,
+			MOBILE,
+			UPDATE_TIME,
+			DELETED,
+			DELETED_TIME
+		FROM
+			tt_user
+		WHERE
+			MOBILE=#{mobile}
+	</select>
+	
+	<insert id="saveUser" parameterType="com.kukoo.base.model.User">
+		<selectKey keyProperty="id" resultType="string" order="BEFORE">
+			select REPLACE(UUID(),'-','')
+		</selectKey>
+		insert into tt_user
+		(
+			ID,
+			USER_PHOTO,
+			EMAIL,
+			PASSWORD,
+			USER_NAME,
+			STATUS,
+			REGIST_TIME,
+			MOBILE,
+			UPDATE_TIME,
+			DELETED,
+			DELETED_TIME
+		)
+		values
+		(
+			#{id,jdbcType=VARCHAR},
+			#{user_photo,jdbcType=VARCHAR},
+			#{email,jdbcType=VARCHAR},
+			#{password,jdbcType=VARCHAR},
+			#{user_name,jdbcType=VARCHAR},
+			#{status,jdbcType=VARCHAR},
+			#{regist_time,jdbcType=DATE},
+			#{mobile,jdbcType=VARCHAR},
+			#{update_time,jdbcType=DATE},
+			#{deleted,jdbcType=DATE},
+			#{deleted_time,jdbcType=DATE}
+		)
+	</insert>
+</mapper>
+
+
+<!-- 建表语句 -->
+<!-- create table tt_user(
+	  id varchar(32) PRIMARY KEY COMMENT "主键id", 
+	  user_photo varchar(100) COMMENT "用户头像",
+	  email varchar(256) COMMENT "邮箱",
+	  password varchar(32) COMMENT "密码",
+	  user_name varchar(100) COMMENT "用户名",
+	  status varchar(10) COMMENT "账号状态 0正常 1锁定",
+	  regist_time datetime COMMENT "注册时间",
+	  mobile varchar(11) COMMENT "更新时间",
+	  update_time date COMMENT "更新时间",
+	  deleted varchar(10) COMMENT "删除标识 0未删除 1已删除",
+	  deleted_time datetime COMMENT "删除时间"
+)
+
+ALTER TABLE tt_user ADD INDEX index_mobile (mobile) -->

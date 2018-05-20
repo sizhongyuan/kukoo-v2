@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<!-- 用户mybatis mapper 文件配置 -->
+<mapper namespace="com.kukoo.logsystem.dao.LogDaoMapper">
+	<!--配置一个resultMap 指定返回的类型 -->
+    <resultMap id="log" type="com.kukoo.logsystem.model.Log">
+        <id column="id" property="id" />
+        <result column="type" property="type" />
+        <result column="title" property="title" />
+        <result column="remote_addr" property="remoteAddr" />
+        <result column="request_uri" property="requestUri" />
+        <result column="params" property="params" />
+        <result column="exception" property="exception" />
+        <result column="operate_date" property="operateDate" />
+        <result column="timeout" property="timeout" />
+        <result column="user_id" property="userId" />
+        <result column="is_answer" property="isAnswer" />
+        <result column="answer_score" property="answerScore" />
+        <result column="project" property="project" />
+    </resultMap>
+    
+	<insert id="saveLog" parameterType="com.kukoo.logsystem.model.Log">
+		<selectKey keyProperty="id" resultType="string" order="BEFORE">
+			select REPLACE(UUID(),'-','')
+		</selectKey>
+		insert into lepus_log
+		(
+			ID,
+			type,
+			title,
+			remote_addr,
+			request_uri,
+			params,
+			exception,
+			operate_date,
+			timeout,
+			user_Id,
+			is_answer,
+			answer_score,
+			project
+		)
+		values
+		(
+			#{id,jdbcType=VARCHAR},
+			#{type,jdbcType=VARCHAR},
+			#{title,jdbcType=VARCHAR},
+			#{remoteAddr,jdbcType=VARCHAR},
+			#{requestUri,jdbcType=VARCHAR},
+			#{params,jdbcType=VARCHAR},
+			#{exception,jdbcType=VARCHAR},
+			#{operateDate,jdbcType=DATE},
+			#{timeout,jdbcType=VARCHAR},
+			#{userId,jdbcType=VARCHAR},
+			#{isAnswer,jdbcType=VARCHAR},
+			#{answerScore,jdbcType=VARCHAR},
+			#{project,jdbcType=VARCHAR}
+		)
+	</insert>
+	
+	<select id="queryLogList"  resultType="java.util.Map" >
+        select * from lepus_log
+
+    </select>
+    <update id="updateLog" parameterType="com.kukoo.logsystem.model.Log">
+    		UPDATE lepus_log
+        <set> 
+            <if test="isAnswer != null">
+                isAnswer = #{isAnswer},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+</mapper>

@@ -1,0 +1,140 @@
+/* 项目列表页 */
+
+.input_line {
+  font-family: 'Poppins', 'Open Sans', Arial, Helvetica, sans-serif;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  border-radius: 0;
+  background: transparent;
+  color: #323336;
+  font-size: 14px;
+  margin: 0;
+  outline: medium none;
+  padding: 8px 20px 8px 0;
+  line-height: inherit;
+}
+
+/* ////// */
+
+.ts-icon-container-bg {
+  background-color: #F1F1F1;
+  color: #5bc0de;
+  font-size: 20px;
+  font-family: "PingFang-Ultralight";
+  width: 105px;
+  padding-bottom: 53px;
+  font-weight: 200;
+}
+
+.ts-icon-container {
+  background-color: #F1F1F1;
+  padding: 10px;
+  width: 105px;
+  margin-top: -20px;
+}
+
+.ts-main-container-bg {
+  background-color: #F7F7F7;
+  margin-left: 105px;
+}
+
+.ts-main-container-bg:hover {
+  background-color: #F1F1F1;
+  cursor: pointer;
+}
+
+.ts-text-container {
+  padding-right: 40px;
+  padding-top: 10px;
+  min-height: 170px;
+}
+
+.ts-text-container .label {
+  border-radius: 0;
+  padding: 5px;
+  margin-right: 5px;
+}
+
+.quote-author-description {
+  color: #17A2D3;
+  cursor: pointer;
+  padding-left: 10px;
+}
+
+.ts-text-container .mylabel .label {
+  min-width: 60px;
+  display: inline-block;
+}
+
+.ts-text-container .tt {
+  font-size: 12px;
+}
+
+.ts-text-container .tt b {
+  margin-right: 18px;
+}
+
+.ts-text-container .desc {
+  max-height: 44px;
+  overflow: hidden;
+  font-size: 12px;
+}
+
+.page-title2 {
+  font-size: 24px;
+}
+
+.search-c {
+  height: 50px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.search-c .btn-group {
+  margin-right: 10px;
+  width: 105px;
+}
+
+.search-c .btn {
+  width: 100%;
+  text-align: left;
+}
+
+.search-c .btn .caret {
+  margin-left: 0;
+  float: right;
+  margin-top: 8px;
+}
+
+.search-c .result {
+  float: right;
+}
+
+.dropdown-menu .on {
+  background-color: #eee;
+}
+
+.dropdown-menu li {
+  padding: 0 5px;
+  cursor: pointer;
+  /* display: block; */
+  /* width: auto; */
+  word-break: keep-all;
+}
+
+.dropdown-menu li:hover {
+  background-color: #eee;
+}
+
+.progress {
+  height: 10px;
+  width: 500px;
+  position: relative;
+  display: inline-block;
+  margin-bottom: -5px;
+  margin-left: 25px;
+}
+
+.progress-bar-info {
+  /* background-color: #337ab7; */
+}
