@@ -36,6 +36,16 @@ public class NSutil {
 			JSONObject scoreSecondary = getNSScoretoSecondary(questionSecondary);//正常主次副分
 			JSONObject scorePrimary2 = getNSScoretoPrimary(questionSecondary);//主次交换主得分
 			JSONObject scoreSecondary2 = getNSScoretoSecondary(questionPrimary);//主次交换副得分
+			//正常主次总成绩
+			int normalPSscore = scorePrimary.getIntValue("score")+scorePrimary.getIntValue("languageScore")+scoreSecondary.getIntValue("score")+scoreSecondary.getIntValue("languageScore");
+			//交换主次总成绩
+			int exchangePSscore = scorePrimary2.getIntValue("score")+scorePrimary2.getIntValue("languageScore")+scoreSecondary2.getIntValue("score")+scoreSecondary2.getIntValue("languageScore");
+			//正常主次升档总成绩
+			int normalPSupscore = scorePrimary.getIntValue("score")+scorePrimary.getIntValue("languageScoreUp")+scoreSecondary.getIntValue("score")+scoreSecondary.getIntValue("languageScoreUp");
+			//交换主次升档总成绩
+			int exchangePSupscore = scorePrimary2.getIntValue("score")+scorePrimary2.getIntValue("languageScoreUp")+scoreSecondary2.getIntValue("score")+scoreSecondary2.getIntValue("languageScoreUp");
+			//是否通过flag
+			int psFlag = 0;
 			//正常主次未通过申请language
 			if(scorePrimary.getIntValue("score")+scorePrimary.getIntValue("languageScore")+scoreSecondary.getIntValue("score")+scoreSecondary.getIntValue("languageScore")<67){
 				//主次交换是否通过
@@ -44,48 +54,41 @@ public class NSutil {
 					if(scorePrimary.getIntValue("score")+scorePrimary.getIntValue("languageScoreUp")+scoreSecondary.getIntValue("languageScoreUp")+scoreSecondary.getIntValue("score")<67){
 						//主次交换后升档是否通过
 						if(scorePrimary2.getIntValue("score")+scorePrimary2.getIntValue("languageScoreUp")+scoreSecondary2.getIntValue("score")+scoreSecondary2.getIntValue("languageScoreUp")<67){
-							reJson.put("score", scorePrimary.getIntValue("score")+scorePrimary.getIntValue("languageScore")+scoreSecondary.getIntValue("score")+scoreSecondary.getIntValue("languageScore"));
-							//主申请人
-							reJson.put("major", "配偶");
-							//主申语言
-							reJson.put("language", scorePrimary2.get("language"));
-							//通过方式（绿手green||黄手yellow||未通过none）
-							reJson.put("passType","none");
-						}else{//通过
-							//主申请人
-							reJson.put("major", "配偶");
-							//成绩
-							reJson.put("score", scorePrimary2.getIntValue("score")+scorePrimary2.getIntValue("languageScore")+scoreSecondary2.getIntValue("score")+scoreSecondary2.getIntValue("languageScore"));
-							//主申语言
-							reJson.put("language", scorePrimary2.get("language"));
-							//主申工作年限是否再0-1年  在为1 不在为0
-							reJson.put("workYearFlag", scorePrimary2.getIntValue("workYearFlag"));//
-							//是否升档 0：否
-							reJson.put("ifUp",1);
-							//是否交换主次 0：否
-							reJson.put("ifSwap",1);
-							//通过方式（绿手green||黄手yellow||未通过none）
-							reJson.put("passType","yellow");
+						}else{
+							//升档通过
+							psFlag = 2;
 						}
 					}else{
-						//通过
-						//通过方式（绿手green||黄手yellow||未通过none）
-						reJson.put("passType","yellow");
-						//主申请人
-						reJson.put("major", "您");
-						//成绩
-						reJson.put("score", scorePrimary.getIntValue("score")+scorePrimary.getIntValue("languageScore")+scoreSecondary.getIntValue("languageScore")+scoreSecondary.getIntValue("score"));
-						//主申语言
-						reJson.put("language", scorePrimary.get("language"));
-						//主申工作年限是否再0-1年  在为1 不在为0
-						reJson.put("workYearFlag", scorePrimary.getIntValue("workYearFlag"));//
-						//是否升档 0：否
-						reJson.put("ifUp",1);
-						//是否交换主次 0：否
-						reJson.put("ifSwap",0);
+						//升档通过
+						psFlag = 2;
 					}
 				}else{
-					//通过
+					//正常通过
+					psFlag = 1;
+				}
+			}else{
+				//正常通过
+				psFlag = 1;
+			}
+			
+			if(psFlag==1){//正常通过
+				//比较正常分数与主次交换分数
+				if(normalPSscore>=exchangePSscore){
+					//通过方式（绿手green||黄手yellow||未通过none）
+					reJson.put("passType","green");
+					//主申请人
+					reJson.put("major", "您");
+					//通过成绩
+					reJson.put("score", scorePrimary.getIntValue("score")+scorePrimary.getIntValue("languageScore")+scoreSecondary.getIntValue("score")+scoreSecondary.getIntValue("languageScore"));
+					//主申语言
+					reJson.put("language", scorePrimary.get("language"));
+					//主申工作年限是否再0-1年  在为1 不在为0
+					reJson.put("workYearFlag", scorePrimary.getIntValue("workYearFlag"));//
+					//是否升档 0：否
+					reJson.put("ifUp",0);
+					//是否交换主次 0：否
+					reJson.put("ifSwap",0);
+				}else{
 					//通过方式（绿手green||黄手yellow||未通过none）
 					reJson.put("passType","green");
 					//主申请人
@@ -101,21 +104,46 @@ public class NSutil {
 					//是否交换主次 0：否
 					reJson.put("ifSwap",1);
 				}
-			}else{//通过
-				//通过方式（绿手green||黄手yellow||未通过none）
-				reJson.put("passType","green");
-				//主申请人
-				reJson.put("major", "您");
-				//通过成绩
+			}else if(psFlag==2){//升档通过
+				if(normalPSupscore>=exchangePSupscore){//正常升档不小于交换升档
+					//通过方式（绿手green||黄手yellow||未通过none）
+					reJson.put("passType","yellow");
+					//主申请人
+					reJson.put("major", "您");
+					//成绩
+					reJson.put("score", scorePrimary.getIntValue("score")+scorePrimary.getIntValue("languageScore")+scoreSecondary.getIntValue("languageScore")+scoreSecondary.getIntValue("score"));
+					//主申语言
+					reJson.put("language", scorePrimary.get("language"));
+					//主申工作年限是否再0-1年  在为1 不在为0
+					reJson.put("workYearFlag", scorePrimary.getIntValue("workYearFlag"));//
+					//是否升档 0：否
+					reJson.put("ifUp",1);
+					//是否交换主次 0：否
+					reJson.put("ifSwap",0);
+				}else{
+					//主申请人
+					reJson.put("major", "配偶");
+					//成绩
+					reJson.put("score", scorePrimary2.getIntValue("score")+scorePrimary2.getIntValue("languageScore")+scoreSecondary2.getIntValue("score")+scoreSecondary2.getIntValue("languageScore"));
+					//主申语言
+					reJson.put("language", scorePrimary2.get("language"));
+					//主申工作年限是否再0-1年  在为1 不在为0
+					reJson.put("workYearFlag", scorePrimary2.getIntValue("workYearFlag"));//
+					//是否升档 0：否
+					reJson.put("ifUp",1);
+					//是否交换主次 0：否
+					reJson.put("ifSwap",1);
+					//通过方式（绿手green||黄手yellow||未通过none）
+					reJson.put("passType","yellow");
+				}
+			}else{//未通过
 				reJson.put("score", scorePrimary.getIntValue("score")+scorePrimary.getIntValue("languageScore")+scoreSecondary.getIntValue("score")+scoreSecondary.getIntValue("languageScore"));
+				//主申请人
+				reJson.put("major", "配偶");
 				//主申语言
-				reJson.put("language", scorePrimary.get("language"));
-				//主申工作年限是否再0-1年  在为1 不在为0
-				reJson.put("workYearFlag", scorePrimary.getIntValue("workYearFlag"));//
-				//是否升档 0：否
-				reJson.put("ifUp",0);
-				//是否交换主次 0：否
-				reJson.put("ifSwap",0);
+				reJson.put("language", scorePrimary2.get("language"));
+				//通过方式（绿手green||黄手yellow||未通过none）
+				reJson.put("passType","none");
 			}
 			
 		}else{//只有主申请时
