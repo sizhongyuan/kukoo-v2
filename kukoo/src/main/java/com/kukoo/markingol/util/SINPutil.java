@@ -26,51 +26,55 @@ public class SINPutil {
 		if("有".equals(StaticMethod.nullObject2String(questionPrimary.get("question1")))){//有配偶时才获取副申请
 			JSONObject questionSecondary = question.getJSONObject(1);//获取副申请人答题
 			JSONObject scorePrimary2 = getSINPScoretoPrimary(questionSecondary);//主次交换主得分
+			//正常主次总成绩
+			int normalPSscore = scorePrimary.getIntValue("score")+scorePrimary.getIntValue("languageScore");
+			//交换主次总成绩
+			int exchangePSscore = scorePrimary2.getIntValue("score")+scorePrimary2.getIntValue("languageScore");
+			//正常主次升档总成绩
+			int normalPSupscore = scorePrimary.getIntValue("score")+scorePrimary.getIntValue("languageScoreUp");
+			//交换主次升档总成绩
+			int exchangePSupscore = scorePrimary2.getIntValue("score")+scorePrimary2.getIntValue("languageScoreUp");
+			//是否通过flag
+			int psFlag = 0;
 			//正常主次未通过申请
 			if(scorePrimary.getIntValue("score")+scorePrimary.getIntValue("languageScore")<60){
 				//主次调换
 				if(scorePrimary2.getIntValue("score")+scorePrimary2.getIntValue("languageScore")<60){
-				//正常主次语言升档
-				if(scorePrimary.getIntValue("score")+scorePrimary.getIntValue("languageScoreUp")<60){
+					//正常主次语言升档
+					if(scorePrimary.getIntValue("score")+scorePrimary.getIntValue("languageScoreUp")<60){
 						//主次调换语言升档
 						if(scorePrimary2.getIntValue("score")+scorePrimary2.getIntValue("languageScoreUp")<60){
-							//主申请人
-							reJson.put("major", "配偶");
-							//成绩
-							reJson.put("score", scorePrimary.getIntValue("score")+scorePrimary.getIntValue("languageScore"));
-							//主申语言
-							reJson.put("language", scorePrimary.get("language"));
-							//通过方式（绿手green||黄手yellow||未通过none）
-							reJson.put("passType","none");
 						}else{
-							//主申请人
-							reJson.put("major", "配偶");
-							//成绩
-							reJson.put("score", scorePrimary2.getIntValue("score")+scorePrimary2.getIntValue("languageScore"));
-							//主申语言
-							reJson.put("language", scorePrimary.get("language"));
-							//是否升档 0：否
-							reJson.put("ifUp",1);
-							//是否交换主次 0：否
-							reJson.put("ifSwap",1);
-							//通过方式（绿手green||黄手yellow||未通过none）
-							reJson.put("passType","yellow");
+							//升档通过
+							psFlag = 2;
 						}
 					}else{
-						//主申请人
-						reJson.put("major", "您");
-						//成绩
-						reJson.put("score", scorePrimary.getIntValue("score")+scorePrimary.getIntValue("languageScore"));
-						//主申语言
-						reJson.put("language", scorePrimary.get("language"));
-						//是否升档 0：否
-						reJson.put("ifUp",1);
-						//是否交换主次 0：否
-						reJson.put("ifSwap",0);
-						//通过方式（绿手green||黄手yellow||未通过none）
-						reJson.put("passType","yellow");
-						
+						//升档通过
+						psFlag = 2;
 					}
+				}else{
+					//正常通过
+					psFlag = 1;
+				}
+			}else{//通过
+				//正常通过
+				psFlag = 1;
+			}
+			if(psFlag==1){//正常通过
+				//比较正常分数与主次交换分数
+				if(normalPSscore>=exchangePSscore){
+					//主申请人
+					reJson.put("major", "您");
+					//通过成绩
+					reJson.put("score", scorePrimary.getIntValue("score")+scorePrimary.getIntValue("languageScore"));
+					//主申语言
+					reJson.put("language", scorePrimary.get("language"));
+					//是否升档 0：否
+					reJson.put("ifUp",0);
+					//是否交换主次 0：否
+					reJson.put("ifSwap",0);
+					//通过方式（绿手green||黄手yellow||未通过none）
+					reJson.put("passType","green");
 				}else{
 					//主申请人
 					reJson.put("major", "配偶");
@@ -85,20 +89,43 @@ public class SINPutil {
 					//通过方式（绿手green||黄手yellow||未通过none）
 					reJson.put("passType","green");
 				}
-				
-			}else{//通过
+			}else if(psFlag==2){//升档通过
+				if(normalPSupscore>=exchangePSupscore){//正常升档不小于交换升档	
+					//主申请人
+					reJson.put("major", "您");
+					//成绩
+					reJson.put("score", scorePrimary.getIntValue("score")+scorePrimary.getIntValue("languageScore"));
+					//主申语言
+					reJson.put("language", scorePrimary.get("language"));
+					//是否升档 0：否
+					reJson.put("ifUp",1);
+					//是否交换主次 0：否
+					reJson.put("ifSwap",0);
+					//通过方式（绿手green||黄手yellow||未通过none）
+					reJson.put("passType","yellow");
+				}else{
+					//主申请人
+					reJson.put("major", "配偶");
+					//成绩
+					reJson.put("score", scorePrimary2.getIntValue("score")+scorePrimary2.getIntValue("languageScore"));
+					//主申语言
+					reJson.put("language", scorePrimary.get("language"));
+					//是否升档 0：否
+					reJson.put("ifUp",1);
+					//是否交换主次 0：否
+					reJson.put("ifSwap",1);
+					//通过方式（绿手green||黄手yellow||未通过none）
+					reJson.put("passType","yellow");
+				}
+			}else{//未通过
 				//主申请人
-				reJson.put("major", "您");
-				//通过成绩
+				reJson.put("major", "配偶");
+				//成绩
 				reJson.put("score", scorePrimary.getIntValue("score")+scorePrimary.getIntValue("languageScore"));
 				//主申语言
 				reJson.put("language", scorePrimary.get("language"));
-				//是否升档 0：否
-				reJson.put("ifUp",0);
-				//是否交换主次 0：否
-				reJson.put("ifSwap",0);
 				//通过方式（绿手green||黄手yellow||未通过none）
-				reJson.put("passType","green");
+				reJson.put("passType","none");
 			}
 		}else{//单身
 			//正常主次未通过申请
