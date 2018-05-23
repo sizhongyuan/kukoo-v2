@@ -113,6 +113,9 @@
 																														<script src="<%=basePath %>javascript/jquery/form/jquery.form.js"></script>
 																														<script src="<%=basePath %>javascript/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script> --%>
 
+																															<script type="text/javascript">
+																																var BASEPATH = '<%=basePath%>';
+																															</script>
 																														</head>
 																														<body></body>
 																													</html>

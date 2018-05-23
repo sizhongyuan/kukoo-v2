@@ -87,7 +87,6 @@
    }
 
    function ajaxCall(url, param, callback, options) {
-     alertTopSet();
      var pa = param;
      var opt = options || {};
      var cb = callback;
@@ -118,28 +117,6 @@
            msg: msg
          }, 'error');
        }
-     });
-   }
-
-   //绑定时间控件
-   function _handleDateTimeCol($el) {
-     $el.datetimepicker({
-       language: "zh-CN",
-       weekStart: 1,
-       todayBtn: 1,
-       autoclose: 1,
-       todayHighlight: 1,
-       startView: 2,
-       forceParse: 0,
-       showMeridian: 1
-     }).off('changeDate').on('changeDate', function(ev) {
-       var el = $(this).find("input");
-       $el.data("msg").value = el.val();
-       //var el = $(this).find("input");
-       // var x = el.attr("x");
-       // var y = el.attr("y");
-       // var t = el.attr("t");
-       // _this.$root.area[t].trs[x][y].value = el.val(); //ev.date;
      });
    }
 
