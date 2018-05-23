@@ -256,7 +256,6 @@ i, cite, em, var, address, dfn {
 }
 
 .main {
-  padding: 20px 5%;
   display: none;
 }
 
@@ -311,6 +310,8 @@ i, cite, em, var, address, dfn {
   -ms-appearance: none;
   -webkit-appearance: menulist;
   appearance: none !important;
+  background: #fff;
+  min-width: 55px;
 }
 
 .main .selector .name {
@@ -354,13 +355,17 @@ i, cite, em, var, address, dfn {
 
 .main .selector .M .col-md-1, .main .selector .W .col-md-1 {
   padding-left: 5px;
-  padding-right: 14px;
+  padding-right: 10px;
 }
 
 .main .alert {
   /* height: 40px; */
   /* line-height: 40px; */
   /* padding: 0 10px; */
+}
+
+.page-title2 {
+  font-size: 24px;
 }
 
 .item1 {
@@ -547,4 +552,19 @@ i, cite, em, var, address, dfn {
 
 .item1 .pass-score span {
   font-size: 30px;
+}
+
+.modal-body ul {
+  max-height: 450px;
+  overflow-y: auto;
+}
+
+.modal-body input {
+  width: 90%;
+  border: solid 1px #ccc;
+  border-radius: 6px;
+  height: 32px;
+  margin: 5px 5%;
+  margin-bottom: 15px;
+  padding: 0 10px;
 }

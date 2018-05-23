@@ -70,26 +70,6 @@ var rv1 = {
   }]
 }
 
-var occup = [
-  "制造业工程师经理类",
-  "维修/操作技师、技工类",
-  "农业、园艺类",
-  "企业咨询类",
-  "土地测量类",
-  "医疗、生物类",
-  "幼教类",
-  "地质矿产类",
-  "计算机类",
-  "社会及社区工作",
-  "土木、建筑类",
-  "大专及职业院校教师",
-  "法律相关",
-  "广告市场",
-  "行政助理",
-  "护士",
-  "金融财会类",
-  "其他"
-];
 
 var __list = localStorage.getItem("__list");
 var list = __list ? JSON.parse(__list) : [];
@@ -112,6 +92,8 @@ function _g67(i, details) {
     }
   }
 }
+
+var _app, _app2;
 
 function start(rv) {
   Vue.component('project-score', {
@@ -195,7 +177,8 @@ function start(rv) {
   _app2 = new Vue({
     "el": '#bs-example-modal-sm',
     "data": {
-      "occup": occup,
+      "rootOccup": [],
+      "occup": [],
       "change1": false
     },
     mounted: function() {},
@@ -206,12 +189,36 @@ function start(rv) {
         var index = rv.Quebec[0].index;
         rv.Quebec[0].specialty[index].push(name);
         $(".modal-header .close").click();
+      },
+      search: function(e) {
+        this.occup = this.rootOccup.filter(function(cv, index, arr) {
+          return cv.cnName.indexOf($(e.target).val().trim()) >= 0;
+        });
+        //if (this.occup.length == 0) {}
+        this.occup.push({
+          "cnName": "其他"
+        });
       }
     }
   });
 }
 
 //start(rv);
+
+function zy() {
+  //http://47.94.215.48/kukoo/markingOLController/getAllProfession
+  $.ajax({
+    url: "/kukoo/markingOLController/getAllProfession",
+    type: "get",
+    dataType: "json",
+    success: function(result) {
+      _app2.$data.occup = result;
+      _app2.$data.rootOccup = result;
+    }
+  });
+}
+
+zy();
 
 doAjax(JSON.stringify(answer));
 
