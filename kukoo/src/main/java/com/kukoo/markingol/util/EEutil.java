@@ -40,11 +40,11 @@ public class EEutil {
 			//正常主次总成绩
 			int normalPSscore = scorePrimary.getIntValue("score")+scorePrimary.getIntValue("languageScore")+scoreSecondary.getIntValue("score")+scoreSecondary.getIntValue("languageScore")+scorePrimary.getIntValue("otherCount");
 			//交换主次总成绩
-			int exchangePSscore = scorePrimary2.getIntValue("score")+scorePrimary2.getIntValue("languageScore")+scoreSecondary2.getIntValue("score")+scoreSecondary2.getIntValue("languageScore")+scorePrimary.getIntValue("otherCount");
+			int exchangePSscore = scorePrimary2.getIntValue("score")+scorePrimary2.getIntValue("languageScore")+scoreSecondary2.getIntValue("score")+scoreSecondary2.getIntValue("languageScore")+scorePrimary2.getIntValue("otherCount");
 			//正常主次升档总成绩
-			int normalPSupscore = scorePrimary.getIntValue("score")+scorePrimary.getIntValue("languageScoreUp")+scoreSecondary.getIntValue("score")+scoreSecondary.getIntValue("languageScoreUp")+scorePrimary.getIntValue("otherCount");
+			int normalPSupscore = scorePrimary.getIntValue("score")+scorePrimary.getIntValue("languageScoreUp")+scoreSecondary.getIntValue("score")+scoreSecondary.getIntValue("languageScoreUp")+scorePrimary.getIntValue("otherUpCount");
 			//交换主次升档总成绩
-			int exchangePSupscore = scorePrimary2.getIntValue("score")+scorePrimary2.getIntValue("languageScoreUp")+scoreSecondary2.getIntValue("score")+scoreSecondary2.getIntValue("languageScoreUp")+scorePrimary.getIntValue("otherCount");
+			int exchangePSupscore = scorePrimary2.getIntValue("score")+scorePrimary2.getIntValue("languageScoreUp")+scoreSecondary2.getIntValue("score")+scoreSecondary2.getIntValue("languageScoreUp")+scorePrimary2.getIntValue("otherUpCount");
 			//是否通过flag
 			int psFlag = 0;
 			//正常主次未通过申请language
@@ -52,9 +52,9 @@ public class EEutil {
 				//主次交换是否通过
 				if(scorePrimary2.getIntValue("score")+scorePrimary2.getIntValue("languageScore")+scorePrimary2.getIntValue("otherCount")+scoreSecondary2.getIntValue("score")+scoreSecondary2.getIntValue("languageScore")<425){
 					//升档后是否通过
-					if(scorePrimary.getIntValue("score")+scorePrimary.getIntValue("languageScoreUp")+scorePrimary.getIntValue("otherCount")+scoreSecondary.getIntValue("languageScoreUp")+scoreSecondary.getIntValue("score")<425){
+					if(scorePrimary.getIntValue("score")+scorePrimary.getIntValue("languageScoreUp")+scorePrimary.getIntValue("otherUpCount")+scoreSecondary.getIntValue("languageScoreUp")+scoreSecondary.getIntValue("score")<425){
 						//主次交换后升档是否通过
-						if(scorePrimary2.getIntValue("score")+scorePrimary2.getIntValue("languageScoreUp")+scorePrimary2.getIntValue("otherCount")+scoreSecondary2.getIntValue("score")+scoreSecondary2.getIntValue("languageScoreUp")<425){
+						if(scorePrimary2.getIntValue("score")+scorePrimary2.getIntValue("languageScoreUp")+scorePrimary2.getIntValue("otherUpCount")+scoreSecondary2.getIntValue("score")+scoreSecondary2.getIntValue("languageScoreUp")<425){
 							
 						}else{//通过
 							//升档通过
@@ -153,7 +153,7 @@ public class EEutil {
 			//正常主次未通过申请
 			if(scorePrimary.getIntValue("score")+scorePrimary.getIntValue("languageScore")+scorePrimary.getIntValue("otherCount")<425){
 				//语言升档
-				if(scorePrimary.getIntValue("score")+scorePrimary.getIntValue("languageScoreUp")+scorePrimary.getIntValue("otherCount")<425){
+				if(scorePrimary.getIntValue("score")+scorePrimary.getIntValue("languageScoreUp")+scorePrimary.getIntValue("otherUpCount")<425){
 					//通过方式（绿手green||黄手yellow||未通过none）
 					reJson.put("passType","none");
 					//主申请人
@@ -272,11 +272,11 @@ public class EEutil {
 			//正常主次总成绩
 			int normalPSscore = scorePrimary.getIntValue("score")+scorePrimary.getIntValue("languageScore")+scoreSecondary.getIntValue("score")+scoreSecondary.getIntValue("languageScore")+scorePrimary.getIntValue("otherCount");
 			//交换主次总成绩
-			int exchangePSscore = scorePrimary2.getIntValue("score")+scorePrimary2.getIntValue("languageScore")+scoreSecondary2.getIntValue("score")+scoreSecondary2.getIntValue("languageScore")+scorePrimary.getIntValue("otherCount");
+			int exchangePSscore = scorePrimary2.getIntValue("score")+scorePrimary2.getIntValue("languageScore")+scoreSecondary2.getIntValue("score")+scoreSecondary2.getIntValue("languageScore")+scorePrimary2.getIntValue("otherCount");
 			//正常主次升档总成绩
-			int normalPSupscore = scorePrimary.getIntValue("score")+scorePrimary.getIntValue("languageScoreUp")+scoreSecondary.getIntValue("score")+scoreSecondary.getIntValue("languageScoreUp")+scorePrimary.getIntValue("otherCount");
+			int normalPSupscore = scorePrimary.getIntValue("score")+scorePrimary.getIntValue("languageScoreUp")+scoreSecondary.getIntValue("score")+scoreSecondary.getIntValue("languageScoreUp")+scorePrimary.getIntValue("otherUpCount");
 			//交换主次升档总成绩
-			int exchangePSupscore = scorePrimary2.getIntValue("score")+scorePrimary2.getIntValue("languageScoreUp")+scoreSecondary2.getIntValue("score")+scoreSecondary2.getIntValue("languageScoreUp")+scorePrimary.getIntValue("otherCount");
+			int exchangePSupscore = scorePrimary2.getIntValue("score")+scorePrimary2.getIntValue("languageScoreUp")+scoreSecondary2.getIntValue("score")+scoreSecondary2.getIntValue("languageScoreUp")+scorePrimary2.getIntValue("otherUpCount");
 			//是否通过flag
 			int psFlag = 0;
 			//正常主次未通过申请language
@@ -284,9 +284,9 @@ public class EEutil {
 				//主次交换是否通过
 				if(scorePrimary2.getIntValue("score")+scorePrimary2.getIntValue("languageScore")+scorePrimary2.getIntValue("otherCount")+scoreSecondary2.getIntValue("score")+scoreSecondary2.getIntValue("languageScore")<400){
 					//升档后是否通过
-					if(scorePrimary.getIntValue("score")+scorePrimary.getIntValue("languageScoreUp")+scorePrimary.getIntValue("otherCount")+scoreSecondary.getIntValue("languageScoreUp")+scoreSecondary.getIntValue("score")<400){
+					if(scorePrimary.getIntValue("score")+scorePrimary.getIntValue("languageScoreUp")+scorePrimary.getIntValue("otherUpCount")+scoreSecondary.getIntValue("languageScoreUp")+scoreSecondary.getIntValue("score")<400){
 						//主次交换后升档是否通过
-						if(scorePrimary2.getIntValue("score")+scorePrimary2.getIntValue("languageScoreUp")+scorePrimary2.getIntValue("otherCount")+scoreSecondary2.getIntValue("score")+scoreSecondary2.getIntValue("languageScoreUp")<400){
+						if(scorePrimary2.getIntValue("score")+scorePrimary2.getIntValue("languageScoreUp")+scorePrimary2.getIntValue("otherUpCount")+scoreSecondary2.getIntValue("score")+scoreSecondary2.getIntValue("languageScoreUp")<400){
 							
 						}else{//通过
 							//升档通过
@@ -377,7 +377,7 @@ public class EEutil {
 			//正常主次未通过申请
 			if(scorePrimary.getIntValue("score")+scorePrimary.getIntValue("languageScore")+scorePrimary.getIntValue("otherCount")<400){
 				//语言升档
-				if(scorePrimary.getIntValue("score")+scorePrimary.getIntValue("languageScoreUp")+scorePrimary.getIntValue("otherCount")<400){
+				if(scorePrimary.getIntValue("score")+scorePrimary.getIntValue("languageScoreUp")+scorePrimary.getIntValue("otherUpCount")<400){
 					//通过方式（绿手green||黄手yellow||未通过none）
 					reJson.put("passType","none");
 					//主申请人
@@ -587,7 +587,12 @@ public class EEutil {
 			otherCount += 15;
 		}
 		rescore.put("otherCount", otherCount);//额外奖励得分
+		
+		
 		//未通过语言升档算法
+		
+		//升档后额外奖励分
+		int otherUpCount = 0;
 		//主申当第一语言为英语时
 		if("英语".equals(rescore.get("language"))){
 			//计算用户英语升档后Clb
@@ -600,6 +605,36 @@ public class EEutil {
 			languageEnglishUpScore = languageEnglishUpScore>136?136:languageEnglishUpScore;
 			//用户升档后得分      升档后的英语的分+法语得分
 			rescore.put("languageScoreUp", languageEnglishUpScore+language2Score);//
+			
+			
+			//升档后额外加分算法
+			enCLB = getMinLanguage(listeningEnglishUp,speakingEnglishUp,readingEnglishUp,writingEnglishUp);
+			//学历/语言奖励分
+			if(enCLB >= 9 && ("双学历".equals(certificate) || "博士".equals(certificate) || "硕士".equals(certificate))) {
+				otherUpCount += 50;
+			}else if(enCLB >= 9 && ("本科（4年制）".equals(certificate) || "本科（3年制）".equals(certificate) || "本科（2年制）".equals(certificate) || "本科（1年制）".equals(certificate) || "专科（文科）".equals(certificate) || "专科（理科）".equals(certificate))) {
+				otherUpCount += 25;
+			}else if(enCLB >= 7 && ("双学历".equals(certificate) || "博士".equals(certificate) || "硕士".equals(certificate))) {
+				otherUpCount += 25;
+			}else if(enCLB >= 7 && ("本科（4年制）".equals(certificate) || "本科（3年制）".equals(certificate) || "本科（2年制）".equals(certificate) || "本科（1年制）".equals(certificate) || "专科（文科）".equals(certificate) || "专科（理科）".equals(certificate))) {
+				otherUpCount += 13;
+			}
+			if(enCLB >= 9 && worktime >= 3) {
+				otherUpCount += 50;
+			}else if(enCLB >= 9 && worktime>=1 && worktime <3) {
+				otherUpCount += 25;
+			}else if(enCLB >= 7 &&  worktime >= 3) {
+				otherUpCount += 25;
+			}else if(enCLB >= 7 && worktime>=1 && worktime <3) {
+				otherUpCount += 13;
+			}
+			if(enCLB >= 5 && frCLB >= 7) {
+				otherUpCount += 30;
+			}else if(enCLB <= 4 && frCLB >= 7) {
+				otherUpCount += 15;
+			}
+			//升档后额外奖励得分
+			rescore.put("otherUpCount", otherUpCount);
 		}//当法语为第一语言时
 		else{
 			//计算用户法语升档后Clb
@@ -612,6 +647,36 @@ public class EEutil {
 			languageFrenchUpScore = languageFrenchUpScore>136?136:languageFrenchUpScore;
 			//用户升档后得分      升档后的法语的分+英语得分
 			rescore.put("languageScoreUp", languageFrenchUpScore+relanguage2Score);//
+			
+			
+			//升档后额外加分算法
+			frCLB = getMinLanguage(listeningFrenchUp,speakingFrenchUp,readingFrenchUp,writingFrenchUp);
+			//学历/语言奖励分
+			if(enCLB >= 9 && ("双学历".equals(certificate) || "博士".equals(certificate) || "硕士".equals(certificate))) {
+				otherUpCount += 50;
+			}else if(enCLB >= 9 && ("本科（4年制）".equals(certificate) || "本科（3年制）".equals(certificate) || "本科（2年制）".equals(certificate) || "本科（1年制）".equals(certificate) || "专科（文科）".equals(certificate) || "专科（理科）".equals(certificate))) {
+				otherUpCount += 25;
+			}else if(enCLB >= 7 && ("双学历".equals(certificate) || "博士".equals(certificate) || "硕士".equals(certificate))) {
+				otherUpCount += 25;
+			}else if(enCLB >= 7 && ("本科（4年制）".equals(certificate) || "本科（3年制）".equals(certificate) || "本科（2年制）".equals(certificate) || "本科（1年制）".equals(certificate) || "专科（文科）".equals(certificate) || "专科（理科）".equals(certificate))) {
+				otherUpCount += 13;
+			}
+			if(enCLB >= 9 && worktime >= 3) {
+				otherUpCount += 50;
+			}else if(enCLB >= 9 && worktime>=1 && worktime <3) {
+				otherUpCount += 25;
+			}else if(enCLB >= 7 &&  worktime >= 3) {
+				otherUpCount += 25;
+			}else if(enCLB >= 7 && worktime>=1 && worktime <3) {
+				otherUpCount += 13;
+			}
+			if(enCLB >= 5 && frCLB >= 7) {
+				otherUpCount += 30;
+			}else if(enCLB <= 4 && frCLB >= 7) {
+				otherUpCount += 15;
+			}
+			//升档后额外奖励得分
+			rescore.put("otherUpCount", otherUpCount);
 		}
 		rescore.put("score", score);//除语言外得分
 		
@@ -785,6 +850,8 @@ public class EEutil {
 		rescore.put("otherCount", otherCount);//额外奖励得分
 
 		//未通过语言升档算法
+		//升档后额外奖励分
+		int otherUpCount = 0;
 		//主申当第一语言为英语时
 		if("英语".equals(rescore.get("language"))){
 			//计算用户英语升档后Clb
@@ -797,6 +864,34 @@ public class EEutil {
 			languageEnglishUpScore = languageEnglishUpScore>128?128:languageEnglishUpScore;
 			//用户升档后得分      升档后的英语的分+法语得分
 			rescore.put("languageScoreUp", languageEnglishUpScore+language2Score);//
+			//升档后额外加分算法
+			enCLB = getMinLanguage(listeningEnglishUp,speakingEnglishUp,readingEnglishUp,writingEnglishUp);
+			//学历/语言奖励分
+			if(enCLB >= 9 && ("双学历".equals(certificateMain) || "博士".equals(certificateMain) || "硕士".equals(certificateMain))) {
+				otherUpCount += 50;
+			}else if(enCLB >= 9 && ("本科（4年制）".equals(certificateMain) || "本科（3年制）".equals(certificateMain) || "本科（2年制）".equals(certificateMain) || "本科（1年制）".equals(certificateMain) || "专科（文科）".equals(certificateMain) || "专科（理科）".equals(certificateMain))) {
+				otherUpCount += 25;
+			}else if(enCLB >= 7 && ("双学历".equals(certificateMain) || "博士".equals(certificateMain) || "硕士".equals(certificateMain))) {
+				otherUpCount += 25;
+			}else if(enCLB >= 7 && ("本科（4年制）".equals(certificateMain) || "本科（3年制）".equals(certificateMain) || "本科（2年制）".equals(certificateMain) || "本科（1年制）".equals(certificateMain) || "专科（文科）".equals(certificateMain) || "专科（理科）".equals(certificateMain))) {
+				otherUpCount += 13;
+			}
+			if(enCLB >= 9 && worktime >= 3) {
+				otherUpCount += 50;
+			}else if(enCLB >= 9 && worktime>=1 && worktime <3) {
+				otherUpCount += 25;
+			}else if(enCLB >= 7 &&  worktime >= 3) {
+				otherUpCount += 25;
+			}else if(enCLB >= 7 && worktime>=1 && worktime <3) {
+				otherUpCount += 13;
+			}
+			if(enCLB >= 5 && frCLB >= 7) {
+				otherUpCount += 30;
+			}else if(enCLB <= 4 && frCLB >= 7) {
+				otherUpCount += 15;
+			}
+			//升档后额外奖励得分
+			rescore.put("otherUpCount", otherUpCount);
 		}//当法语为第一语言时
 		else{
 			//计算用户法语升档后Clb
@@ -809,6 +904,35 @@ public class EEutil {
 			languageFrenchUpScore = languageFrenchUpScore>128?128:languageFrenchUpScore;
 			//用户升档后得分      升档后的法语的分+英语得分
 			rescore.put("languageScoreUp", languageFrenchUpScore+relanguage2Score);//
+			
+			//升档后额外加分算法
+			frCLB = getMinLanguage(listeningFrenchUp,speakingFrenchUp,readingFrenchUp,writingFrenchUp);
+			//学历/语言奖励分
+			if(enCLB >= 9 && ("双学历".equals(certificateMain) || "博士".equals(certificateMain) || "硕士".equals(certificateMain))) {
+				otherUpCount += 50;
+			}else if(enCLB >= 9 && ("本科（4年制）".equals(certificateMain) || "本科（3年制）".equals(certificateMain) || "本科（2年制）".equals(certificateMain) || "本科（1年制）".equals(certificateMain) || "专科（文科）".equals(certificateMain) || "专科（理科）".equals(certificateMain))) {
+				otherUpCount += 25;
+			}else if(enCLB >= 7 && ("双学历".equals(certificateMain) || "博士".equals(certificateMain) || "硕士".equals(certificateMain))) {
+				otherUpCount += 25;
+			}else if(enCLB >= 7 && ("本科（4年制）".equals(certificateMain) || "本科（3年制）".equals(certificateMain) || "本科（2年制）".equals(certificateMain) || "本科（1年制）".equals(certificateMain) || "专科（文科）".equals(certificateMain) || "专科（理科）".equals(certificateMain))) {
+				otherUpCount += 13;
+			}
+			if(enCLB >= 9 && worktime >= 3) {
+				otherUpCount += 50;
+			}else if(enCLB >= 9 && worktime>=1 && worktime <3) {
+				otherUpCount += 25;
+			}else if(enCLB >= 7 &&  worktime >= 3) {
+				otherUpCount += 25;
+			}else if(enCLB >= 7 && worktime>=1 && worktime <3) {
+				otherUpCount += 13;
+			}
+			if(enCLB >= 5 && frCLB >= 7) {
+				otherUpCount += 30;
+			}else if(enCLB <= 4 && frCLB >= 7) {
+				otherUpCount += 15;
+			}
+			//升档后额外奖励得分
+			rescore.put("otherUpCount", otherUpCount);
 		}
 		rescore.put("score", score);//除语言外得分
 		
@@ -825,6 +949,11 @@ public class EEutil {
 	 * @return  int 该语言在规则1下 得分
 	 */
 	public static int language1RuleSinglePrimary(int listening,int speaking,int reading,int writing){
+		//获取最低clb
+		int minCLB = getMinLanguage(listening,speaking,reading,writing);
+		if(minCLB<7){
+			return 0;
+		}
 		//规则1总得分
 		int languageOneScore = 0;
 		//计算听得分
@@ -1018,6 +1147,11 @@ public class EEutil {
 	 * @return  int 该语言在规则1下 得分
 	 */
 	public static int language1RulePrimary(int listening,int speaking,int reading,int writing){
+		//获取最低clb
+		int minCLB = getMinLanguage(listening,speaking,reading,writing);
+		if(minCLB<7){
+			return 0;
+		}
 		//规则1总得分
 		int languageOneScore = 0;
 		//计算听得分

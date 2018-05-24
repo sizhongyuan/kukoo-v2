@@ -527,6 +527,11 @@ public class NSutil {
 	 * @return  int 该语言在规则1下 得分
 	 */
 	public static int language1RulePrimary(int listening,int speaking,int reading,int writing){
+		//获取最低clb
+		int minCLB = getMinLanguage(listening,speaking,reading,writing);
+		if(minCLB<7){
+			return 0;
+		}
 		//规则1总得分
 		int languageOneScore = 0;
 		//计算听得分
@@ -645,6 +650,11 @@ public class NSutil {
 	 * @return  int 该语言在规则1下 得分
 	 */
 	public static int language1RuleSecondary(int listening,int speaking,int reading,int writing){
+		//获取最低clb
+		int minCLB = getMinLanguage(listening,speaking,reading,writing);
+		if(minCLB<4){
+			return 0;
+		}
 		//规则1总得分
 		int languageOneScore = 0;
 		//计算听得分
@@ -678,7 +688,11 @@ public class NSutil {
 	 * @return  int 该语言在规则2下 得分
 	 */
 	public static int language2RuleSecondary(int listening,int speaking,int reading,int writing){
-		
+		//获取最低clb
+		int minCLB = getMinLanguage(listening,speaking,reading,writing);
+		if(minCLB<4){
+			return 0;
+		}
 		int frenchScore = 0;//法语部分得分
 		if(listening>4){
 			frenchScore+=5;
@@ -857,6 +871,28 @@ public class NSutil {
 	
 	
 	
-	
+	/**
+	 *  获取整体语言水平
+	 * @param listening
+	 * @param speaking
+	 * @param reading
+	 * @param writing
+	 * @return
+	 */
+	public static int getMinLanguage(int listening,int speaking,int reading,int writing){
+		//SPIN省语言整体计算  四个单项成绩取最低值作为整体成绩
+		int minScore = listening;
+		if(listening>speaking){
+			minScore = speaking;
+		}
+		if(minScore>reading){
+			minScore = reading;
+		}
+		if(minScore>writing){
+			minScore = writing;
+		}
+		
+		return minScore;
+	}
 
 }
