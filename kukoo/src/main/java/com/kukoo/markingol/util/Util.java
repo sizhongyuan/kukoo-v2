@@ -102,7 +102,7 @@ public class Util {
 	public static int getCLBtoSpeaking(String speaking){
 		if(!"".equals(speaking)){
 			double sorce = Double.parseDouble(speaking);
-			if(8.0<=sorce){
+			if(7.5<=sorce){
 				return 10;
 			}else if(7.0<=sorce){
 				return 9;
@@ -132,7 +132,7 @@ public class Util {
 	public static int getCLBtoReading(String reading){
 		if(!"".equals(reading)){
 			double sorce = Double.parseDouble(reading);
-			if(7.5<=sorce){
+			if(8<=sorce){
 				return 10;
 			}else if(7.0<=sorce){
 				return 9;
@@ -140,11 +140,11 @@ public class Util {
 				return 8;
 			}else if(6.0<=sorce){
 				return 7;
-			}else if(5.5<=sorce){
-				return 6;
 			}else if(5.0<=sorce){
-				return 5;
+				return 6;
 			}else if(4.0<=sorce){
+				return 5;
+			}else if(3.5<=sorce){
 				return 4;
 			}else{
 				return 0;
@@ -170,11 +170,11 @@ public class Util {
 				return 8;
 			}else if(6.0<=sorce){
 				return 7;
-			}else if(5.0<=sorce){
+			}else if(5.5<=sorce){
 				return 6;
-			}else if(4.0<=sorce){
+			}else if(5.0<=sorce){
 				return 5;
-			}else if(3.5<=sorce){
+			}else if(4.0<=sorce){
 				return 4;
 			}else{
 				return 0;
@@ -312,6 +312,7 @@ public class Util {
 		//结束时间
 		Date date2 = sdf.parse(times[1]);
 		calendar.setTime(sdf.parse(sdf.format(new Date())));
+		calendar.add(Calendar.MONTH,-1);
 		calendar.add(Calendar.YEAR,-10);
 		//十年前时间
 		Date year10 = calendar.getTime();
