@@ -41,6 +41,7 @@
 	<mvc:resources mapping="/fonts/**" location="/fonts/" cache-period="31556926" />
 	<mvc:resources mapping="/framework/**" location="/framework/" cache-period="31556926" />
 	<mvc:resources mapping="/plugins/**" location="/plugins/" cache-period="31556926" />
+	<mvc:resources mapping="/MP_verify_dYuuPTEeIqDnvCld.txt" location="/WEB-INF/MP_verify_dYuuPTEeIqDnvCld.txt" cache-period="31556926" />
 	<!--国际化    本地化资源处理器 -->
 		<bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver" />
 	<!-- 请求拦截器，每一个用户请求都会被拦截 -->
