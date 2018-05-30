@@ -198,12 +198,12 @@
 		<url-pattern>/webservice/*</url-pattern>
 	</servlet-mapping>
 
-	<!-- 配置session超时时间，单位分钟 -->
+	<!-- 配置session超时时间，单位分钟 /index.jsp -->
 	<session-config>
 		<session-timeout>15</session-timeout>
 	</session-config>
 	<welcome-file-list>
-		<welcome-file>/index.jsp</welcome-file>
+		<welcome-file>/WEB-INF/pages/homepage/homePage.jsp</welcome-file>
 	</welcome-file-list>
 
 	<!-- 错误跳转页面 -->
