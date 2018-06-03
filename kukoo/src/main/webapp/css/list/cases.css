@@ -234,6 +234,7 @@ blockquote p {
 
 .search-c .result {
   float: right;
+  font-size: 12px;
 }
 
 .dropdown-menu .on {

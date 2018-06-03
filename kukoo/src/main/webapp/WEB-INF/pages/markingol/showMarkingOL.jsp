@@ -25,7 +25,7 @@
 						<pg-head-banner id="ban1" text="在线评估"></pg-head-banner>
 
 						<div class="main container">
-							<div class="col-md-12 text-right mb-20 mt-20 pr-0">
+							<div class="col-md-12 text-right mb-20 mt-20 pr-0 fs-12">
 								共6题，答题时间：3分钟
 							</div>
 

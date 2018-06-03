@@ -288,7 +288,7 @@ i, cite, em, var, address, dfn {
   height: 50px;
   float: left;
   margin-left: 20px;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .item1 .content {
@@ -300,7 +300,7 @@ i, cite, em, var, address, dfn {
   width: 90%;
   margin: 0px 70px 0px 70px;
   /* margin-top: 20px; */
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .item1 .details .subtitle {

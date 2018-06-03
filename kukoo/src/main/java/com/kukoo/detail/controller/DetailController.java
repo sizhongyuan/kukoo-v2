@@ -266,5 +266,167 @@ public class DetailController {
 		model.addObject("userId", userId);
 		return model;
 	}
-
+	
+	////////////////////////////////////////////////////////////////////////////////////////////////
+	/**
+	 * @see 联邦技术移民详情页
+	 * @param request
+	 * @return
+	 * @author linbin
+	 * @throws IOException
+	 */
+	@RequestMapping(value = "/detail_CA001", method = RequestMethod.GET)
+	public ModelAndView detail_CA001(HttpServletRequest request) {
+		//读取session
+//		Jedis jedis = RedisUtil.getJedis();
+//		String userId = jedis.get(request.getSession().getId());
+//		String sessionId = request.getSession().getId();
+//		String userId = StaticMethod.nullObject2String(request.getSession().getAttribute(sessionId));
+		ModelAndView model = new ModelAndView();
+		model.setViewName(modelPath+"detail_CA001");
+//		model.addObject("userId", userId);
+		return model;
+	}
+	
+	/**
+	 * @see 魁省技术移民详情页
+	 * @param request
+	 * @return
+	 * @author linbin
+	 * @throws IOException
+	 */
+	@RequestMapping(value = "/detail_CA002", method = RequestMethod.GET)
+	public ModelAndView detail_CA002(HttpServletRequest request) {
+		//读取session
+//		Jedis jedis = RedisUtil.getJedis();
+//		String userId = jedis.get(request.getSession().getId());
+//		String sessionId = request.getSession().getId();
+//		String userId = StaticMethod.nullObject2String(request.getSession().getAttribute(sessionId));
+		ModelAndView model = new ModelAndView();
+		model.setViewName(modelPath+"detail_CA002");
+//		model.addObject("userId", userId);
+		return model;
+	}
+	
+	/**
+	 * @see 新斯科舍省技术移民详情页
+	 * @param request
+	 * @return
+	 * @author linbin
+	 * @throws IOException
+	 */
+	@RequestMapping(value = "/detail_CA003", method = RequestMethod.GET)
+	public ModelAndView detail_CA003(HttpServletRequest request) {
+		//读取session
+//		Jedis jedis = RedisUtil.getJedis();
+//		String userId = jedis.get(request.getSession().getId());
+//		String sessionId = request.getSession().getId();
+//		String userId = StaticMethod.nullObject2String(request.getSession().getAttribute(sessionId));
+		ModelAndView model = new ModelAndView();
+		model.setViewName(modelPath+"detail_CA003");
+//		model.addObject("userId", userId);
+		return model;
+	}
+	
+	/**
+	 * @see 萨省技术移民详情页
+	 * @param request
+	 * @return
+	 * @author linbin
+	 * @throws IOException
+	 */
+	@RequestMapping(value = "/detail_CA004", method = RequestMethod.GET)
+	public ModelAndView detail_CA004(HttpServletRequest request) {
+		//读取session
+//		Jedis jedis = RedisUtil.getJedis();
+//		String userId = jedis.get(request.getSession().getId());
+//		String sessionId = request.getSession().getId();
+//		String userId = StaticMethod.nullObject2String(request.getSession().getAttribute(sessionId));
+		ModelAndView model = new ModelAndView();
+		model.setViewName(modelPath+"detail_CA004");
+//		model.addObject("userId", userId);
+		return model;
+	}
+	
+	/**
+	 * @see 安大略省技术移民详情页
+	 * @param request
+	 * @return
+	 * @author linbin
+	 * @throws IOException
+	 */
+	@RequestMapping(value = "/detail_CA005", method = RequestMethod.GET)
+	public ModelAndView detail_CA005(HttpServletRequest request) {
+		//读取session
+//		Jedis jedis = RedisUtil.getJedis();
+//		String userId = jedis.get(request.getSession().getId());
+//		String sessionId = request.getSession().getId();
+//		String userId = StaticMethod.nullObject2String(request.getSession().getAttribute(sessionId));
+		ModelAndView model = new ModelAndView();
+		model.setViewName(modelPath+"detail_CA005");
+//		model.addObject("userId", userId);
+		return model;
+	}
+	
+	/**
+	 * @see 新不伦瑞克省技术移民详情页
+	 * @param request
+	 * @return
+	 * @author linbin
+	 * @throws IOException
+	 */
+	@RequestMapping(value = "/detail_CA006", method = RequestMethod.GET)
+	public ModelAndView detail_CA006(HttpServletRequest request) {
+		//读取session
+//		Jedis jedis = RedisUtil.getJedis();
+//		String userId = jedis.get(request.getSession().getId());
+//		String sessionId = request.getSession().getId();
+//		String userId = StaticMethod.nullObject2String(request.getSession().getAttribute(sessionId));
+		ModelAndView model = new ModelAndView();
+		model.setViewName(modelPath+"detail_CA006");
+//		model.addObject("userId", userId);
+		return model;
+	}
+	
+	/**
+	 * @see 澳大利亚189独立技术移民详情页
+	 * @param request
+	 * @return
+	 * @author linbin
+	 * @throws IOException
+	 */
+	@RequestMapping(value = "/detail_AU001", method = RequestMethod.GET)
+	public ModelAndView detail_AU001(HttpServletRequest request) {
+		//读取session
+//		Jedis jedis = RedisUtil.getJedis();
+//		String userId = jedis.get(request.getSession().getId());
+//		String sessionId = request.getSession().getId();
+//		String userId = StaticMethod.nullObject2String(request.getSession().getAttribute(sessionId));
+		ModelAndView model = new ModelAndView();
+		model.setViewName(modelPath+"detail_AU001");
+//		model.addObject("userId", userId);
+		return model;
+	}
+	
+	/**
+	 * @see 澳大利亚190州担保技术移民详情页
+	 * @param request
+	 * @return
+	 * @author linbin
+	 * @throws IOException
+	 */
+	@RequestMapping(value = "/detail_AU002", method = RequestMethod.GET)
+	public ModelAndView detail_AU002(HttpServletRequest request) {
+		//读取session
+//		Jedis jedis = RedisUtil.getJedis();
+//		String userId = jedis.get(request.getSession().getId());
+//		String sessionId = request.getSession().getId();
+//		String userId = StaticMethod.nullObject2String(request.getSession().getAttribute(sessionId));
+		ModelAndView model = new ModelAndView();
+		model.setViewName(modelPath+"detail_AU002");
+//		model.addObject("userId", userId);
+		return model;
+	}
+	
+	
 }

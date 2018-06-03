@@ -79,7 +79,7 @@
 											<!-- SLIDE -->
 											<li data-index="rs-673" data-transition="zoomout" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="default" data-rotate="0" data-saveperformance="off" data-description="">
 												<!-- MAIN IMAGE -->
-												<img src="<%=basePath %>elementy/images/revo-slider/index18-4.png" alt="" data-bgposition="top center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="5" class="rev-slidebg" data-no-retina="data-no-retina">
+												<img src="<%=basePath %>elementy/png/homepage_bg.jpg" alt="" data-bgposition="top center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="5" class="rev-slidebg" data-no-retina="data-no-retina">
 													<!-- LAYERS -->
 
 													<!-- LAYER NR. 1 -->
@@ -101,7 +101,7 @@
 														data-y="['center','center','center','center']"
 														data-voffset="['-50','-50','-35','-33']">
 														<span class="bold">
-															Renovation services</span>
+															心之所向&nbsp;身之所往</span>
 													</div>
 
 													<!-- LAYER NR. 2 -->
@@ -124,9 +124,7 @@
 														data-y="['center','center','center','center']"
 														data-visibility="['on','on','off','off']"
 														data-voffset="['15','20','0','-0']">
-														<span class="text-sm-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-															<br/>
-															Sed cursus turpis lorem, quis consectetur</span>
+														<span class="text-sm-center">人生是一场旅程，&nbsp;你将去向何方？<br/>现在出发，&nbsp;你的向往没那么远</span>
 													</div>
 
 													<!-- LAYER NR. 3 -->
@@ -146,8 +144,8 @@
 														data-responsive_offset="on"
 														data-responsive="off"
 														style="z-index: 8; white-space: nowrap;outline:none;">
-														<a class="tp-button1 button medium full-rounded hover-dark white" href="http://themeforest.net/user/abcgomel/portfolio?ref=abcgomel">PURCHASE</a>
-														<a class="tp-button1 button medium full-rounded thin white ml-20" href="http://themeforest.net/user/abcgomel/portfolio?ref=abcgomel">READ MORE</a>
+														<a class="tp-button1 button medium full-rounded hover-dark white" href="/kukoo/list/lists">GO!</a>
+														<a class="tp-button1 button medium full-rounded thin white ml-20" href="/kukoo/markingOLController/showMarkingOL">在线评估</a>
 													</div>
 
 												</li>
@@ -163,287 +161,257 @@
 								<!-- FEATURES 7 -->
 
 								<div class="page-section bg-white">
-									<div class="container">
+									<div class="container p-50-cont">
 
-										<div class="row">
-											<br/>
-											<br/>
-										</div>
-										<!-- TABS CONTENT & IMAGES -->
-										<div class="row">
-
-											<!-- TABS CONTENT -->
-											<div class="col-md-6">
-												<div class="fes14-tab-content tab-content" style="padding-bottom: 100px;">
-
-													<!-- TAB 1 -->
-													<div class="tab-pane fade in active" id="web-design">
-														<h1 class="fes14-tab-title font-montserrat">
-															<strong style="font-size: 50px;">在线移民评估工具</strong>
-														</h1>
-														<h2 class="fes14-tab-sub-title font-montserrat">
-															<strong style="font-size: 16px;">超过75.4%的中产阶级符合移民条件，而了解到自己能够移民的不超过4%</strong>
-														</h2>
-														<p class="fes14-tab-text">
-															大部分中青年中产阶级都可以匹配到适合自己的低成本移民项目
-															<br/>
-															不要因为不了解政策错失机会
-															<br/>
-															<br/>
-															KUKOO开发的在线移民评估工具
-															<br>3分钟 评估符合您的移民项目
-															</p>
-															<div class="fes12-btn-cont mt-30">
-																<a class="button medium thin gray" href="javascript:void(0)">
-																	<strong>测一下可以申请哪些移民项目</strong>
-																</a>
-															</div>
-														</div>
-
-													</div>
-												</div>
-
-												<!-- IMAGES -->
-												<div class="col-md-6 fes9-img-cont clearfix" style="padding-bottom: 30px;">
-													<div class="fes9-img-center clearfix">
-
-														<%-- <embed src="<%=basePath %>elementy/svg/firstpage-people.svg" width="100%" style="margin-top: 60px;" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/"/> --%>
-															<img src="<%=basePath %>elementy/png/firstpage-people.png" width="100%" style="margin-top: 60px;" alt="">
-																<div class="col1-1">
-																	<span>蓝领技工</span>
-																	<span style="margin: 0 75px;">白领职员</span>
-																	<span>中小企业家</span>
-																</div>
-																<div class="col1-2">
-																	教育背景 + 语言水平 + 少量资金 =
-																	<span>全家移民</span>
-																</div>
-															</div>
-
-														</div>
-													</div>
-												</div>
+										<div class="col-md-6">
+											<div>
+												<h1>
+													<span class="font-light" style="text-align:left">在线移民评估工具</span>
+												</h1>
+											</div>
+											<div class="post-prev-info font-14 mb-50">
+												<P>66.3%的中产阶级符合移民条件&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp;&nbsp;知道自己能移民的不超过1%</P>
 											</div>
 
-											<%-- 2 --%>
-												<div class="page-section bg-gray">
-													<div class="container">
+											<div class="au3-text" style="text-align:left">
+												<p>大部分中产阶级都可以匹配到适合自己的移民项目<br/>
+													不要因为不了解政策错失机会
+													<br/>
+													<br/>KUKOO开发了在线评估工具<br/>帮助您在3分钟之内快速评估匹配低成本的移民项目
+												</p>
+											</div>
+											<div class="au3-btn-cont">
+												<a class="button medium rounded gray" href="about-us.html">测一测</a>
+											</div>
 
-														<!-- TABS NAV -->
-														<div class="row">
-															<div class="col-md-12">
+										</div>
 
-																<ul class="fes14-nav-tabs nav nav-tabs bootstrap-tabs pull-right" style="margin-right: 30px;">
-																	<li>
-																		<a href="#development-tab" class="fes14-nav-a" data-toggle="tab">
-																			<div class="tab-nav-icon icon icon-basic-archive-full"></div>
-																			<div class="tab-nav-text font-montserrat">移友数据</div>
-																		</a>
-																	</li>
-																	<li>
-																		<a href="#ui-design" class="fes14-nav-a" data-toggle="tab">
-																			<div class="tab-nav-icon icon icon-software-horizontal-align-center"></div>
-																			<div class="tab-nav-text font-montserrat">经验交流</div>
-																		</a>
-																	</li>
-																	<li>
-																		<a href="#branding-tab" class="fes14-nav-a" data-toggle="tab">
-																			<div class="tab-nav-icon icon icon-ecommerce-diamond"></div>
-																			<div class="tab-nav-text font-montserrat">移民生活</div>
-																		</a>
-																	</li>
-																</ul>
+										<div class="col-md-6 mt-60 fes1-img-cont wow fadeInUp">
+											<img src="<%=basePath %>elementy/png/first-people3.png" width="90%" alt=""/>
+										</div>
 
+									</div>
+								</div>
+
+								<!-- WORK PROCESS 2 NORMAL FONT -->
+								<div class="container-fluid p-50-cont bg-gray">
+									<div class="row">
+
+										<div class="col-lg-3 col-md-6 col-sm-6">
+											<div class="work-proc2-cont wow fadeIn">
+												<div class="work-proc2-icon-cont pos-l-12 font-norm">
+													01
+												</div>
+												<h3>评估</h3>
+												<p>通过KUKOO开发的评估工具测试是否符合移民条件</p>
+											</div>
+										</div>
+
+										<div class="col-lg-3 col-md-6 col-sm-6">
+											<div class="work-proc2-cont wow fadeIn" data-wow-delay="200ms">
+												<div class="work-proc2-icon-cont font-norm">
+													02
+												</div>
+												<h3>咨询</h3>
+												<p>KUKOO专业的移民顾问为您免费咨询并制定移民方案</p>
+											</div>
+										</div>
+
+										<div class="col-lg-3 col-md-6 col-sm-6">
+											<div class="work-proc2-cont wow fadeIn" data-wow-delay="400ms">
+												<div class="work-proc2-icon-cont font-norm">
+													03
+												</div>
+												<h3>交流</h3>
+												<p>与KUKOO已经成功登陆的客户交流移民心得</p>
+											</div>
+										</div>
+
+										<div class="col-lg-3 col-md-6 col-sm-6">
+											<div class="work-proc2-a-cont wow fadeIn" data-wow-delay="600ms">
+												<a class="work-proc2-a" href="#">
+													<div class="work-proc2-a-text">
+														Let's work<br/>
+														<span class="border-bot">together</span>
+													</div>
+													<div class="work-proc2-bg-block"></div>
+												</a>
+											</div>
+										</div>
+
+									</div>
+								</div>
+
+								<!--移路同行走得更远-->
+								<div class="page-section bg-white clearfix">
+									<div class="fes7-img-cont col-md-5">
+										<div class="fes7-img" style="background-image: url(<%=basePath %>elementy/png/first-people3-2.png)"></div>
+									</div>
+
+									<div class="container">
+										<div class="row">
+											<div class="col-md-6 col-md-offset-6 fes7-text-cont p-80-cont">
+												<h1>
+													<span class="font-light">移路同行走得更远</span>
+												</h1>
+
+												<div class="post-prev-info font-14 mb-50">
+													<P>参考移友过往申请进程&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;分享交流移民申请经验</P>
+												</div>
+												<div class="row">
+
+													<div class="col-md-6 col-sm-6">
+														<div class="fes7-box wow fadeIn">
+															<div class="fes7-box-icon">
+																<div class="icon icon-ecommerce-graph-increase"></div>
 															</div>
+															<h3>移友足迹</h3>
+															<p>参考移友真实申请案例及申请进度</p>
 														</div>
+													</div>
 
-														<!-- TABS CONTENT & IMAGES -->
-														<div class="row">
-
-															<!-- TABS CONTENT -->
-															<div class="col-md-6 pull-right">
-																<div class="fes14-tab-content tab-content" style="padding-bottom: 100px;">
-
-																	<!-- TAB 1 -->
-																	<div class="tab-pane fade in active" id="web-design">
-																		<h1 class="fes14-tab-title font-montserrat">
-																			<strong style="font-size: 50px;">移路同行才能走得更远</strong>
-																		</h1>
-																		<h2 class="fes14-tab-sub-title font-montserrat">
-																			<strong style="font-size: 16px;">参考移友过往申请进程 分享交流移民申请经验</strong>
-																		</h2>
-																		<p class="fes14-tab-text">
-																			全面参考移友真实申请案例及申请进度<br/>
-																			与移民同路人分享交流移民申<br/>
-																			与新老移民及时分享海外生活信息
-																		</p>
-																		<div class="fes12-btn-cont mt-30">
-																			<a class="button medium thin gray pull-left" href="javascript:void(0)">
-																				<strong>看一下移友过往申请进程</strong>
-																			</a>
-
-																			<div class="pull-left" style="margin-left:20px;">
-																				<embed src="<%=basePath %>elementy/svg/firstpage-erweima.svg" width="45px" height="45px" style="" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/"/>
-																			</div>
-																			<div class="pull-left" style="margin-left: 15px;height: 45px;line-height: 75px; font-size: 12px;">
-																				扫描二维码立即加入移民同路人交流群</div>
-																		</div>
-																	</div>
-
-																</div>
+													<div class="col-md-6 col-sm-6">
+														<div class="fes7-box wow fadeIn" data-wow-delay="200ms">
+															<div class="fes7-box-icon">
+																<div class="icon icon-software-font-smallcaps"></div>
 															</div>
+															<h3>经验交流</h3>
+															<p>与移民同路人分享交流申请经验</p>
+														</div>
+													</div>
 
-															<!-- IMAGES -->
-															<div class="col-md-6 fes9-img-cont clearfix">
-																<div class="fes9-img-center clearfix ml-20">
-																	<%-- <embed src="<%=basePath %>elementy/svg/first-timeline.svg" width="100%" style="margin-top: 60px;" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/"/> --%>
-																		<img src="<%=basePath %>elementy/png/first-timeline.png" alt="" style="margin-top: 60px;"></div>
+												</div>
 
-																	</div>
-																</div>
+												<div class="row">
+
+													<div class="col-md-6 col-sm-6">
+														<div class="fes7-box wow fadeIn" data-wow-delay="400ms">
+															<div class="fes7-box-icon">
+																<div class="icon icon-basic-mixer2"></div>
 															</div>
+															<h3>海外生活</h3>
+															<p>与新老移民及时分享海外生活信息</p>
+														</div>
+													</div>
 
-															<%-- 3 --%>
-																<div class="page-section bg-white">
-																	<div class="container">
+													<div class="col-md-6 col-sm-6">
+														<div class="fes7-box wow fadeIn" data-wow-delay="600ms">
+															<div class="fes7-box-icon">
+																<div class="icon icon-basic-bolt"></div>
+															</div>
+															<h3>扫码加入</h3>
+															<p>扫码立即加入移民同路人交流群</p>
+														</div>
+													</div>
 
-																		<!-- TABS NAV -->
-																		<div class="row">
-																			<div class="col-md-12">
+												</div>
 
-																				<ul class="fes14-nav-tabs nav nav-tabs bootstrap-tabs">
-																					<li>
-																						<a href="#web-design" class="fes14-nav-a" data-toggle="tab">
-																							<div class="tab-nav-icon icon icon-basic-laptop"></div>
-																							<div class="tab-nav-text font-montserrat">在线跟进办理</div>
-																						</a>
-																					</li>
-																					<li>
-																						<a href="#graphic-design" class="fes14-nav-a" data-toggle="tab">
-																							<div class="tab-nav-icon icon icon-basic-sheet-pen"></div>
-																							<div class="tab-nav-text font-montserrat">申请状态查询</div>
-																						</a>
-																					</li>
-																					<li>
-																						<a href="#development-tab" class="fes14-nav-a" data-toggle="tab">
-																							<div class="tab-nav-icon icon icon-basic-archive-full"></div>
-																							<div class="tab-nav-text font-montserrat">资料系统管理</div>
-																						</a>
-																					</li>
-																				</ul>
+											</div>
+										</div>
+										<!--end of row-->
+									</div>
+								</div>
 
-																			</div>
-																		</div>
+								<div class="page-section bg-gray">
+									<div class="container pt-50 pb-0">
+										<div class="row">
 
-																		<!-- TABS CONTENT & IMAGES -->
-																		<div class="row">
+											<div class="col-md-8">
 
-																			<!-- TABS CONTENT -->
-																			<div class="col-md-6">
-																				<div class="fes14-tab-content tab-content" style="padding-bottom: 100px;">
+												<div>
+													<h1>
+														<span class="font-light">互联网化流程管理</span>
+													</h1>
 
-																					<!-- TAB 1 -->
-																					<div class="tab-pane fade in active" id="web-design">
-																						<h1 class="fes14-tab-title font-montserrat">
-																							<strong style="font-size: 50px;">互联网化的流程管理系统</strong>
-																						</h1>
-																						<h2 class="fes14-tab-sub-title font-montserrat">
-																							<strong style="font-size: 16px;">申请过程管理有序 申请状态一目了然</strong>
-																						</h2>
-																						<p class="fes14-tab-text">
-																							移民申请一般周期较长，申请人通常缺乏对申请过程及资料文档的持续有序管理<br/>
-																							从而产生材料提交不一致，或移民局反馈情况掌握不及时等问题，导致申请失败<br/>
-																							<br/>
-																							KUKOO结合过往丰富的申请经验，开发了互联网化的移民流程管理系统<br/>
-																							有效保障移民申请过程的有序管理，以及移民申请状态的公开透明<br/>
-																						</p>
-																						<div class="fes12-btn-cont mt-30">
-																							<a class="button medium thin gray" href="javascript:void(0)">
-																								<strong>开发中</strong>
-																							</a>
-																						</div>
-																					</div>
+													<div class="post-prev-info font-14 mb-50">
+														<P>申请过程管理有序&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp申请状态一目了然</P>
+													</div>
 
-																				</div>
-																			</div>
+												</div>
+												<div class="au3-text" style="text-align:left">移民申请通常周期较长，申请人缺乏对过程及文档的持续有序管理
+													<br/>容易产生材料前后不一、移民局反馈掌握不及时等问题，导致拒签<br/><br/>KUKOO结合丰富的申请经验开发了互联网化的移民流程管理系统
+													<br/>有效保障移民申请过程的有序管理，以及移民申请状态的公开透明</div>
+												<div class="au3-btn-cont">
+													<a class="button medium rounded gray" href="about-us.html">开发中</a>
+												</div>
+												<div class="row"></div>
 
-																			<!-- IMAGES -->
-																			<div class="col-md-6 fes9-img-cont clearfix">
-																				<div class="fes9-img-center clearfix">
-																					<embed src="<%=basePath %>elementy/svg/firstpage-tv.svg" width="100%" style="margin-top: 60px;" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/"/>
-																				</div>
+											</div>
 
-																			</div>
-																		</div>
-																	</div>
+											<div class="col-md-4 mt-30 fes1-img-cont wow fadeInUp">
+												<img src="<%=basePath %>elementy/png/first-computer.png" alt="img"></div>
 
-																	<!-- FOOTER 4 BLACK WITH WORKING HOURS -->
-																	<%@include file="/WEB-INF/pages/base/footer.jsp"%>
+											</div>
+										</div>
+									</div>
 
-																	</div>
-																	<!-- End BG -->
-																</div>
-																<!-- End wrap -->
+									<!-- FOOTER 4 BLACK WITH WORKING HOURS -->
+									<%@include file="/WEB-INF/pages/base/footer.jsp"%>
 
-																<!-- JS begin -->
+									</div>
+									<!-- End BG -->
+								</div>
+								<!-- End wrap -->
 
-																<script src="<%=basePath %>javascript/dist/header.js"></script>
+								<!-- JS begin -->
 
-																<!-- SLIDER REVOLUTION INITIALIZATION -->
-																<script>
-																	jQuery(document).ready(function () {
+								<script src="<%=basePath %>javascript/dist/header.js"></script>
 
-																		jQuery("#rev_slider_280_1").show().revolution({
-																			sliderType: "hero",
-																			jsFileLocation: "revo-slider/js/",
-																			sliderLayout: "fullwidth",
-																			dottedOverlay: "none",
-																			delay: 9000,
-																			responsiveLevels: [
-																				1240, 1024, 778, 480
-																			],
-																			visibilityLevels: [
-																				1240, 1024, 778, 480
-																			],
-																			gridwidth: [
-																				1240, 1024, 778, 480
-																			],
-																			gridheight: [
-																				610, 550, 550, 550
-																			],
-																			lazyType: "none",
-																			parallax: {
-																				type: "off",
-																				origo: "slidercenter",
-																				speed: 1000,
-																				levels: [0],
-																				type: "scroll",
-																				disable_onmobile: "on"
-																			},
-																			shadow: 0,
-																			spinner: "spinner2",
-																			autoHeight: "off",
-																			fullScreenAutoWidth: "off",
-																			fullScreenAlignForce: "off",
-																			fullScreenOffsetContainer: "",
-																			fullScreenOffset: "",
-																			disableProgressBar: "on",
-																			hideThumbsOnMobile: "off",
-																			hideSliderAtLimit: 0,
-																			hideCaptionAtLimit: 0,
-																			hideAllCaptionAtLilmit: 0,
-																			debugMode: false,
-																			fallbacks: {
-																				simplifyAll: "off",
-																				disableFocusListener: false
-																			}
-																		});
+								<!-- SLIDER REVOLUTION INITIALIZATION -->
+								<script>
+									jQuery(document).ready(function () {
 
-																	});/*ready*/
-																</script>
+										jQuery("#rev_slider_280_1").show().revolution({
+											sliderType: "hero",
+											jsFileLocation: "revo-slider/js/",
+											sliderLayout: "fullwidth",
+											dottedOverlay: "none",
+											delay: 9000,
+											responsiveLevels: [
+												1240, 1024, 778, 480
+											],
+											visibilityLevels: [
+												1240, 1024, 778, 480
+											],
+											gridwidth: [
+												1240, 1024, 778, 480
+											],
+											gridheight: [
+												610, 550, 550, 550
+											],
+											lazyType: "none",
+											parallax: {
+												type: "off",
+												origo: "slidercenter",
+												speed: 1000,
+												levels: [0],
+												type: "scroll",
+												disable_onmobile: "on"
+											},
+											shadow: 0,
+											spinner: "spinner2",
+											autoHeight: "off",
+											fullScreenAutoWidth: "off",
+											fullScreenAlignForce: "off",
+											fullScreenOffsetContainer: "",
+											fullScreenOffset: "",
+											disableProgressBar: "on",
+											hideThumbsOnMobile: "off",
+											hideSliderAtLimit: 0,
+											hideCaptionAtLimit: 0,
+											hideAllCaptionAtLilmit: 0,
+											debugMode: false,
+											fallbacks: {
+												simplifyAll: "off",
+												disableFocusListener: false
+											}
+										});
 
-																<!-- JS end -->
+									});/*ready*/
+								</script>
 
-															</body>
+								<!-- JS end -->
 
-														</html>
+							</body>
+
+						</html>
