@@ -7,11 +7,14 @@
     '    <div class="row">' +
     '      <div class="col-md-8">' +
     '        <h1 class="page-title2">{{text}}</h1>' +
+    '        <a v-if="isdetail" :href="url" target="_blank" class="detail-a"><i class="fa fa-link"></i> 查看该项目移民局官网</a>' +
     '      </div>' +
     '      <div class="col-md-4">' +
     '        <div class="breadcrumbs2 font-poppins">' +
     '          <a class="a-inv" href="/kukoo/homePage/">KUKOO</a>' +
     '          <span class="slash-divider">/</span>' +
+    '          <a v-if="purl" class="a-inv" :href="purl">{{pname}}</a>' +
+    '          <span v-if="purl" class="slash-divider">/</span>' +
     '          <span class="bread-current">{{text}}</span>' +
     '        </div>' +
     '      </div>' +
@@ -21,7 +24,7 @@
     '</script>');
 
   Vue.component('pg-head-banner', {
-    props: ['text'],
+    props: ['text', 'isdetail', 'url', 'purl', "pname"],
     template: '#pg-head-banner-template',
     data: function() {
       return {};

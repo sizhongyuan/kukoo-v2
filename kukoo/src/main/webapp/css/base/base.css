@@ -60,8 +60,26 @@
 
 /* 导航条宽度 */
 
+.page-title2 {
+  font-size: 24px !important;
+}
+
 .local-page-title {
   margin: 100px 0 0 0;
   font-size: 24px;
   line-height: 38px;
+}
+
+.detail-a {
+  font-size: 12px;
+  color: rgb(23, 162, 211) !important;
+  font-weight: 200;
+}
+
+.fs-12 {
+  font-size: 12px;
+}
+
+html, div, span, li {
+  font-family: "PingFang SC", "Microsoft YaHei", "微软雅黑", "Helvetica Neue", "Helvetica", "Arial", "STHeiti", 'Open Sans', Arial, Helvetica, sans-serif !important
 }

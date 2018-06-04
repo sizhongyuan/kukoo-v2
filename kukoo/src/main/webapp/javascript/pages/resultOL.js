@@ -181,7 +181,9 @@ function start(rv) {
       "occup": [],
       "change1": false
     },
-    mounted: function() {},
+    mounted: function() {
+      zy();
+    },
     updated: function() {},
     methods: {
       sel_occup: function(e) {
@@ -218,7 +220,6 @@ function zy() {
   });
 }
 
-zy();
 
 doAjax(JSON.stringify(answer));
 

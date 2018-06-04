@@ -2,7 +2,7 @@ var list = [{
     "caseId": 1,
     "projectCode": "非EE", //项目标题
     "sex": 1, //顾客性别
-    "name": "何先生", //顾客姓名
+    "name": "H先生", //顾客姓名
     "country": "加拿大", //项目国家
     "countryId": "1", //国家代码
     "projectId": 2, //项目id
@@ -85,7 +85,7 @@ var list = [{
     "caseId": 2,
     "projectCode": "非EE", //项目标题
     "sex": 0, //顾客性别
-    "name": "向女士", //顾客姓名
+    "name": "X女士", //顾客姓名
     "country": "加拿大", //项目国家
     "countryId": "1", //国家代码
     "projectId": 2, //项目id
@@ -153,7 +153,7 @@ var list = [{
     "caseId": 3,
     "projectCode": "非EE", //项目标题
     "sex": 1, //顾客性别
-    "name": "秦先生", //顾客姓名
+    "name": "Q先生", //顾客姓名
     "country": "加拿大", //项目国家
     "countryId": "1", //国家代码
     "projectId": 2, //项目id
@@ -229,7 +229,7 @@ var list = [{
     "caseId": 4,
     "projectCode": "非EE", //项目标题
     "sex": 1, //顾客性别
-    "name": "钱先生", //顾客姓名
+    "name": "Q先生", //顾客姓名
     "country": "加拿大", //项目国家
     "countryId": "1", //国家代码
     "projectId": 2, //项目id
@@ -310,12 +310,11 @@ var list = [{
       }
     ] //时间轴
   },
-
   { //5
     "caseId": 5,
     "projectCode": "EE", //项目标题
     "sex": 1, //顾客性别
-    "name": "郭先生", //顾客姓名
+    "name": "G先生", //顾客姓名
     "country": "加拿大", //项目国家
     "countryId": "1", //国家代码
     "projectId": 1, //项目id
@@ -384,7 +383,7 @@ var list = [{
     "caseId": 6,
     "projectCode": "EE", //项目标题
     "sex": 1, //顾客性别
-    "name": "马先生", //顾客姓名
+    "name": "M先生", //顾客姓名
     "country": "加拿大", //项目国家
     "countryId": "1", //国家代码
     "projectId": 1, //项目id
@@ -451,7 +450,7 @@ var list = [{
     "caseId": 7,
     "projectCode": "EE", //项目标题
     "sex": 1, //顾客性别
-    "name": "许先生", //顾客姓名
+    "name": "X先生", //顾客姓名
     "country": "加拿大", //项目国家
     "countryId": "1", //国家代码
     "projectId": 1, //项目id
@@ -518,7 +517,7 @@ var list = [{
     "caseId": 8,
     "projectCode": "EE", //项目标题
     "sex": 1, //顾客性别
-    "name": "吕先生", //顾客姓名
+    "name": "L先生", //顾客姓名
     "country": "加拿大", //项目国家
     "countryId": "1", //国家代码
     "projectId": 1, //项目id
@@ -585,11 +584,11 @@ var list = [{
     "caseId": 9,
     "projectCode": "", //项目标题
     "sex": 0, //顾客性别
-    "name": "高女士", //顾客姓名
+    "name": "G女士", //顾客姓名
     "country": "加拿大", //项目国家
     "countryId": "1", //国家代码
     "projectId": 3, //项目id
-    "projectName": "安省技术移民", //项目名称
+    "projectName": "安大略省技术移民", //项目名称
     "projectTypeId": 1, //项目类别id
     "projectType": "技术移民", //项目类别
     "occupId": 5, //顾客职业id
@@ -652,11 +651,11 @@ var list = [{
     "caseId": 10,
     "projectCode": "", //项目标题
     "sex": 1, //顾客性别
-    "name": "安先生", //顾客姓名
+    "name": "A先生", //顾客姓名
     "country": "加拿大", //项目国家
     "countryId": "1", //国家代码
     "projectId": 3, //项目id
-    "projectName": "安省技术移民", //项目名称
+    "projectName": "安大略省技术移民", //项目名称
     "projectTypeId": 1, //项目类别id
     "projectType": "技术移民", //项目类别
     "occupId": 3, //顾客职业id
@@ -719,11 +718,11 @@ var list = [{
     "caseId": 11,
     "projectCode": "", //项目标题
     "sex": 1, //顾客性别
-    "name": "贺先生", //顾客姓名
+    "name": "H先生", //顾客姓名
     "country": "加拿大", //项目国家
     "countryId": "1", //国家代码
     "projectId": 4, //项目id
-    "projectName": "NB省技术移民", //项目名称
+    "projectName": "新不伦瑞克省技术移民", //项目名称
     "projectTypeId": 1, //项目类别id
     "projectType": "技术移民", //项目类别
     "occupId": 15, //顾客职业id
@@ -782,16 +781,15 @@ var list = [{
       }
     ] //时间轴
   },
-
   { //12
     "caseId": 12,
     "projectCode": "", //项目标题
     "sex": 1, //顾客性别
-    "name": "庞先生", //顾客姓名
+    "name": "P先生", //顾客姓名
     "country": "加拿大", //项目国家
     "countryId": "1", //国家代码
     "projectId": 4, //项目id
-    "projectName": "NB省技术移民", //项目名称
+    "projectName": "新不伦瑞克省技术移民", //项目名称
     "projectTypeId": 1, //项目类别id
     "projectType": "技术移民", //项目类别
     "occupId": 17, //顾客职业id
@@ -854,11 +852,11 @@ var list = [{
     "caseId": 13,
     "projectCode": "", //项目标题
     "sex": 1, //顾客性别
-    "name": "杨先生", //顾客姓名
+    "name": "Y先生", //顾客姓名
     "country": "加拿大", //项目国家
     "countryId": "1", //国家代码
     "projectId": 5, //项目id
-    "projectName": "联邦技术移民", //项目名称
+    "projectName": "加拿大联邦技术移民", //项目名称
     "projectTypeId": 1, //项目类别id
     "projectType": "技术移民", //项目类别
     "occupId": 1, //顾客职业id
@@ -906,16 +904,15 @@ var list = [{
       }
     ] //时间轴
   },
-
   { //14
     "caseId": 14,
     "projectCode": "", //项目标题
     "sex": 1, //顾客性别
-    "name": "张先生", //顾客姓名
+    "name": "Z先生", //顾客姓名
     "country": "加拿大", //项目国家
     "countryId": "1", //国家代码
     "projectId": 5, //项目id
-    "projectName": "联邦技术移民", //项目名称
+    "projectName": "加拿大联邦技术移民", //项目名称
     "projectTypeId": 1, //项目类别id
     "projectType": "技术移民", //项目类别
     "occupId": 8, //顾客职业id
@@ -963,16 +960,15 @@ var list = [{
       }
     ] //时间轴
   },
-
   { //15
     "caseId": 15,
     "projectCode": "", //项目标题
     "sex": 0, //顾客性别
-    "name": "韩女士", //顾客姓名
+    "name": "H女士", //顾客姓名
     "country": "加拿大", //项目国家
     "countryId": "1", //国家代码
     "projectId": 5, //项目id
-    "projectName": "联邦技术移民", //项目名称
+    "projectName": "加拿大联邦技术移民", //项目名称
     "projectTypeId": 1, //项目类别id
     "projectType": "技术移民", //项目类别
     "occupId": 14, //顾客职业id
@@ -1020,17 +1016,15 @@ var list = [{
       }
     ] //时间轴
   },
-
-
   { //16
     "caseId": 16,
     "projectCode": "", //项目标题
     "sex": 1, //顾客性别
-    "name": "陈先生", //顾客姓名
+    "name": "C先生", //顾客姓名
     "country": "加拿大", //项目国家
     "countryId": "1", //国家代码
     "projectId": 5, //项目id
-    "projectName": "联邦技术移民", //项目名称
+    "projectName": "加拿大联邦技术移民", //项目名称
     "projectTypeId": 1, //项目类别id
     "projectType": "技术移民", //项目类别
     "occupId": 5, //顾客职业id
@@ -1082,11 +1076,11 @@ var list = [{
     "caseId": 18,
     "projectCode": "", //项目标题
     "sex": 1, //顾客性别
-    "name": "尹先生", //顾客姓名
+    "name": "Y先生", //顾客姓名
     "country": "加拿大", //项目国家
     "countryId": "1", //国家代码
     "projectId": 6, //项目id
-    "projectName": "魁省技术移民", //项目名称
+    "projectName": "魁北克省技术移民", //项目名称
     "projectTypeId": 1, //项目类别id
     "projectType": "技术移民", //项目类别
     "occupId": 14, //顾客职业id
@@ -1145,17 +1139,15 @@ var list = [{
       }
     ] //时间轴
   },
-
-
   { //19
     "caseId": 19,
     "projectCode": "", //项目标题
     "sex": 1, //顾客性别
-    "name": "李先生", //顾客姓名
+    "name": "L先生", //顾客姓名
     "country": "加拿大", //项目国家
     "countryId": "1", //国家代码
     "projectId": 6, //项目id
-    "projectName": "魁省技术移民", //项目名称
+    "projectName": "魁北克省技术移民", //项目名称
     "projectTypeId": 1, //项目类别id
     "projectType": "技术移民", //项目类别
     "occupId": 12, //顾客职业id
@@ -1214,16 +1206,15 @@ var list = [{
       }
     ] //时间轴
   },
-
   { //20
     "caseId": 20,
     "projectCode": "", //项目标题
     "sex": 1, //顾客性别
-    "name": "张先生", //顾客姓名
+    "name": "Z先生", //顾客姓名
     "country": "加拿大", //项目国家
     "countryId": "1", //国家代码
     "projectId": 6, //项目id
-    "projectName": "魁省技术移民", //项目名称
+    "projectName": "魁北克省技术移民", //项目名称
     "projectTypeId": 1, //项目类别id
     "projectType": "技术移民", //项目类别
     "occupId": 14, //顾客职业id
@@ -1291,16 +1282,15 @@ var list = [{
       }
     ] //时间轴
   },
-
   { //21
     "caseId": 21,
     "projectCode": "", //项目标题
     "sex": 1, //顾客性别
-    "name": "严先生", //顾客姓名
+    "name": "Y先生", //顾客姓名
     "country": "加拿大", //项目国家
     "countryId": "1", //国家代码
     "projectId": 7, //项目id
-    "projectName": "NS省技术移民", //项目名称
+    "projectName": "新斯科舍省技术移民", //项目名称
     "projectTypeId": 1, //项目类别id
     "projectType": "技术移民", //项目类别
     "occupId": 10, //顾客职业id
@@ -1359,17 +1349,15 @@ var list = [{
       }
     ] //时间轴
   },
-
-
   { //22
     "caseId": 22,
     "projectCode": "", //项目标题
     "sex": 0, //顾客性别
-    "name": "袁女士", //顾客姓名
+    "name": "Y女士", //顾客姓名
     "country": "加拿大", //项目国家
     "countryId": "1", //国家代码
     "projectId": 7, //项目id
-    "projectName": "NS省技术移民", //项目名称
+    "projectName": "新斯科舍省技术移民", //项目名称
     "projectTypeId": 1, //项目类别id
     "projectType": "技术移民", //项目类别
     "occupId": 7, //顾客职业id
@@ -1428,16 +1416,15 @@ var list = [{
       }
     ] //时间轴
   },
-
   { //23
     "caseId": 23,
     "projectCode": "", //项目标题
     "sex": 1, //顾客性别
-    "name": "张先生", //顾客姓名
+    "name": "Z先生", //顾客姓名
     "country": "加拿大", //项目国家
     "countryId": "1", //国家代码
     "projectId": 7, //项目id
-    "projectName": "NS省技术移民", //项目名称
+    "projectName": "新斯科舍省技术移民", //项目名称
     "projectTypeId": 1, //项目类别id
     "projectType": "技术移民", //项目类别
     "occupId": 6, //顾客职业id
@@ -1496,16 +1483,15 @@ var list = [{
       }
     ] //时间轴
   },
-
   { //24
     "caseId": 24,
     "projectCode": "", //项目标题
     "sex": 0, //顾客性别
-    "name": "王女士", //顾客姓名
+    "name": "W女士", //顾客姓名
     "country": "加拿大", //项目国家
     "countryId": "1", //国家代码
     "projectId": 7, //项目id
-    "projectName": "NS省技术移民", //项目名称
+    "projectName": "新斯科舍省技术移民", //项目名称
     "projectTypeId": 1, //项目类别id
     "projectType": "技术移民", //项目类别
     "occupId": 4, //顾客职业id
@@ -1564,16 +1550,15 @@ var list = [{
       }
     ] //时间轴
   },
-
   { //25
     "caseId": 25,
     "projectCode": "", //项目标题
     "sex": 1, //顾客性别
-    "name": "卫先生", //顾客姓名
+    "name": "W先生", //顾客姓名
     "country": "加拿大", //项目国家
     "countryId": "1", //国家代码
     "projectId": 7, //项目id
-    "projectName": "NS省技术移民", //项目名称
+    "projectName": "新斯科舍省技术移民", //项目名称
     "projectTypeId": 1, //项目类别id
     "projectType": "技术移民", //项目类别
     "occupId": 4, //顾客职业id
@@ -1630,16 +1615,15 @@ var list = [{
       }
     ] //时间轴
   },
-
   { //26
     "caseId": 26,
     "projectCode": "", //项目标题
     "sex": 1, //顾客性别
-    "name": "宋先生", //顾客姓名
+    "name": "S先生", //顾客姓名
     "country": "加拿大", //项目国家
     "countryId": "1", //国家代码
     "projectId": 7, //项目id
-    "projectName": "NS省技术移民", //项目名称
+    "projectName": "新斯科舍省技术移民", //项目名称
     "projectTypeId": 1, //项目类别id
     "projectType": "技术移民", //项目类别
     "occupId": 18, //顾客职业id
@@ -1759,23 +1743,23 @@ var project = [{
   },
   {
     key: "3",
-    value: "安省技术移民"
+    value: "安大略省技术移民"
   },
   {
     key: "4",
-    value: "NB省技术移民"
+    value: "新不伦瑞克省技术移民"
   },
   {
     key: "5",
-    value: "联邦技术移民"
+    value: "加拿大联邦技术移民"
   },
   {
     key: "6",
-    value: "魁省技术移民"
+    value: "魁北克省技术移民"
   },
   {
     key: "7",
-    value: "NS省技术移民"
+    value: "新斯科舍省技术移民"
   },
   {
     key: "8",

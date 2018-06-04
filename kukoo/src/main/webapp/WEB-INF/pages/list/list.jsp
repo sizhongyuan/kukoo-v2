@@ -26,7 +26,7 @@
               <pg-header class="pg-header" id="nav"></pg-header>
 
               <!-- PAGE TITLE LARGE 2 GRAY -->
-              <pg-head-banner id="ban1" text="项目列表"></pg-head-banner>
+              <pg-head-banner id="ban1" text="移民项目"></pg-head-banner>
 
               <!-- COTENT CONTAINER -->
               <div class="main container">
@@ -75,7 +75,7 @@
 
                     <transition-group name="staggered-fade" tag="div" class="list-c pb-50 mt-25" v-on:before-enter="beforeEnter" v-on:enter="enter" v-on:leave="leave">
 
-                      <div class="ts-container mt-20" v-bind:key="item.id" v-for="(item,index) in list" v-bind:data-index="index">
+                      <div class="ts-container mt-20" v-bind:key="item.id" v-for="(item,index) in list" v-bind:data-index="index" @click="toDetailpage(item.id)">
                         <div class="ts-icon-container-bg">
                           <div class="ts-icon-container">
                             {{item.name}}<br/>
@@ -92,13 +92,21 @@
                                 <div class="mt-15 tt">
                                   <b>处理周期
                                   </b>
-                                  {{item.timespan+item.timespanUnit}}</div>
+                                  {{item.timespan+'个'+item.timespanUnit+'左右'}}</div>
                                 <div class="mt-0 tt">
                                   <b>资金要求
                                   </b>
-                                  {{item.cost+item.costUnit}}</div>
+                                  <i class="fa fa-star"></i>
+                                  <i class="fa fa-star" v-if="item.cost>50"></i>
+                                  <i class="fa fa-star" v-if="item.cost>=150"></i>
+
+                                  <i class="fa fa-star-o" v-if="item.cost<50"></i>
+                                  <i class="fa fa-star-o" v-if="item.cost<50||(item.cost>50&&item.cost<150)"></i>
+                                  &nbsp;
+                                  <span style="color: #999;">{{item.cost_desc}}</span>
+                                </div>
                                 <div class="mt-5 desc">{{item.desc}}
-                                  <span pid="2-1" class="quote-author-description">项目详情</span>
+                                  <span class="quote-author-description">项目详情</span>
                                 </div>
                                 <%-- <div class="right-text t-a-container mt-10">
                                 <span class="quote-author-description" :pid="item.id">项目详情</span>
