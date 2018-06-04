@@ -527,6 +527,11 @@ public class NSutil {
 	 * @return  int 该语言在规则1下 得分
 	 */
 	public static int language1RulePrimary(int listening,int speaking,int reading,int writing){
+		//获取最低clb
+		int minCLB = getMinLanguage(listening,speaking,reading,writing);
+		if(minCLB<7){
+			return 0;
+		}
 		//规则1总得分
 		int languageOneScore = 0;
 		//计算听得分
@@ -645,6 +650,11 @@ public class NSutil {
 	 * @return  int 该语言在规则1下 得分
 	 */
 	public static int language1RuleSecondary(int listening,int speaking,int reading,int writing){
+		//获取最低clb
+		int minCLB = getMinLanguage(listening,speaking,reading,writing);
+		if(minCLB<4){
+			return 0;
+		}
 		//规则1总得分
 		int languageOneScore = 0;
 		//计算听得分
@@ -678,7 +688,11 @@ public class NSutil {
 	 * @return  int 该语言在规则2下 得分
 	 */
 	public static int language2RuleSecondary(int listening,int speaking,int reading,int writing){
-		
+		//获取最低clb
+		int minCLB = getMinLanguage(listening,speaking,reading,writing);
+		if(minCLB<4){
+			return 0;
+		}
 		int frenchScore = 0;//法语部分得分
 		if(listening>4){
 			frenchScore+=5;
@@ -773,28 +787,35 @@ public class NSutil {
 		int readingFrench = Util.getCLBtoFrench(StaticMethod.nullObject2String(q7.get("reading")));
 		int writingFrench = Util.getCLBtoFrench(StaticMethod.nullObject2String(q7.get("writing")));
 		
-		
+		//副申语言总分（最高5分）
+		int languageScore = 0;
 		//获取语言1规则（英语为主语时）得分 
 		int language1Score = language1RuleSecondary(listeningEnglish,speakingEnglish,readingEnglish,writingEnglish);
 		//获取语言2规则（英语为主语时）得分
 		int language2Score = language2RuleSecondary(listeningFrench,speakingFrench,readingFrench,writingFrench);
+		languageScore = language1Score+language2Score;
+		languageScore = languageScore>=5?5:languageScore;
 		//主副语言反转 （法语为主语时）
+		//主副语言交换后副申语言总分（最高5分）
+		int relanguageScore = 0;
 		//获取语言1规则（法语为主语时）得分
 		int relanguage1Score = language1RuleSecondary(listeningFrench,speakingFrench,readingFrench,writingFrench);
 		//获取语言2规则（法语为主语时）得分
 		int relanguage2Score = language2RuleSecondary(listeningEnglish,speakingEnglish,readingEnglish,writingEnglish);
+		relanguageScore = relanguage1Score+relanguage2Score;
+		relanguageScore = relanguageScore>=5?5:relanguageScore;
 		//对比分数
-		if(language1Score+language2Score>=relanguage1Score+relanguage2Score){
+		if(languageScore>=relanguageScore){
 			//英语作为主语言
 			rescore.put("language", "英语");//
 			//用户选择的主语言作为主语言时分数
-			rescore.put("languageScore", language1Score+language2Score);//
+			rescore.put("languageScore", languageScore);//
 			
 		}else{
 			//法语作为主语言
 			rescore.put("language", "法语");//
 			//用户选择的副语言作为主语言时分数
-			rescore.put("languageScore", relanguage1Score+relanguage2Score);//
+			rescore.put("languageScore", relanguageScore);//
 		}
 		
 		
@@ -809,8 +830,10 @@ public class NSutil {
 			int writingEnglishUp =  writingEnglish+2>10?10:writingEnglish+2;
 			//计算升档后英语得分
 			languageEnglishUpScore = language1RuleSecondary(listeningEnglishUp,speakingEnglishUp,readingEnglishUp,writingEnglishUp);
+			languageScore = languageEnglishUpScore+language2Score;
+			languageScore = languageScore>=5?5:languageScore;
 			//用户升档后得分      升档后的英语的分+法语得分
-			rescore.put("languageScoreUp", languageEnglishUpScore+language2Score);//
+			rescore.put("languageScoreUp", languageScore);//
 		}//判断是否语言都没填写 英语+2
 		else if("不会".equals(StaticMethod.nullObject2String(q7.get("listening")))||"不会".equals(StaticMethod.nullObject2String(q7.get("speaking")))||"不会".equals(StaticMethod.nullObject2String(q7.get("reading")))||"不会".equals(StaticMethod.nullObject2String(q7.get("writing")))&&("".equals(StaticMethod.nullObject2String(q6.get("listening")))&&"".equals(StaticMethod.nullObject2String(q6.get("speaking")))&&"".equals(StaticMethod.nullObject2String(q6.get("reading")))&&"".equals(StaticMethod.nullObject2String(q6.get("writing"))))){
 			//计算用户英语升档后Clb
@@ -820,8 +843,10 @@ public class NSutil {
 			int writingEnglishUp =  writingEnglish+2>10?10:writingEnglish+2;
 			//计算升档后英语得分
 			languageEnglishUpScore = language1RuleSecondary(listeningEnglishUp,speakingEnglishUp,readingEnglishUp,writingEnglishUp);
+			languageScore = languageEnglishUpScore+language2Score;
+			languageScore = languageScore>=5?5:languageScore;
 			//用户升档后得分      升档后的英语的分+法语得分
-			rescore.put("languageScoreUp", languageEnglishUpScore+language2Score);//
+			rescore.put("languageScoreUp", languageScore);//
 		}else{
 			//计算用户英语升档后Clb
 			int listeningEnglishUp = listeningEnglish+2>10?10:listeningEnglish+2;
@@ -839,11 +864,15 @@ public class NSutil {
 			
 			//法语升档分不大于英语升档
 			if(languageEnglishUpScore>=languageFrenchUpScore){
+				languageScore = languageEnglishUpScore+language2Score;
+				languageScore = languageScore>=5?5:languageScore;
 				//用户升档后得分      升档后的英语的分+法语得分
-				rescore.put("languageScoreUp", languageEnglishUpScore+language2Score);//
+				rescore.put("languageScoreUp", languageScore);//
 			}else{
+				languageScore = languageFrenchUpScore+language2Score;
+				languageScore = languageScore>=5?5:languageScore;
 				//用户升档后得分      升档后的法语得分+英语的分
-				rescore.put("languageScoreUp", languageFrenchUpScore+relanguage2Score);//
+				rescore.put("languageScoreUp", languageScore);//
 			}
 			
 		}
@@ -857,6 +886,28 @@ public class NSutil {
 	
 	
 	
-	
+	/**
+	 *  获取整体语言水平
+	 * @param listening
+	 * @param speaking
+	 * @param reading
+	 * @param writing
+	 * @return
+	 */
+	public static int getMinLanguage(int listening,int speaking,int reading,int writing){
+		//SPIN省语言整体计算  四个单项成绩取最低值作为整体成绩
+		int minScore = listening;
+		if(listening>speaking){
+			minScore = speaking;
+		}
+		if(minScore>reading){
+			minScore = reading;
+		}
+		if(minScore>writing){
+			minScore = writing;
+		}
+		
+		return minScore;
+	}
 
 }
