@@ -30,7 +30,7 @@
 
 																		<!-- 新版页面引用start -->
 																		<!-- FAVICONS -->
-																		<link rel="shortcut icon" href="<%=basePath %>elementy/images/favicon/favicon.png">
+																		<link rel="shortcut icon" href="<%=basePath %>elementy/png/icon.png">
 																			<link rel="apple-touch-icon" href="<%=basePath %>elementy/images/favicon/apple-touch-icon.png">
 																				<link rel="apple-touch-icon" sizes="72x72" href="<%=basePath %>elementy/images/favicon/apple-touch-icon-72x72.png">
 																					<link rel="apple-touch-icon" sizes="114x114" href="<%=basePath %>elementy/images/favicon/apple-touch-icon-114x114.png">
