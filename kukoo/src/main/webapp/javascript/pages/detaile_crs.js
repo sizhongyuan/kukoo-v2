@@ -1,7 +1,6 @@
 //01. 加拿大联邦快速通道项目
-
 //crs评分标准
-var d = [{
+var crs_criterion = [{
     "title": "A. 核心评分要素 Core / human capital factors",
     "k1": "有配偶最高 460分",
     "k2": "单身最高 500分",
@@ -556,5 +555,4 @@ var d = [{
       ]
     }]
   }
-
-]
+];

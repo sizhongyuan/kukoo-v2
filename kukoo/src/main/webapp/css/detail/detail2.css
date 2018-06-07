@@ -1,5 +1,3 @@
-
-
 .bg-white {
   height: 70px;
   background-color: #fff;
@@ -27,8 +25,8 @@
   padding: 10px 25px;
   padding-bottom: 20px;
   font-size: 12px;
-  width: 20%;
-  position: fixed;
+  /* width: 20%;
+  position: fixed; */
 }
 
 .box ul {
@@ -48,11 +46,135 @@
   margin-top: 10px;
   height: 30px;
   line-height: 30px;
-  background-color: #eeeeee63;
+  background-color: #f8f8f8;
 }
 
 .box .button {
   width: 100%;
   margin-top: 10px;
   text-align: center;
+}
+
+/* 表格相关 */
+
+.table-ul {
+  list-style: none;
+  width: 100%;
+  display: inline-grid;
+  padding: 30px 0 20px 20px;
+}
+
+.panel .table-ul {
+  padding: 10px 0 20px 5px;
+}
+
+.table-ul .pl-5 {
+  padding-left: 5px !important;
+}
+
+.table-ul .pr-30 {
+  padding-right: 30px !important;
+}
+
+.table-ul .table-title {
+  height: 34px;
+  line-height: 26px;
+  background-color: #DBEDF6;
+  color: #407996;
+  font-weight: bold;
+}
+
+.table-ul li {
+  padding: 5px;
+}
+
+.table-ul li .fa {
+  padding-top: 5px;
+}
+
+.table-ul li div {
+  padding: 0;
+}
+
+/* 表格相关2 */
+
+.clear {
+  float: none;
+  clear: both;
+}
+
+.lh-0 {
+  line-height: 0;
+}
+
+.ui-accordion-header .row2 {
+  height: 50px;
+  line-height: 15px;
+  padding: 10px;
+}
+
+.ui-accordion-header .overhide {
+  overflow: hidden;
+  ;
+}
+
+.ui-accordion-header .h50 {
+  height: 50px;
+}
+
+.toggle>dd {
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  width: 100%;
+}
+
+.toggle-no-bg.toggle-view-custom .panel, .toggle-view-custom .panel {
+  padding-bottom: 0;
+  padding-top: 5px;
+  font-size: 12px;
+}
+
+.toggle-view-custom .panel li {
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.toggle>dt {
+  margin-bottom: 0;
+}
+
+.toggle>dt>a {
+  background-color: #CFE7F3;
+  color: #2B566D;
+}
+
+.toggle>dt>a.active {
+  background-color: #CFE7F3;
+}
+
+.bg-white {
+  background-color: white;
+}
+
+.col-md-11 {
+  font-size: 12px;
+}
+
+.toggle span {
+  font-size: 12px;
+}
+
+.title-1 p {
+  display: initial;
+}
+
+.training li {
+  line-height: 26px !important;
+}
+
+.ui-accordion-header, .ui-accordion-header .link {
+  /* height: 34px;
+  line-height: 34px; */
+  font-size: 12px;
 }
