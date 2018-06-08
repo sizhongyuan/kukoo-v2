@@ -27,7 +27,13 @@
               <pg-header class="pg-header" id="nav"></pg-header>
 
               <!-- PAGE TITLE LARGE 2 GRAY -->
-              <pg-head-banner id="ban1" text="加拿大联邦技术移民" purl="/kukoo/list/lists" pname="移民项目" isdetail="1" url="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/become-candidate/eligibility/federal-skilled-workers.html"></pg-head-banner>
+              <pg-head-banner
+                id="ban1"
+                text="加拿大联邦技术移民"
+                purl="/kukoo/list/lists"
+                pname="移民项目"
+                isdetail="1"
+                url="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/become-candidate/eligibility/federal-skilled-workers.html"></pg-head-banner>
 
               <div class="tabs-4 tabs-4-c">
                 <div class="col-sm-8 bg-white pl-0 pt-20">
@@ -80,6 +86,30 @@
                                 <strong>邀请情况</strong>
                               </h5>
                               <P>联邦技术移民快速通道自实施以来，已经进行过91次邀请。最近一次邀请分数为440分，最低邀请分数为413分。历次邀请的CRS分数以及人数统计如下。申请人CRS分数超过430分的被邀请的概率较大。</P>
+
+                              <ul class="toggle-view-custom">
+                                <li v-for="(item,index) in record.fsw">
+                                  <h3 class="ui-accordion-header">
+                                    <span class="link"></span>
+                                    <b>{{item.title}}</b>
+                                    <div class="clear"></div>
+                                  </h3>
+                                  <div class="panel">
+
+                                    <ul class="table-ul">
+                                      <li :class="{'table-title':i==0,'bg-gray':i%2==0}" v-for="(c,i) in item.list">
+                                        <div class="col-sm-4">{{c[0]}}</div>
+                                        <div class="col-sm-2">{{c[1]}}</div>
+                                        <div class="col-sm-2">{{c[2]}}</div>
+                                        <div class="col-sm-2">{{c[3]}}</div>
+                                        <div class="col-sm-2">{{c[4]}}</div>
+                                      </li>
+                                    </ul>
+
+                                  </div>
+                                </li>
+                              </ul>
+
                               <h5 class="font-微软雅黑">
                                 <strong>申请建议</strong>
                               </h5>
@@ -134,7 +164,55 @@
                                 </li>
                               </ul>
                               <div class="post-prev-info ">
-                                <P>六项评分标准表</P>
+
+                                <ul class="toggle-view-custom">
+                                  <li v-for="item in score.fsw">
+                                    <h3 class="ui-accordion-header">
+                                      <span class="link"></span>
+                                      <div class="col-md-10 pl-0 fs-12">
+                                        <div class="col-md-9 pl-0 title-1">
+                                          <p>{{item.title}}</p>
+                                          <p class="ml-20">{{item.title_en}}</p>
+                                        </div>
+                                        <div class="col-md-3 text-left" style="padding-left: 30px;">{{item.k1}}</div>
+                                      </div>
+                                      <div class="clear"></div>
+                                    </h3>
+
+                                    <div v-if="item.has2" class="panel" v-for="c in item.children">
+                                      <dl class="toggle">
+                                        <dt>
+                                          <a href="#" class="lh-0">
+                                            <span class="col-md-12">
+                                              <span class="col-md-9">{{c.k1}}</span>
+                                              <span class="col-md-3 text-left">{{c.k2}}</span>
+                                            </span>
+                                            <span class="clear"></span>
+                                          </a>
+                                        </dt>
+                                        <dd style="display:inline-block">
+                                          <span class="col-md-12" :class="{'bg-gray':i%2==1}" v-for="(l,i) in c.list">
+                                            <div class="col-md-9">{{l.v1}}</div>
+                                            <div class="col-md-3 text-left">{{l.v2}}</div>
+                                          </span>
+                                        </dd>
+                                      </dl>
+                                    </div>
+
+                                    <div class="panel" v-if="!item.has2">
+                                      <ul class="table-ul">
+                                        <li :class="{'bg-gray':i%2==0}" v-for="(c,i) in item.children">
+                                          <div class="col-sm-9">{{c.v1}}</div>
+                                          <div class="col-sm-3">{{c.v2}}</div>
+                                        </li>
+                                      </ul>
+                                    </div>
+
+                                    <div class="panel pb-5"></div>
+
+                                  </li>
+                                </ul>
+
                               </div>
                               <p>在满足联邦技术移民基本条件后，申请人可在EE系统中提交申请。同时，EE系统下的综合排名系统（Comprehensive Ranking System , "CRS"）会根据CRS评分标准对申请人进行CRS评分。联邦移民局按照申请人CRS评分高低（通常不低于430分），不定期发出正式的移民申请邀请（Invitation to Apply, "ITA"）。</p>
                               <ul class="icon-list mb-20 font-微软雅黑">
@@ -147,7 +225,59 @@
                               <p>EE系统下的CRS综合排名系统满分1200分，主要涉及4个方面：核心要素（年龄、教育、语言和加拿大工作经验等）、配偶加分（教育、语言和加拿大工作经验等）、适应能力（教育、工作经验和加拿大资格证书等），和其他加分（雇主offer、省提名等）。总分 1200=核心要素+配偶加分+适应分数+其他分数。下面标准适用于2016-11-19后新的EE系统CRS评分标准。</p>
 
                               <div class="post-prev-info ">
-                                <P>CRS评分表</P>
+
+                                <ul class="toggle-view-custom">
+                                  <li v-for="item in score.an">
+                                    <h3 class="ui-accordion-header">
+                                      <span class="link"></span>
+                                      <div class="col-md-10 pl-0 fs-12">
+                                        <div class="col-md-8 pl-0 title-1">
+                                          <p>{{item.title}}</p>
+                                          <p class="ml-20">{{item.title_en}}</p>
+                                        </div>
+                                        <div class="col-md-2 plr-0 text-right">{{item.k1}}</div>
+                                        <div class="col-md-2 plr-0 text-right">{{item.k2}}</div>
+                                      </div>
+                                      <div class="clear"></div>
+                                    </h3>
+
+                                    <div v-if="item.has2" class="panel" v-for="c in item.children">
+                                      <dl class="toggle">
+                                        <dt>
+                                          <a href="#" class="lh-0">
+                                            <span class="col-md-12 plr-0">
+                                              <span class="col-md-8 plr-0">{{c.k1}}</span>
+                                              <span class="col-md-2 plr-0 text-left">{{c.k2}}</span>
+                                              <span class="col-md-2 plr-0 text-left">{{c.k3}}</span>
+                                            </span>
+                                            <span class="clear"></span>
+                                          </a>
+                                        </dt>
+                                        <dd style="display:inline-block">
+                                          <span class="col-md-12 plr-0" :class="{'bg-gray':i%2==1}" v-for="(l,i) in c.list">
+                                            <div class="col-md-8 plr-0">{{l.v1}}</div>
+                                            <div class="col-md-2 plr-0 text-left">{{l.v2}}</div>
+                                            <div class="col-md-2 plr-0 text-left">{{l.v3}}</div>
+                                          </span>
+                                        </dd>
+                                      </dl>
+                                    </div>
+
+                                    <div class="panel" v-if="!item.has2">
+                                      <ul class="table-ul">
+                                        <li :class="{'bg-gray':i%2==0}" v-for="(c,i) in item.children">
+                                          <div class="col-sm-8">{{c.v1}}</div>
+                                          <div class="col-sm-2">{{c.v2}}</div>
+                                          <div class="col-sm-2">{{c.v3}}</div>
+                                        </li>
+                                      </ul>
+                                    </div>
+
+                                    <div class="panel pb-5"></div>
+
+                                  </li>
+                                </ul>
+
                               </div>
 
                             </div>
@@ -167,192 +297,179 @@
                                 <ul class="icon-list mb-10 font-微软雅黑">
                                   <li>
                                     <i class="fa fa-info-circle"></i>
-                                    <li>联邦技术移民的六项评分标准及其他基本条件具体参见“申请条件”页</li>
-                                  </ul>
-                                </div>
-
-                                <h5 class="font-微软雅黑">2.&nbsp 准备移民申请资料</h5>
-                                <p>确认满足联邦技术移民入池要求后，申请者可以开始着手准备移民申请材料；准备周期较长的核心申请材料包括：</p>
-                                <ul class="icon-list mb-20 font-微软雅黑">
-                                  <li>
-                                    <i class="fa fa-angle-right"></i>雅思等语言成绩&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp不定期</li>
-
-                                  <li>
-                                    <i class="fa fa-angle-right"></i>学历认证&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp3个月左右</li>
+                                    联邦技术移民的六项评分标准及其他基本条件具体参见“申请条件”页
+                                  </li>
                                 </ul>
-                                <h5 class="font-微软雅黑">3.&nbsp 注册移民系统账号</h5>
+                              </div>
+
+                              <h5 class="font-微软雅黑">2.&nbsp 准备移民申请资料</h5>
+                              <p>确认满足联邦技术移民入池要求后，申请者可以开始着手准备移民申请材料；准备周期较长的核心申请材料包括：</p>
+                              <ul class="icon-list mb-20 font-微软雅黑">
+                                <li>
+                                  <i class="fa fa-angle-right"></i>
+                                  雅思等语言成绩
+                                  <span class="ml-10">不定期</span>
+                                </li>
+                                <li>
+                                  <i class="fa fa-angle-right"></i>
+                                  学历认证<span class="ml-10">3个月左右</span>
+                                </li>
+                              </ul>
+                              <h5 class="font-微软雅黑">3.&nbsp 注册移民系统账号</h5>
+                              <ul class="icon-list mb-10 font-微软雅黑">
+                                <li>
+                                  <i class="fa fa-angle-right"></i>注册EE系统Mycic账户，并将申请信息录入系统；</li>
+                                <li>
+                                  <i class="fa fa-angle-right"></i>填写提交完毕后，EE系统CRS综合排名系统会根据CRS的评分标准重新计算分数；</li>
+                                <li>
+                                  <i class="fa fa-angle-right"></i>申请人根据CRS分数排名情况，等待获得联邦移民局发出的移民申请ITA邀请；</li>
+                              </ul>
+                              <div class="post-prev-info font-12">
                                 <ul class="icon-list mb-10 font-微软雅黑">
                                   <li>
-                                    <i class="fa fa-angle-right"></i>注册EE系统Mycic账户，并将申请信息录入系统；</li>
+                                    <i class="fa fa-info-circle"></i>
+                                    EE系统注册地址：<a href="https://www.canada.ca/en/immigration-refugees-citizenship/services/application/account.html">https://www.canada.ca/en/immigration-refugees-citizenship/services/application/account.html</a>
+                                  </li>
                                   <li>
-                                    <i class="fa fa-angle-right"></i>填写提交完毕后，EE系统CRS综合排名系统会根据CRS的评分标准重新计算分数；</li>
-                                  <li>
-                                    <i class="fa fa-angle-right"></i>申请人根据CRS分数排名情况，等待获得联邦移民局发出的移民申请ITA邀请；</li>
+                                    <i class="fa fa-info-circle"></i>
+                                    CRS的具体评分标准参见“申请条件”页。
+                                  </li>
                                 </ul>
-                                <div class="post-prev-info font-12">
-                                  <ul class="icon-list mb-10 font-微软雅黑">
-                                    <li>
-                                      <i class="fa fa-info-circle"></i>
-                                      <li>EE系统注册地址：<a href="https://www.canada.ca/en/immigration-refugees-citizenship/services/application/account.html">https://www.canada.ca/en/immigration-refugees-citizenship/services/application/account.html</a>
-                                      </i>
-                                      <li>
-                                        <i class="fa fa-info-circle"></i>
-                                        <li>CRS的具体评分标准参见“申请条件”页。</i>
-                                      </ul>
-                                    </div>
-
-                                    <h5 class="font-微软雅黑">4.&nbsp 获得联邦移民申请ITA邀请</h5>
-                                    <ul class="icon-list mb-10 font-微软雅黑">
-                                      <li>
-                                        <i class="fa fa-angle-right"></i>联邦移民局会每月根据CRS评分情况，对高于特定分数的申请者发出移民申请ITA邀请；</li>
-                                      <li>
-                                        <i class="fa fa-angle-right"></i>当申请人的CRS分数高于移民局邀请的分数时，申请人可以获得移民局的移民申请ITA邀请，并开始正式提交移民申请材料；</li>
-                                      <li>
-                                        <i class="fa fa-angle-right"></i>CRS分数通常要高于430分才有机会被邀请。</li>
-                                    </ul>
-                                    <div class="post-prev-info font-12">
-                                      <ul class="icon-list mb-10 font-微软雅黑">
-                                        <li>
-                                          <i class="fa fa-info-circle"></i>
-                                          <li>EE历次邀请人数及CRS分数线统计参见“政策解读”页。</i>
-                                        </div>
-                                        <h5 class="font-微软雅黑">5.&nbsp 体检</h5>
-                                        <ul class="icon-list mb-10 font-微软雅黑">
-                                          <li>
-                                            <i class="fa fa-angle-right"></i>申请人获得移民申请ITA邀请后，可以到官方指定体检医院进行体检，并取得体检回执；</li>
-                                        </ul>
-
-                                        <h5 class="font-微软雅黑">6.&nbsp 递交联邦移民签证申请材料</h5>
-                                        <ul class="icon-list mb-10 font-微软雅黑">
-                                          <li>
-                                            <i class="fa fa-angle-right"></i>体检回执及其他申请材料准备完毕后，90天内通过EE系统在线提交联邦移民申请材料；</li>
-                                          <li>
-                                            <i class="fa fa-angle-right"></i>部分情况下，在递交申请材料后有可能会被移民局要求补充提供材料或背景调查。</li>
-                                        </ul>
-                                        <div class="post-prev-info font-12">
-                                          <ul class="icon-list mb-10 font-微软雅黑">
-                                            <li>
-                                              <i class="fa fa-info-circle"></i>
-                                              <li>通常自递交之日算起6个月以内审理完毕</i>
-                                            </ul>
-                                          </div>
-
-                                          <h5 class="font-微软雅黑">7.&nbsp 获得移民签证</h5>
-                                          <ul class="icon-list mb-10 font-微软雅黑">
-                                            <li>
-                                              <i class="fa fa-angle-right"></i>获得移民纸及永居签证，登陆加拿大，开启海外新生活</li>
-                                          </ul>
-                                          <div class="alert alert-info mb=50">
-                                            <span aria-hidden="true" class="alert-icon icon_info_alt"></span>
-                                            <strong>提醒!</strong>
-                                            根据CRS评分规则，获得省提名可直接增加600分，进而快速获得移民申请ITA邀请。因此，对于CRS评分较低的申请人，若语言短期内难以继续提高，布谷建议同时申请省提名项目以获得更高的成功率。.
-                                          </div>
-
-                                        </div>
-                                        <div class="tab-pane fade font-微软雅黑 font-12" id="fee">
-                                          <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia
-                                            banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork biodiesel fixie etsy retro mlkshk vice blog. Scenester cred you probably haven't heard of
-                                            them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu synth chambray yr.</p>
-                                        </div>
-                                        <div class="tab-pane fade font-微软雅黑 font-12" id="documents">
-                                          <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia
-                                            banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork biodiesel fixie etsy retro mlkshk vice blog. Scenester cred you probably haven't heard of
-                                            them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu synth chambray yr.</p>
-                                        </div>
-                                      </div>
-                                    </div>
-
-                                  </div>
-
-                                </div>
-
-                                <!-- SIDEBAR -->
-                                <div class="col-sm-4 col-md-3 col-md-offset-1" style="position:relative">
-
-                                  <div class="box">
-
-                                    <%-- <div class="title">加拿大</div> --%>
-
-                                      <ul>
-                                        <li>
-                                          <div class="col-sm-5">资金要求</div>
-                                          <div class="col-sm-7">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            &nbsp;
-                                            <span style="color: #999;">低</span>
-                                          </div>
-                                        </li>
-
-                                        <li>
-                                          <div class="col-sm-5">居住要求</div>
-                                          <div class="col-sm-7">
-                                            5年住满2年
-                                          </div>
-                                        </li>
-
-                                        <li>
-                                          <div class="col-sm-5">签证类型</div>
-                                          <div class="col-sm-7">
-                                            永久居民
-                                          </div>
-                                        </li>
-
-                                        <li>
-                                          <div class="col-sm-5">处理周期</div>
-                                          <div class="col-sm-7">
-                                            8个月左右
-                                          </div>
-                                        </li>
-
-                                        <a class="button small hover-thin blue" href="#">在线评估</a>
-
-                                      </ul>
-
-                                    </div>
-
-                                  </div>
-
-                                </div>
-
                               </div>
-                              <!-- END container -->
 
-                              <!-- FOOTER 4 BLACK -->
-                              <%@include file="/WEB-INF/pages/base/footer.jsp"%>
-
+                              <h5 class="font-微软雅黑">4.&nbsp 获得联邦移民申请ITA邀请</h5>
+                              <ul class="icon-list mb-10 font-微软雅黑">
+                                <li>
+                                  <i class="fa fa-angle-right"></i>联邦移民局会每月根据CRS评分情况，对高于特定分数的申请者发出移民申请ITA邀请；</li>
+                                <li>
+                                  <i class="fa fa-angle-right"></i>当申请人的CRS分数高于移民局邀请的分数时，申请人可以获得移民局的移民申请ITA邀请，并开始正式提交移民申请材料；</li>
+                                <li>
+                                  <i class="fa fa-angle-right"></i>CRS分数通常要高于430分才有机会被邀请。</li>
+                              </ul>
+                              <div class="post-prev-info font-12">
+                                <ul class="icon-list mb-10 font-微软雅黑">
+                                  <li>
+                                    <i class="fa fa-info-circle"></i>
+                                    EE历次邀请人数及CRS分数线统计参见“政策解读”页。</li>
+                                </ul>
                               </div>
-                              <!-- End BG -->
+                              <h5 class="font-微软雅黑">5.&nbsp 体检</h5>
+                              <ul class="icon-list mb-10 font-微软雅黑">
+                                <li>
+                                  <i class="fa fa-angle-right"></i>申请人获得移民申请ITA邀请后，可以到官方指定体检医院进行体检，并取得体检回执；</li>
+                              </ul>
+
+                              <h5 class="font-微软雅黑">6.&nbsp 递交联邦移民签证申请材料</h5>
+                              <ul class="icon-list mb-10 font-微软雅黑">
+                                <li>
+                                  <i class="fa fa-angle-right"></i>体检回执及其他申请材料准备完毕后，90天内通过EE系统在线提交联邦移民申请材料；</li>
+                                <li>
+                                  <i class="fa fa-angle-right"></i>部分情况下，在递交申请材料后有可能会被移民局要求补充提供材料或背景调查。</li>
+                              </ul>
+                              <div class="post-prev-info font-12">
+                                <ul class="icon-list mb-10 font-微软雅黑">
+                                  <li>
+                                    <i class="fa fa-info-circle"></i>
+                                    通常自递交之日算起6个月以内审理完毕
+                                  </li>
+                                </ul>
+                              </div>
+
+                              <h5 class="font-微软雅黑">7.&nbsp 获得移民签证</h5>
+                              <ul class="icon-list mb-10 font-微软雅黑">
+                                <li>
+                                  <i class="fa fa-angle-right"></i>
+                                  获得移民纸及永居签证，登陆加拿大，开启海外新生活
+                                </li>
+                              </ul>
+
+                              <div class="alert alert-info mb=50">
+                                <span aria-hidden="true" class="alert-icon icon_info_alt"></span>
+                                <strong>提醒!</strong>
+                                根据CRS评分规则，获得省提名可直接增加600分，进而快速获得移民申请ITA邀请。因此，对于CRS评分较低的申请人，若语言短期内难以继续提高，布谷建议同时申请省提名项目以获得更高的成功率。
+                              </div>
+
+                              <h5 class="font-微软雅黑">
+                                <strong>处理周期</strong>
+                              </h5>
+                              <detail-dura :ds="dura.fsw" class="pt-0 pl-0"></detail-dura>
+
                             </div>
-                            <!-- End wrap -->
 
-                            <%-- <script src="<%=basePath %>elementy/js/velocity.min.js"></script> --%>
+                            <div class="tab-pane fade font-微软雅黑 font-12" id="fee">
+                              <p>
+                                <detail-pay id="fee-ul" :ds="pay.fsw"></detail-pay>
+                              </p>
+                            </div>
+                            <div class="tab-pane fade font-微软雅黑 font-12" id="documents">
+                              <p>
+                                <detail-doc :ds="doc.fsw"></detail-doc>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
 
-                              <script src="<%=basePath %>javascript/dist/header.js"></script>
-                              <script src="<%=basePath %>javascript/dist/headerBanner.js"></script>
-                              <script src="<%=basePath %>javascript/pages/list.js"></script>
-                            </body>
+                      </div>
 
-                            <script type="text/javascript">
-                              var top1 = $(".tabs-4-c").offset().top;
+                    </div>
 
-                              $('.tabs-4-c').css("padding-left", ($(window).width() - $('.container').width()) / 2);
+                    <!-- SIDEBAR -->
+                    <div class="col-sm-4 col-md-3 col-md-offset-1" style="position:relative">
 
-                              $(window).scroll(function () {
-                                var win_top = $(this).scrollTop();
-                                var top = $(".tabs-4-c").offset().top;
-                                if (win_top >= (top - 60)) {
-                                  $(".tabs-4-c").addClass("sfixed");
-                                } //如果此处用else判断来remove sfixed这个类的话是不行的，因为当加上这个类的时候，".scroll"这个元素fixed的top值是0，获取到的offset.top就相当于是当前滚动条的滚动的距离，win_top与top值就一直相等了，这样会导致抖动；只有与以前的距离做比较才能实现滑上去的时候能回到原来的位置。
-                                if (win_top < (top1 - 60)) {
-                                  $(".tabs-4-c").removeClass("sfixed");
-                                }
-                              })
+                      <div class="box">
+                        <ul>
+                          <li>
+                            <div class="col-sm-5">资金要求</div>
+                            <div class="col-sm-7">
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star-o"></i>
+                              <i class="fa fa-star-o"></i>
+                              &nbsp;
+                              <span style="color: #999;">低</span>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="col-sm-5">居住要求</div>
+                            <div class="col-sm-7">
+                              5年住满2年
+                            </div>
+                          </li>
+                          <li>
+                            <div class="col-sm-5">签证类型</div>
+                            <div class="col-sm-7">
+                              永久居民
+                            </div>
+                          </li>
+                          <li>
+                            <div class="col-sm-5">处理周期</div>
+                            <div class="col-sm-7">
+                              8个月左右
+                            </div>
+                          </li>
+                          <a class="button small hover-thin blue" href="#">在线评估</a>
+                        </ul>
+                      </div>
 
-                              $(".bootstrap-tabs").on("click", function () {
-                                $(window).scrollTop(0);
-                              });
-                            </script>
+                    </div>
 
-                          </html>
+                  </div>
+
+                </div>
+                <!-- END container -->
+
+                <!-- FOOTER 4 BLACK -->
+                <%@include file="/WEB-INF/pages/base/footer.jsp"%>
+
+                </div>
+                <!-- End BG -->
+              </div>
+              <!-- End wrap -->
+              <script src="<%=basePath %>javascript/dist/header.js"></script>
+              <script src="<%=basePath %>javascript/dist/headerBanner.js"></script>
+              <script src="<%=basePath %>javascript/pages/detaile_pay_doc.js"></script>
+              <script src="<%=basePath %>javascript/pages/detaile_record.js"></script>
+              <script src="<%=basePath %>javascript/pages/detaile_score.js"></script>
+              <script src="<%=basePath %>javascript/pages/detaile_adapter.js"></script>
+            </body>
+
+          </html>
