@@ -30,13 +30,13 @@
               <pg-head-banner
                 id="ban1"
                 text="加拿大联邦技术移民"
-                purl="/kukoo/list/lists"
+                purl="<%=basePath %>list/lists"
                 pname="移民项目"
                 isdetail="1"
                 url="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/become-candidate/eligibility/federal-skilled-workers.html"></pg-head-banner>
 
               <div class="tabs-4 tabs-4-c">
-                <div class="col-sm-8 bg-white pl-0 pt-20">
+                <div class="col-sm-8 bg-white pl-0 pt-20 tabs-4-1">
                   <ul class="nav nav-tabs bootstrap-tabs">
                     <li class="active">
                       <a href="#Policy" class="a-inv font-微软雅黑" data-toggle="tab">政策解读</a>
@@ -55,7 +55,7 @@
                     </li>
                   </ul>
                 </div>
-                <div class="col-sm-4 bg-white pt-20"></div>
+                <div class="col-sm-4 bg-white pt-20 pl-0 pr-0 tabs-4-2"></div>
               </div>
 
               <!-- COTENT CONTAINER -->
@@ -85,7 +85,7 @@
                               <h5 class="font-微软雅黑">
                                 <strong>邀请情况</strong>
                               </h5>
-                              <P>联邦技术移民快速通道自实施以来，已经进行过91次邀请。最近一次邀请分数为440分，最低邀请分数为413分。历次邀请的CRS分数以及人数统计如下。申请人CRS分数超过430分的被邀请的概率较大。</P>
+                              <P>联邦技术移民快速通道自实施以来，已经进行过91次邀请。最近一次邀请分数为902分，最低邀请分数为413分。历次邀请的CRS分数以及人数统计如下。申请人CRS分数超过430分的被邀请的概率较大。</P>
 
                               <ul class="toggle-view-custom">
                                 <li v-for="(item,index) in record.fsw">
@@ -446,7 +446,7 @@
                               8个月左右
                             </div>
                           </li>
-                          <a class="button small hover-thin blue" href="#">在线评估</a>
+                          <a class="button small hover-thin blue" href="<%=basePath %>markingOLController/showMarkingOL" target="_blank">在线评估</a>
                         </ul>
                       </div>
 

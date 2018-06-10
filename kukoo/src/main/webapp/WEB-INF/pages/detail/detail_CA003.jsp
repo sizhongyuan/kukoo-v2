@@ -27,10 +27,10 @@
               <pg-header class="pg-header" id="nav"></pg-header>
 
               <!-- PAGE TITLE LARGE 2 GRAY -->
-              <pg-head-banner id="ban1" text="新斯科舍省技术移民" purl="/kukoo/list/lists" pname="移民项目" isdetail="1" url="https://novascotiaimmigration.com/move-here/nova-scotia-demand-express-entry/"></pg-head-banner>
+              <pg-head-banner id="ban1" text="新斯科舍省技术移民" purl="<%=basePath %>list/lists" pname="移民项目" isdetail="1" url="https://novascotiaimmigration.com/move-here/nova-scotia-demand-express-entry/"></pg-head-banner>
 
               <div class="tabs-4 tabs-4-c">
-                <div class="col-sm-8 bg-white pl-0 pt-20">
+                <div class="col-sm-8 bg-white pl-0 pt-20 tabs-4-1">
                   <ul class="nav nav-tabs bootstrap-tabs">
                     <li class="active">
                       <a href="#Policy" class="a-inv font-微软雅黑" data-toggle="tab">政策解读</a>
@@ -49,7 +49,7 @@
                     </li>
                   </ul>
                 </div>
-                <div class="col-sm-4 bg-white pt-20"></div>
+                <div class="col-sm-4 bg-white pt-20 pl-0 pr-0 tabs-4-2"></div>
               </div>
 
               <!-- COTENT CONTAINER -->
@@ -270,7 +270,7 @@
                                       <i class="fa fa-angle-right"></i>雅思等语言成绩&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp不定期</li>
 
                                     <li>
-                                      <i class="fa fa-angle-right"></i>学历认证&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp3个月左右</li>
+                                      <i class="fa fa-angle-right"></i>学历认证&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3个月左右</li>
                                   </ul>
                                   <h5 class="font-微软雅黑">3.&nbsp 注册移民系统账号</h5>
                                   <ul class="icon-list mb-10 font-微软雅黑">
@@ -407,11 +407,12 @@
                                               <li>
                                                 <div class="col-sm-5">处理周期</div>
                                                 <div class="col-sm-7">
-                                                  8个月左右
+                                                  9个月左右
                                                 </div>
                                               </li>
 
-                                              <a class="button small hover-thin blue" href="#">在线评估</a>
+
+                                              <a class="button small hover-thin blue" href="<%=basePath %>markingOLController/showMarkingOL" target="_blank">在线评估</a>
 
                                             </ul>
 

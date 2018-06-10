@@ -11,7 +11,7 @@
     '      </div>' +
     '      <div class="col-md-4">' +
     '        <div class="breadcrumbs2 font-poppins">' +
-    '          <a class="a-inv" href="/kukoo/homePage/">KUKOO</a>' +
+    '          <a class="a-inv" href="' + BASEPATH + 'homePage' + '">KUKOO</a>' +
     '          <span class="slash-divider">/</span>' +
     '          <a v-if="purl" class="a-inv" :href="purl">{{pname}}</a>' +
     '          <span v-if="purl" class="slash-divider">/</span>' +
@@ -27,7 +27,14 @@
     props: ['text', 'isdetail', 'url', 'purl', "pname"],
     template: '#pg-head-banner-template',
     data: function() {
-      return {};
+      //this.purl = BASEPATH + this.purl;
+      return {
+        "text": this.text,
+        "isdetail": this.isdetail,
+        "url": this.url,
+        "pname": this.pname,
+        "purl": this.purl
+      };
     },
     mounted: function() {},
     methods: {},

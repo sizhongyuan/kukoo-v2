@@ -43,6 +43,16 @@
 								font-family: "pingfang" !important;
 							}
 
+							.ma2 {
+								width: 30px;
+								transition: 0.4s all;
+								cursor: pointer;
+							}
+
+							.ma2:hover {
+								width: 80px;
+							}
+
 							@media screen and (max-width: 400px) {
 								.tp-bgimg {
 									background-position: 70% center !important;
@@ -144,8 +154,8 @@
 														data-responsive_offset="on"
 														data-responsive="off"
 														style="z-index: 8; white-space: nowrap;outline:none;">
-														<a class="tp-button1 button medium full-rounded hover-dark white" href="/kukoo/list/lists">GO!</a>
-														<a class="tp-button1 button medium full-rounded thin white ml-20" href="/kukoo/markingOLController/showMarkingOL">在线评估</a>
+														<a class="tp-button1 button medium full-rounded hover-dark white" href="<%=basePath %>list/lists">GO!</a>
+														<a class="tp-button1 button medium full-rounded thin white ml-20" href="<%=basePath %>markingOLController/showMarkingOL">在线评估</a>
 													</div>
 
 												</li>
@@ -181,7 +191,7 @@
 												</p>
 											</div>
 											<div class="au3-btn-cont">
-												<a class="button medium rounded gray" href="about-us.html">测一测</a>
+												<a class="button medium rounded gray" href="<%=basePath %>markingOLController/showMarkingOL">测一测</a>
 											</div>
 
 										</div>
@@ -263,7 +273,7 @@
 													<div class="col-md-6 col-sm-6">
 														<div class="fes7-box wow fadeIn">
 															<div class="fes7-box-icon">
-																<div class="icon icon-ecommerce-graph-increase"></div>
+																<div class="icon icon-basic-signs"></div>
 															</div>
 															<h3>移友足迹</h3>
 															<p>参考移友真实申请案例及申请进度</p>
@@ -273,7 +283,7 @@
 													<div class="col-md-6 col-sm-6">
 														<div class="fes7-box wow fadeIn" data-wow-delay="200ms">
 															<div class="fes7-box-icon">
-																<div class="icon icon-software-font-smallcaps"></div>
+																<div class="icon icon-basic-message-multiple"></div>
 															</div>
 															<h3>经验交流</h3>
 															<p>与移民同路人分享交流申请经验</p>
@@ -287,7 +297,7 @@
 													<div class="col-md-6 col-sm-6">
 														<div class="fes7-box wow fadeIn" data-wow-delay="400ms">
 															<div class="fes7-box-icon">
-																<div class="icon icon-basic-mixer2"></div>
+																<div class="icon icon-basic-world"></div>
 															</div>
 															<h3>海外生活</h3>
 															<p>与新老移民及时分享海外生活信息</p>
@@ -297,121 +307,123 @@
 													<div class="col-md-6 col-sm-6">
 														<div class="fes7-box wow fadeIn" data-wow-delay="600ms">
 															<div class="fes7-box-icon">
-																<div class="icon icon-basic-bolt"></div>
+																<div>
+																	<%-- <i class="fa fa-qrcode"></i> --%>
+																		<img class="ma2" src="<%=basePath %>elementy/images/2wm-wx.jpg" alt=""></div>
+																	</div>
+																	<h3>扫码加入</h3>
+																	<p>扫码立即加入移民同路人交流群</p>
+																</div>
 															</div>
-															<h3>扫码加入</h3>
-															<p>扫码立即加入移民同路人交流群</p>
+
 														</div>
+
 													</div>
-
 												</div>
-
+												<!--end of row-->
 											</div>
 										</div>
-										<!--end of row-->
-									</div>
-								</div>
 
-								<div class="page-section bg-gray">
-									<div class="container pt-50 pb-0">
-										<div class="row">
+										<div class="page-section bg-gray">
+											<div class="container pt-50 pb-0">
+												<div class="row">
 
-											<div class="col-md-8">
+													<div class="col-md-8">
 
-												<div>
-													<h1>
-														<span class="font-light">互联网化流程管理</span>
-													</h1>
+														<div>
+															<h1>
+																<span class="font-light">互联网化流程管理</span>
+															</h1>
 
-													<div class="post-prev-info font-14 mb-50">
-														<P>申请过程管理有序&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp申请状态一目了然</P>
+															<div class="post-prev-info font-14 mb-50">
+																<P>申请过程管理有序&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp申请状态一目了然</P>
+															</div>
+
+														</div>
+														<div class="au3-text" style="text-align:left">移民申请通常周期较长，申请人缺乏对过程及文档的持续有序管理
+															<br/>容易产生材料前后不一、移民局反馈掌握不及时等问题，导致拒签<br/><br/>KUKOO结合丰富的申请经验开发了互联网化的移民流程管理系统
+															<br/>有效保障移民申请过程的有序管理，以及移民申请状态的公开透明</div>
+														<div class="au3-btn-cont">
+															<a class="button medium rounded gray" href="about-us.html">开发中</a>
+														</div>
+														<div class="row"></div>
+
 													</div>
 
-												</div>
-												<div class="au3-text" style="text-align:left">移民申请通常周期较长，申请人缺乏对过程及文档的持续有序管理
-													<br/>容易产生材料前后不一、移民局反馈掌握不及时等问题，导致拒签<br/><br/>KUKOO结合丰富的申请经验开发了互联网化的移民流程管理系统
-													<br/>有效保障移民申请过程的有序管理，以及移民申请状态的公开透明</div>
-												<div class="au3-btn-cont">
-													<a class="button medium rounded gray" href="about-us.html">开发中</a>
-												</div>
-												<div class="row"></div>
+													<div class="col-md-4 mt-30 fes1-img-cont wow fadeInUp">
+														<img src="<%=basePath %>elementy/png/first-computer.png" alt="img"></div>
 
+													</div>
+												</div>
 											</div>
 
-											<div class="col-md-4 mt-30 fes1-img-cont wow fadeInUp">
-												<img src="<%=basePath %>elementy/png/first-computer.png" alt="img"></div>
+											<!-- FOOTER 4 BLACK WITH WORKING HOURS -->
+											<%@include file="/WEB-INF/pages/base/footer.jsp"%>
 
 											</div>
+											<!-- End BG -->
 										</div>
-									</div>
+										<!-- End wrap -->
 
-									<!-- FOOTER 4 BLACK WITH WORKING HOURS -->
-									<%@include file="/WEB-INF/pages/base/footer.jsp"%>
+										<!-- JS begin -->
 
-									</div>
-									<!-- End BG -->
-								</div>
-								<!-- End wrap -->
+										<script src="<%=basePath %>javascript/dist/header.js"></script>
 
-								<!-- JS begin -->
+										<!-- SLIDER REVOLUTION INITIALIZATION -->
+										<script>
+											jQuery(document).ready(function () {
 
-								<script src="<%=basePath %>javascript/dist/header.js"></script>
+												jQuery("#rev_slider_280_1").show().revolution({
+													sliderType: "hero",
+													jsFileLocation: "revo-slider/js/",
+													sliderLayout: "fullwidth",
+													dottedOverlay: "none",
+													delay: 9000,
+													responsiveLevels: [
+														1240, 1024, 778, 480
+													],
+													visibilityLevels: [
+														1240, 1024, 778, 480
+													],
+													gridwidth: [
+														1240, 1024, 778, 480
+													],
+													gridheight: [
+														610, 550, 550, 550
+													],
+													lazyType: "none",
+													parallax: {
+														type: "off",
+														origo: "slidercenter",
+														speed: 1000,
+														levels: [0],
+														type: "scroll",
+														disable_onmobile: "on"
+													},
+													shadow: 0,
+													spinner: "spinner2",
+													autoHeight: "off",
+													fullScreenAutoWidth: "off",
+													fullScreenAlignForce: "off",
+													fullScreenOffsetContainer: "",
+													fullScreenOffset: "",
+													disableProgressBar: "on",
+													hideThumbsOnMobile: "off",
+													hideSliderAtLimit: 0,
+													hideCaptionAtLimit: 0,
+													hideAllCaptionAtLilmit: 0,
+													debugMode: false,
+													fallbacks: {
+														simplifyAll: "off",
+														disableFocusListener: false
+													}
+												});
 
-								<!-- SLIDER REVOLUTION INITIALIZATION -->
-								<script>
-									jQuery(document).ready(function () {
+											});/*ready*/
+										</script>
 
-										jQuery("#rev_slider_280_1").show().revolution({
-											sliderType: "hero",
-											jsFileLocation: "revo-slider/js/",
-											sliderLayout: "fullwidth",
-											dottedOverlay: "none",
-											delay: 9000,
-											responsiveLevels: [
-												1240, 1024, 778, 480
-											],
-											visibilityLevels: [
-												1240, 1024, 778, 480
-											],
-											gridwidth: [
-												1240, 1024, 778, 480
-											],
-											gridheight: [
-												610, 550, 550, 550
-											],
-											lazyType: "none",
-											parallax: {
-												type: "off",
-												origo: "slidercenter",
-												speed: 1000,
-												levels: [0],
-												type: "scroll",
-												disable_onmobile: "on"
-											},
-											shadow: 0,
-											spinner: "spinner2",
-											autoHeight: "off",
-											fullScreenAutoWidth: "off",
-											fullScreenAlignForce: "off",
-											fullScreenOffsetContainer: "",
-											fullScreenOffset: "",
-											disableProgressBar: "on",
-											hideThumbsOnMobile: "off",
-											hideSliderAtLimit: 0,
-											hideCaptionAtLimit: 0,
-											hideAllCaptionAtLilmit: 0,
-											debugMode: false,
-											fallbacks: {
-												simplifyAll: "off",
-												disableFocusListener: false
-											}
-										});
+										<!-- JS end -->
 
-									});/*ready*/
-								</script>
+									</body>
 
-								<!-- JS end -->
-
-							</body>
-
-						</html>
+								</html>

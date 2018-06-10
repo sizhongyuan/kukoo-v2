@@ -2901,7 +2901,7 @@ var SCORE = {
       "21"
     ],
     [
-      "配偶语言   Spouse's or common-law partner's official languages proficiency",
+      "配偶语言   Spouse's or common-law partner's languages proficiency",
       null,
       "有配偶最高20分",
       null,
@@ -3236,7 +3236,7 @@ var SCORE = {
       "33"
     ],
     [
-      "持有加拿大技工 ，同时第一语言语言整体不低于CLB5,且有一项达到CLB7",
+      "持有加拿大技工 ，同时第一语言整体达到CLB5，低于CLB7",
       null,
       " 25 ",
       " 25 ",
@@ -3245,7 +3245,7 @@ var SCORE = {
       "33"
     ],
     [
-      "持有加拿大技工 ，同时第一语言语言整体不低于CLB7",
+      "持有加拿大技工 ，同时第一语言整体不低于CLB7",
       null,
       " 50 ",
       " 50 ",

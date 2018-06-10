@@ -60,6 +60,7 @@
 .table-ul {
   list-style: none;
   width: 100%;
+  display: inline-block;
   display: inline-grid;
   padding: 30px 0 20px 20px;
 }
@@ -86,6 +87,9 @@
 
 .table-ul li {
   padding: 5px;
+  min-height: 24px;
+  float: left;
+  width: 100%;
 }
 
 .table-ul li .fa {
@@ -138,6 +142,7 @@
 .toggle-view-custom .panel li {
   font-size: 12px;
   line-height: 14px;
+  min-height: 24px;
 }
 
 .toggle>dt {

@@ -1,6 +1,6 @@
 <%@page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 
-	<footer id="footer4" class="page-section pt-95 pb-50 footer2-black" style="font-size:12px;">
+	<footer id="footer4" class="page-section pt-30 pb-50 footer2-black mt-20" style="font-size:12px;">
 
 		<div class="container">
 			<div class="row">
@@ -8,7 +8,7 @@
 				<div class="col-md-4 col-sm-3 widget">
 					<div class="mb-30">
 						<a href="index.html">
-							<img class="logo-footer" src="<%=basePath %>elementy/images/logo-footer-white.svg" alt="logo"/>
+							<img class="logo-footer" style="max-height:34px;" src="<%=basePath %>elementy/png/logo-footer.png" alt="logo"/>
 						</a>
 					</div>
 					<div class="footer2-text-cont">
@@ -64,11 +64,11 @@
 			<!-- SUB FOOTER -->
 			<div class="col-md-12 footer2-copy-cont clearfix">
 				<!-- Social Links -->
-				<div class="footer2-soc-a right">沪ICP备11045457-7</div>
+				<div class="footer2-soc-a right">沪ICP备18013265号-1</div>
 
 				<!-- Copyright -->
 				<div class="left">
-					<a class="footer2-copy" href="http://47.94.215.48:8080/kukoo/homePage" target="_blank">&copy; KUKOO</a>
+					<a class="footer2-copy" href="<%=basePath %>homePage" target="_blank">&copy; KUKOO</a>
 				</div>
 
 			</div>

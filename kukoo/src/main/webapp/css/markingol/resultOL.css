@@ -175,7 +175,7 @@ select {
 }
 
 i, cite, em, var, address, dfn {
-  font-style: italic;
+  /* font-style: italic; */
 }
 
 .option_item .option_text {
@@ -376,8 +376,8 @@ i, cite, em, var, address, dfn {
 
 .main .zy {
   background-color: #F5F5F5;
-  height: 36px;
-  line-height: 36px;
+  height: 46px;
+  line-height: 46px;
   float: none;
   padding-left: 46px;
 }
@@ -404,16 +404,50 @@ i, cite, em, var, address, dfn {
 
 .main .zy .con1 {
   border-bottom: solid 1px #ddd;
-  height: 30px;
+  height: 34px;
   margin-left: 20px;
   position: relative;
   cursor: pointer;
   padding-right: 10px;
-  max-width: 30%;
+  max-width: 80%;
   overflow: hidden;
+  min-width: 120px;
+  font-size: 12px;
+}
+
+.main .zy .con2 {
+  border-bottom: solid 1px #ddd;
+  height: 26px;
+  margin-left: 20px;
+  position: relative;
+  cursor: pointer;
+  padding-right: 10px;
+  max-width: 80%;
+  overflow: hidden;
+  line-height: 31px;
+  font-size: 12px;
+  margin-top: 5px;
+  min-width: 51%;
+  width: auto;
+}
+
+.zy-c-1 {
+  height: 50px !important;
+  line-height: 50px !important;
+}
+
+.zy-c-2 {
+  height: 70px !important;
+  line-height: 70px !important;
 }
 
 .main .zy .con1 i {
+  position: absolute;
+  right: 0;
+  top: 15px;
+}
+
+.main .zy .con2 i {
   position: absolute;
   right: 0;
   top: 10px;
@@ -567,4 +601,14 @@ i, cite, em, var, address, dfn {
   margin: 5px 5%;
   margin-bottom: 15px;
   padding: 0 10px;
+}
+
+.notice {
+  font-size: 12px;
+  color: #a3a6a8;
+}
+
+.notice li {
+  line-height: 20px;
+  margin-top: 10px;
 }

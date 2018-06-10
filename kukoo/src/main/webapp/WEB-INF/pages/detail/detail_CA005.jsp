@@ -27,10 +27,10 @@
               <pg-header class="pg-header" id="nav"></pg-header>
 
               <!-- PAGE TITLE LARGE 2 GRAY -->
-              <pg-head-banner id="ban1" text="安大略省技术移民" purl="/kukoo/list/lists" pname="移民项目" isdetail="1" url="http://www.ontarioimmigration.ca/en/pnp/OI_PNPABOUT.html"></pg-head-banner>
+              <pg-head-banner id="ban1" text="安大略省技术移民" purl="<%=basePath %>list/lists" pname="移民项目" isdetail="1" url="http://www.ontarioimmigration.ca/en/pnp/OI_PNPABOUT.html"></pg-head-banner>
 
               <div class="tabs-4 tabs-4-c">
-                <div class="col-sm-8 bg-white pl-0 pt-20">
+                <div class="col-sm-8 bg-white pl-0 pt-20 tabs-4-1">
                   <ul class="nav nav-tabs bootstrap-tabs">
                     <li class="active">
                       <a href="#Policy" class="a-inv font-微软雅黑" data-toggle="tab">政策解读</a>
@@ -49,7 +49,7 @@
                     </li>
                   </ul>
                 </div>
-                <div class="col-sm-4 bg-white pt-20"></div>
+                <div class="col-sm-4 bg-white pt-20 pl-0 pr-0 tabs-4-2"></div>
               </div>
 
               <!-- COTENT CONTAINER -->
@@ -82,8 +82,12 @@
                                   <li>
                                     <h3 class="ui-accordion-header">
                                       <span class="link"></span>
-                                      <div class="col-sm-4"><b>安省监管职业</b></div>
-                                      <div class="col-sm-6"><b>Regulated Professions</b></div>
+                                      <div class="col-sm-4">
+                                        <b>安省监管职业</b>
+                                      </div>
+                                      <div class="col-sm-6">
+                                        <b>Regulated Professions</b>
+                                      </div>
                                       <div class="clear"></div>
                                     </h3>
                                     <div class="panel">
@@ -268,6 +272,7 @@
                               <p>EE系统下的CRS综合排名系统满分1200分，主要涉及4个方面：核心要素（年龄、教育、语言和加拿大工作经验等）、配偶加分（教育、语言和加拿大工作经验等）、适应能力（教育、工作经验和加拿大资格证书等），和其他加分（雇主offer、省提名等）。总分 1200=核心要素+配偶加分+适应分数+其他分数。下面标准适用于2016-11-19后新的EE系统CRS评分标准。</p>
 
                               <div class="post-prev-info ">
+
                                 <ul class="toggle-view-custom">
                                   <li v-for="item in score.an">
                                     <h3 class="ui-accordion-header">
@@ -304,6 +309,22 @@
                                         </dd>
                                       </dl>
                                     </div>
+
+                                    <div class="panel" v-if="!item.has2">
+                                      <ul class="table-ul">
+                                        <li :class="{'bg-gray':i%2==0}" v-for="(c,i) in item.children">
+                                          <div class="col-sm-8">{{c.v1}}</div>
+                                          <div class="col-sm-2">{{c.v2}}</div>
+                                          <div class="col-sm-2">{{c.v3}}</div>
+                                        </li>
+                                      </ul>
+                                    </div>
+
+                                    <div class="panel pb-5"></div>
+
+                                  </li>
+                                </ul>
+
                               </div>
 
                             </div>
@@ -468,11 +489,11 @@
                                     <li>
                                       <div class="col-sm-5">处理周期</div>
                                       <div class="col-sm-7">
-                                        8个月左右
+                                        12个月左右
                                       </div>
                                     </li>
 
-                                    <a class="button small hover-thin blue" href="#">在线评估</a>
+                                    <a class="button small hover-thin blue" href="<%=basePath %>markingOLController/showMarkingOL" target="_blank">在线评估</a>
 
                                   </ul>
 

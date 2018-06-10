@@ -101,6 +101,13 @@ function start(rv) {
     props: ["msg", "type"],
     data: function() {
       //return this.msg;
+    },
+    methods: {
+      goQuebec5: function(index) {
+        this.msg[index].learn = this.msg[index].learn == '是' ? '不是' : '是';
+        _app.$data.answer[0].learn = this.msg[index].learn;
+        doAjax(JSON.stringify(_app.$data.answer), _app.resultSettle);
+      }
     }
   });
 
@@ -123,23 +130,15 @@ function start(rv) {
       "change1": false
     },
     mounted: function() {
-      // $("#e1").select2({
-      //   placeholder: "您的专业",
-      //   tags: ["red", "green", "blue"]
-      // });
-
-      // if (list.length > 0) {
-      //   this.details = list[4].details;
-      // }
       $(".main").show();
     },
     updated: function() {},
     methods: {
       js: function() {
-        this.answer[0].learn = rv.Quebec[0].learn;
-        this.answer[0].specialty = rv.Quebec[0].specialty[0];
+        this.answer[0].learn = this.rv.Quebec[0].learn;
+        this.answer[0].specialty = this.rv.Quebec[0].specialty[0];
         if (this.answer.length > 1) {
-          this.answer[1].specialty = rv.Quebec[0].specialty[1];
+          this.answer[1].specialty = this.rv.Quebec[0].specialty[1];
         }
         doAjax(JSON.stringify(this.answer), this.resultSettle);
       },
@@ -159,17 +158,37 @@ function start(rv) {
         var _this = this;
         _this.answer = result.input;
         //
-        var tmp = [];
-        if (!result.Quebec.specialty || rv.Quebec.specialty.length == 0) {
-          result.Quebec.specialty = [
+        if (result.Quebec != undefined) {
+          var tmp = [];
+          if (!result.Quebec || !result.Quebec.specialty || result.Quebec.specialty.length == 0) {
+            result.Quebec.specialty = [
+              [],
+              []
+            ];
+          }
+          tmp.push(result.Quebec);
+          result.Quebec = tmp;
+        }
+        //
+
+        _this.rv = result;
+
+        result.recommend.forEach(function(c) {
+          if (c.specialty == undefined) c.specialty = [
             [],
             []
           ];
-        }
-        tmp.push(result.Quebec);
-        result.Quebec = tmp;
-        //
-        _this.rv = result;
+        });
+        result.promote.forEach(function(c) {
+          if (c.specialty == undefined) c.specialty = [
+            [],
+            []
+          ];
+        });
+
+        Vue.set(_this.rv, 'recommend', result.recommend);
+        Vue.set(_this.rv, 'promote', result.promote);
+        Vue.set(_this.rv, 'Quebec', result.Quebec || []);
       }
     }
   });
@@ -188,8 +207,8 @@ function start(rv) {
     methods: {
       sel_occup: function(e) {
         var name = $(e.target).text();
-        var index = rv.Quebec[0].index;
-        rv.Quebec[0].specialty[index].push(name);
+        var index = _app.$data.rv.Quebec[0].index || 0;
+        _app.$data.rv.Quebec[0].specialty[index].push(name);
         $(".modal-header .close").click();
       },
       search: function(e) {
@@ -210,7 +229,7 @@ function start(rv) {
 function zy() {
   //http://47.94.215.48/kukoo/markingOLController/getAllProfession
   $.ajax({
-    url: "/kukoo/markingOLController/getAllProfession",
+    url: BASEPATH + "markingOLController/getAllProfession",
     type: "get",
     dataType: "json",
     success: function(result) {
@@ -225,7 +244,7 @@ doAjax(JSON.stringify(answer));
 
 function doAjax(marking, cb) {
   $.ajax({
-    url: "/kukoo/markingOLController/addMarkingOL",
+    url: BASEPATH + "markingOLController/addMarkingOL",
     type: "POST",
     data: {
       marking: marking
