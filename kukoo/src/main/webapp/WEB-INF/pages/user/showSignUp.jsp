@@ -10,7 +10,7 @@
 <div class="container" id="regist">
 	    <div class="row" >
 	        <div class="col-md-offset-3 col-md-6">
-	            <form id="registForm" class="form-horizontal" action="/kukoo/user/signUp" method="post">
+	            <form id="registForm" class="form-horizontal" action="<%=basePath %>user/signUp" method="post">
 	            	<span class="heading">用户注册</span>
 	            		<div class="form-group" id="mobileDiv">
 	                		<label for="phone" class="col-sm-2 control-label">手机号:</label>

@@ -72,7 +72,7 @@
 							<!-- LOGO -->
 							<div class="logo-container-2">
 								<div class="logo-2">
-									<a href="/kukoo/homePage" class="clearfix"> <img
+									<a href="<%=basePath %>homePage" class="clearfix"> <img
 										src="<%=basePath%>elementy/images/logo.png" class="logo-img"
 										alt="Logo">
 									</a>
@@ -103,21 +103,21 @@
 									<nav class="collapse collapsing navbar-collapse right-1024">
 										<ul class="nav navbar-nav">
 											<!-- MENU ITEM -->
-											<li class="parent megamenu"><a href="/kukoo/homePage"
+											<li class="parent megamenu"><a href="<%=basePath %>homePage"
 												class=""><div class="main-menu-title">家</div></a></li>
 
 											<!-- MENU ITEM -->
 											<li class="parent megamenu"><a
-												href="/kukoo/homePage/list" class=""><div
+												href="<%=basePath %>homePage/list" class=""><div
 														class="main-menu-title">项目列表</div></a></li>
 
 											<!-- MENU ITEM -->
 											<li class="parent megamenu"><a
-												href="/kukoo/timeline" class=""><div
+												href="<%=basePath %>timeline" class=""><div
 														class="main-menu-title">时间轴</div></a></li>
 
 											<!-- MENU ITEM -->
-											<li class="parent megamenu"><a href="/kukoo/homePage/dati" class=""><div
+											<li class="parent megamenu"><a href="<%=basePath %>homePage/dati" class=""><div
 														class="main-menu-title">答题</div></a></li>
 										</ul>
 

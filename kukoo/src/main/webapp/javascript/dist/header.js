@@ -10,7 +10,7 @@
     '      <div class="logo-row">' +
     '        <div class="logo-container-2">' +
     '          <div class="logo-2">' +
-    '            <a href="/kukoo/homePage" class="clearfix">' +
+    '            <a href="'+BASEPATH+'homePage" class="clearfix">' +
     '              <img :src="logoPath" class="logo-img" alt="Logo"></a>' +
     '            </div>' +
     '          </div>' +
@@ -28,22 +28,22 @@
     '              <nav class="collapse collapsing navbar-collapse right-1024">' +
     '                <ul class="nav navbar-nav">' +
     '                  <li class="parent megamenu">' +
-    '                    <a href="/kukoo/homePage" class="">' +
+    '                    <a href="'+BASEPATH+'homePage" class="">' +
     '                      <div class="main-menu-title">首页</div>' +
     '                    </a>' +
     '                  </li>' +
     '                  <li class="parent megamenu">' +
-    '                    <a href="/kukoo/list/lists" class="">' +
+    '                    <a href="'+BASEPATH+'list/lists" class="">' +
     '                      <div class="main-menu-title">移民项目</div>' +
     '                    </a>' +
     '                  </li>' +
     '                  <li class="parent megamenu">' +
-    '                    <a href="/kukoo/list/cases" class="">' +
+    '                    <a href="'+BASEPATH+'list/cases" class="">' +
     '                      <div class="main-menu-title">移友足迹</div>' +
     '                    </a>' +
     '                  </li>' +
     '                  <li class="parent megamenu">' +
-    '                    <a href="/kukoo/markingOLController/showMarkingOL" class="">' +
+    '                    <a href="'+BASEPATH+'markingOLController/showMarkingOL" class="">' +
     '                      <div class="main-menu-title">在线评估</div>' +
     '                    </a>' +
     '                  </li>' +
@@ -61,7 +61,7 @@
     '        </li>' +
     '      </ul>' +
     '      <div id="cd-search" class="cd-search" style="background-color: #FFF;z-index: 99;">' +
-    '        <form class="form-search" id="searchForm" action="/kukoo/list/lists" method="post">' +
+    '        <form class="form-search" id="searchForm" action="'+BASEPATH+'list/lists" method="post">' +
     '          <input type="text" value="" name="search" id="search" placeholder="国家名/项目名...">' +
     '        </form>' +
     '      </div>' +

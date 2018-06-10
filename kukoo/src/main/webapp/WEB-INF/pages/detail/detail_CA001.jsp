@@ -30,7 +30,7 @@
               <pg-head-banner
                 id="ban1"
                 text="加拿大联邦技术移民"
-                purl="/kukoo/list/lists"
+                purl="<%=basePath %>list/lists"
                 pname="移民项目"
                 isdetail="1"
                 url="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/become-candidate/eligibility/federal-skilled-workers.html"></pg-head-banner>

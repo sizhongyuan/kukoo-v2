@@ -27,7 +27,7 @@
               <pg-header class="pg-header" id="nav"></pg-header>
 
               <!-- PAGE TITLE LARGE 2 GRAY -->
-              <pg-head-banner id="ban1" text="新不伦瑞克省技术移民" purl="/kukoo/list/lists" pname="移民项目" isdetail="1" url="http://www.welcomenb.ca/content/wel-bien/en/immigrating/content/HowToImmigrate/NBProvincialNomineeProgramNEW/ExpressEntry.html"></pg-head-banner>
+              <pg-head-banner id="ban1" text="新不伦瑞克省技术移民" purl="<%=basePath %>list/lists" pname="移民项目" isdetail="1" url="http://www.welcomenb.ca/content/wel-bien/en/immigrating/content/HowToImmigrate/NBProvincialNomineeProgramNEW/ExpressEntry.html"></pg-head-banner>
 
               <div class="tabs-4 tabs-4-c">
                 <div class="col-sm-8 bg-white pl-0 pt-20">

@@ -27,7 +27,7 @@
               <pg-header class="pg-header" id="nav"></pg-header>
 
               <!-- PAGE TITLE LARGE 2 GRAY -->
-              <pg-head-banner id="ban1" text="澳大利亚189独立技术移民" purl="/kukoo/list/lists" pname="移民项目" isdetail="1" url="https://www.homeaffairs.gov.au/trav/visa-1/189-"></pg-head-banner>
+              <pg-head-banner id="ban1" text="澳大利亚189独立技术移民" purl="<%=basePath %>list/lists" pname="移民项目" isdetail="1" url="https://www.homeaffairs.gov.au/trav/visa-1/189-"></pg-head-banner>
 
               <div class="tabs-4 tabs-4-c">
                 <div class="col-sm-8 bg-white pl-0 pt-20">

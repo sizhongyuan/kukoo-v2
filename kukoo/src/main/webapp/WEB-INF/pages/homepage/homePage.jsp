@@ -144,8 +144,8 @@
 														data-responsive_offset="on"
 														data-responsive="off"
 														style="z-index: 8; white-space: nowrap;outline:none;">
-														<a class="tp-button1 button medium full-rounded hover-dark white" href="/kukoo/list/lists">GO!</a>
-														<a class="tp-button1 button medium full-rounded thin white ml-20" href="/kukoo/markingOLController/showMarkingOL">在线评估</a>
+														<a class="tp-button1 button medium full-rounded hover-dark white" href="<%=basePath %>list/lists">GO!</a>
+														<a class="tp-button1 button medium full-rounded thin white ml-20" href="<%=basePath %>markingOLController/showMarkingOL">在线评估</a>
 													</div>
 
 												</li>
