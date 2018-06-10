@@ -5,7 +5,17 @@ var TRAINING = window.TRAINING;
 
 var top1 = $(".tabs-4-c").offset().top;
 
-$('.tabs-4-c').css("padding-left", ($(window).width() - $('.container').width()) / 2);
+function pageInitStyle() {
+  $('.tabs-4-c').css("padding-left", ($(window).width() - $('.container').width()) / 2);
+  $(".tabs-4-1").css("width", $('.container .col-sm-8').width());
+  $(".tabs-4-2").css("width", $(window).width() - $('.tabs-4-1').offset().left - $('.tabs-4-1').width() - 80);
+
+  $(window).resize(function() {
+    $('.tabs-4-c').css("padding-left", ($(window).width() - $('.container').width()) / 2);
+    $(".tabs-4-2").css("width", $(window).width() - $('.tabs-4-1').offset().left - $('.tabs-4-1').width() - 80);
+  });
+}
+
 
 $(window).scroll(function() {
   var win_top = $(this).scrollTop();
@@ -248,6 +258,7 @@ _app = new Vue({
     $(".bootstrap-tabs").on("click", function() {
       $(window).scrollTop(0);
     });
+    pageInitStyle();
   },
   methods: {},
   watch: {},

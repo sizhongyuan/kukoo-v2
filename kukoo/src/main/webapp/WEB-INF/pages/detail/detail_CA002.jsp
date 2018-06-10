@@ -30,7 +30,7 @@
               <pg-head-banner id="ban1" text="魁北克省技术移民" purl="<%=basePath %>list/lists" pname="移民项目" isdetail="1" url="http://www.immigration-quebec.gouv.qc.ca/en/immigrate-settle/permanent-workers/index.html"></pg-head-banner>
 
               <div class="tabs-4 tabs-4-c">
-                <div class="col-sm-8 bg-white pl-0 pt-20">
+                <div class="col-sm-8 bg-white pl-0 pt-20 tabs-4-1">
                   <ul class="nav nav-tabs bootstrap-tabs">
                     <li class="active">
                       <a href="#Policy" class="a-inv font-微软雅黑" data-toggle="tab">政策解读</a>
@@ -49,7 +49,7 @@
                     </li>
                   </ul>
                 </div>
-                <div class="col-sm-4 bg-white pt-20"></div>
+                <div class="col-sm-4 bg-white pt-20 pl-0 pr-0 tabs-4-2"></div>
               </div>
 
               <!-- COTENT CONTAINER -->
@@ -83,7 +83,8 @@
                               <li>
                                 <h3 class="ui-accordion-header">
                                   <span class="link"></span>
-                                  <b>魁北克受训列表&nbsp;&nbsp;(2017年3月8日更新) </b>
+                                  <b>魁北克受训列表&nbsp;&nbsp;(2017年3月8日更新)
+                                  </b>
                                   <div class="clear"></div>
                                 </h3>
                                 <div class="panel training">
@@ -304,7 +305,7 @@
                                               <h5 class="font-微软雅黑">8.&nbsp 体检</h5>
                                               <ul class="icon-list mb-10 font-微软雅黑">
                                                 <li>
-                                                  <i class="fa fa-angle-right"></i>申请人获得移民申请ITA邀请后，可以到官方指定体检医院进行体检，并取得体检回执；</li>
+                                                  <i class="fa fa-angle-right"></i>接到体检通知后，可以到官方指定体检医院进行体检；</li>
                                               </ul>
 
                                               <h5 class="font-微软雅黑">9.&nbsp 获得移民签证</h5>
@@ -326,10 +327,14 @@
                                               </p>
                                             </div>
                                             <div class="tab-pane fade font-微软雅黑 font-12" id="documents">
-                                              <p>
-                                                <detail-doc :ds="doc.kui_1"></detail-doc>
-                                                <detail-doc :ds="doc.kui_2"></detail-doc>
-                                              </p>
+                                              <h5 class="font-微软雅黑">
+                                                <strong>CSQ阶段材料</strong>
+                                              </h5>
+                                              <detail-doc class="pt-0" :ds="doc.kui_1"></detail-doc>
+                                              <h5 class="font-微软雅黑">
+                                                <strong>联邦阶段材料</strong>
+                                              </h5>
+                                              <detail-doc class="pt-0" :ds="doc.kui_2"></detail-doc>
                                             </div>
 
                                           </div>
@@ -376,11 +381,12 @@
                                             <li>
                                               <div class="col-sm-5">处理周期</div>
                                               <div class="col-sm-7">
-                                                8个月左右
+                                                36个月左右
                                               </div>
                                             </li>
 
-                                            <a class="button small hover-thin blue" href="#">在线评估</a>
+
+                                            <a class="button small hover-thin blue" href="<%=basePath %>markingOLController/showMarkingOL" target="_blank">在线评估</a>
 
                                           </ul>
 

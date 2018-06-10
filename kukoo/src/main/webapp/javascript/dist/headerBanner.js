@@ -27,7 +27,14 @@
     props: ['text', 'isdetail', 'url', 'purl', "pname"],
     template: '#pg-head-banner-template',
     data: function() {
-      return {};
+      //this.purl = BASEPATH + this.purl;
+      return {
+        "text": this.text,
+        "isdetail": this.isdetail,
+        "url": this.url,
+        "pname": this.pname,
+        "purl": this.purl
+      };
     },
     mounted: function() {},
     methods: {},

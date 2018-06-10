@@ -202,11 +202,12 @@ var list = [{
       ]
     ]
   }, {
-    subtitle: "5.2 请预估您及您伴侣(如有)的法语水平",
+    subtitle: "5.2 请预估您及您伴侣(如有)的法语水平 (选填)",
     oneline: true,
-    default0: "请选择",
-    default1: "您",
-    default2: "您的伴侣",
+    default0: "请选择 (选填)",
+    default1: "您 (选填)",
+    default2: "您的伴侣 (选填)",
+    dtype: "no",
     value: [
       ["-1", "-1"],
       ["-1", "-1"],
@@ -251,7 +252,7 @@ _app = new Vue({
     var _this = this;
     $(".btns span").on("click", function() {
       $.ajax({
-        url: BASEPATH+"markingOLController/addMarkingOL",
+        url: BASEPATH + "markingOLController/addMarkingOL",
         type: "POST",
         data: {
           marking: _this.val()
@@ -259,7 +260,7 @@ _app = new Vue({
         dataType: "json",
         success: function(result) {
           if (true) {
-            window.location.href = BASEPATH+"markingOLController/resultOL";
+            window.location.href = BASEPATH + "markingOLController/resultOL";
           }
         }
       });
@@ -282,6 +283,7 @@ _app = new Vue({
           $("#dialog_btn").trigger("click");
         }
       });
+      $(".__tips_c").hide();
     },
     change: function(e) {
       if ($(e.target).attr("q") == "情感状况") {
@@ -423,24 +425,10 @@ _app2 = new Vue({
 
     var _this = this;
     $(".btns span").on("click", function() {
-      // $.ajax({
-      //   url: "/kukoo/markingOLController/addMarkingOL",
-      //   type: "POST",
-      //   data: {
-      //     marking: _this.val()
-      //   },
-      //   dataType: "json",
-      //   success: function(result) {
-      //     if (true) {
-      //       window.location.href = "/kukoo/markingOLController/resultOL";
-      //     }
-      //   }
-      // });
-
       localStorage.setItem("__list", JSON.stringify(list));
       localStorage.setItem("__answer", JSON.stringify(_app.val()));
       setTimeout(function() {
-        window.location.href = BASEPATH+"markingOLController/resultOL";
+        window.location.href = BASEPATH +"markingOLController/resultOL";
       }, 500)
     });
   },

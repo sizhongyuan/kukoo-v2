@@ -30,7 +30,7 @@
               <pg-head-banner id="ban1" text="澳大利亚190州担保技术移民" purl="<%=basePath %>list/lists" pname="移民项目" isdetail="1" url="https://www.homeaffairs.gov.au/trav/visa-1/190-"></pg-head-banner>
 
               <div class="tabs-4 tabs-4-c">
-                <div class="col-sm-8 bg-white pl-0 pt-20">
+                <div class="col-sm-8 bg-white pl-0 pt-20 tabs-4-1">
                   <ul class="nav nav-tabs bootstrap-tabs">
                     <li class="active">
                       <a href="#Policy" class="a-inv font-微软雅黑" data-toggle="tab">政策解读</a>
@@ -49,7 +49,7 @@
                     </li>
                   </ul>
                 </div>
-                <div class="col-sm-4 bg-white pt-20"></div>
+                <div class="col-sm-4 bg-white pt-20 pl-0 pr-0 tabs-4-2"></div>
               </div>
 
               <!-- COTENT CONTAINER -->
@@ -200,9 +200,9 @@
                                 <h5 class="font-微软雅黑">1.&nbsp 评估移民条件</h5>
                                 <ul class="icon-list mb-10 font-微软雅黑">
                                   <li>
-                                    <i class="fa fa-angle-right"></i>申请者应首先确认满足189签证评分标准；</li>
+                                    <i class="fa fa-angle-right"></i>申请者应首先确认满足190签证评分标准；</li>
                                   <li>
-                                    <i class="fa fa-angle-right"></i>确认符合澳洲189类独立技术移民其他基本条件。</li>
+                                    <i class="fa fa-angle-right"></i>确认符合澳洲190类独立技术移民其他基本条件。</li>
                                 </ul>
                                 <div class="post-prev-info font-12">
                                   <ul class="icon-list mb-10 font-微软雅黑">
@@ -327,11 +327,12 @@
                                 <li>
                                   <div class="col-sm-5">处理周期</div>
                                   <div class="col-sm-7">
-                                    8个月左右
+                                    12个月左右
                                   </div>
                                 </li>
 
-                                <a class="button small hover-thin blue" href="#">在线评估</a>
+
+                                <a class="button small hover-thin blue" href="<%=basePath %>markingOLController/showMarkingOL" target="_blank">在线评估</a>
 
                               </ul>
 

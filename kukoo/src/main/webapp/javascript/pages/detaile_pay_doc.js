@@ -1066,13 +1066,27 @@ var DOCLIST = {
       "如适用"
     ],
     [
-      "国内外无犯罪公证扫描件",
+      "国内无犯罪公证扫描件",
       "去户籍所在地管辖派出所办理无犯罪证明然后公证（有有效期，可以等其他材料办好之后再去开具）", -1, -1,
       "如适用"
     ],
     [
       "国外无犯罪证明扫描件",
       "任何16周岁后并且10年内累计居住超过1年的国家都需要提供无犯罪证明", -1, -1,
+      "如适用"
+    ],
+    [
+      "曾用名公证",
+      "检查户口本确认是否显示曾用名，有的话拿着户口本去做曾用名公证",
+      "如适用",
+      "如适用",
+      "如适用"
+    ],
+    [
+      "学习证明相关文件",
+      "已满18周岁子女，需要提供学习证明，并填写47A表",
+      null,
+      null,
       "如适用"
     ]
   ],
@@ -1161,7 +1175,7 @@ var DOCLIST = {
       "如适用"
     ],
     [
-      "国内外无犯罪公证扫描件",
+      "国内无犯罪公证扫描件",
       "去户籍所在地管辖派出所办理无犯罪证明然后公证（有有效期，可以等其他材料办好之后再去开具）", -1, -1,
       "如适用"
     ],
@@ -1235,16 +1249,6 @@ var DURATION = {
       "联邦处理周期",
       "6个月左右",
       "自递交联邦移民签证申请材料开始计算"
-    ],
-    [
-      "官方费用",
-      "移民登陆费",
-      "加拿大联邦移民局"
-    ],
-    [
-      "第三方费用",
-      "移民体检费",
-      "指定体检医院"
     ]
   ],
   "an": [
@@ -1436,7 +1440,7 @@ var DURATION = {
 $(document.body).append(
   '<script type="text/x-template" id="detail-pay-template">' +
   '<ul class="table-ul">' +
-  '  <li :class="item[6]" v-for="(item,index) in ds">' +
+  '  <li :class="{' + "'table-title'" + ':index==0,' + "'bg-gray'" + ':index%2==0&&index!=0}" v-for="(item,index) in ds">' +
   '    <div class="col-sm-1">{{item[0]}}</div>' +
   '    <div class="col-sm-2 pl-5">{{item[1]}}</div>' +
   '    <div class="col-sm-2">{{item[2]}}</div>' +
@@ -1450,12 +1454,12 @@ $(document.body).append(
 $(document.body).append(
   '<script type="text/x-template" id="detail-doc-template">' +
   '<ul class="table-ul">' +
-  '  <li :class="item[item.length-1]" v-for="(item,index) in ds">' +
+  '  <li :class="{' + "'table-title'" + ':index==0,' + "'bg-gray'" + ':index%2==0&&index!=0}" v-for="(item,index) in ds">' +
   '    <div class="col-sm-3">{{item[0]}}</div>' +
   '    <div class="col-sm-6 pr-30" v-html="item[1]"></div>' +
-  '    <div class="col-sm-1 text-center"><span v-if="index==0">{{item[2]}}</span><i v-if="item[2]==-1" class="fa fa-check-square-o"></i></div>' +
-  '    <div class="col-sm-1 text-center"><span v-if="index==0">{{item[3]}}</span><i v-if="item[3]==-1" class="fa fa-check-square-o"></i></div>' +
-  '    <div class="col-sm-1 text-center"><span v-if="index==0">{{item[4]}}</span><i v-if="item[4]==-1" class="fa fa-check-square-o"></i></div>' +
+  '    <div class="col-sm-1 text-center"><span v-if="index==0">{{item[2]}}</span><i v-if="item[2]==-1" class="fa fa-check-square-o"></i> <span v-if="index!=0&&isNaN(item[2])">{{item[2]}}</span></div>' +
+  '    <div class="col-sm-1 text-center"><span v-if="index==0">{{item[3]}}</span><i v-if="item[3]==-1" class="fa fa-check-square-o"></i> <span v-if="index!=0&&isNaN(item[3])">{{item[3]}}</span></div>' +
+  '    <div class="col-sm-1 text-center"><span v-if="index==0">{{item[4]}}</span><i v-if="item[4]==-1" class="fa fa-check-square-o"></i> <span v-if="index!=0&&isNaN(item[4])">{{item[4]}}</span></div>' +
   '  </li>' +
   '</ul>' +
   '</script>');
@@ -1463,7 +1467,7 @@ $(document.body).append(
 $(document.body).append(
   '<script type="text/x-template" id="detail-dura-template">' +
   '<ul class="table-ul">' +
-  '  <li :class="item[3]" v-for="(item,index) in ds">' +
+  '  <li :class="{' + "'table-title'" + ':index==0,' + "'bg-gray'" + ':index%2==0&&index!=0}" v-for="(item,index) in ds">' +
   '    <div class="col-sm-3">{{item[0]}}</div>' +
   '    <div class="col-sm-3">{{item[1]}}</div>' +
   '    <div class="col-sm-6">{{item[2]}}</div>' +
@@ -1490,7 +1494,7 @@ Vue.component('detail-pay', {
   props: ["ds"],
   template: '#detail-pay-template',
   data: function() {
-    _class(this.ds, 6);
+    //_class(this.ds, 6);
     return {
       "ds": this.ds || []
     };
@@ -1503,7 +1507,7 @@ Vue.component('detail-doc', {
   props: ["ds"],
   template: '#detail-doc-template',
   data: function() {
-    _class(this.ds);
+    //_class(this.ds);
     return {
       "ds": this.ds || []
     };
@@ -1516,7 +1520,7 @@ Vue.component('detail-dura', {
   props: ["ds"],
   template: '#detail-dura-template',
   data: function() {
-    _class(this.ds, 3);
+    //_class(this.ds, 3);
     return {
       "ds": this.ds || []
     };

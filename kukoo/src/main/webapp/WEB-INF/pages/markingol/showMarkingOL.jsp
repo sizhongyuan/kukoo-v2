@@ -48,7 +48,7 @@
 
 													<div class="select-style" :class="{'oneline':qa.oneline}">
 														<%-- <select class="w-100" :class="{'color0':qa.oneline,'color1':!qa.oneline,'color3':item.question=='外语水平'}" :q="item.question" v-model="qa.value[index][0]" @change="change"> --%>
-															<select class="w-100 color0" :q="item.question" v-model="qa.value[index][0]" @change="change" dtype="*">
+															<select class="w-100 color0" :q="item.question" v-model="qa.value[index][0]" @change="change" :dtype="qa.dtype=='no'?'':'*'">
 																<option value="-1">{{qa.oneline?qa.default0:qa.default1}}</option>
 																<option v-for="op in qa.a[index]" :value="op">{{op}}</option>
 															</select>
@@ -56,7 +56,7 @@
 
 														<div class="select-style" v-if="!qa.oneline">
 															<%-- <select class="w-100 color0" :class="{'color0':qa.oneline,'color2':!qa.oneline,'color3':item.question=='外语水平'}" v-model="qa.value[index][1]"> --%>
-																<select class="w-100 color0" v-model="qa.value[index][1]" dtype="*">
+																<select class="w-100 color0" v-model="qa.value[index][1]" :dtype="qa.dtype=='no'?'':'*'">
 																	<option value="-1">{{qa.default2}}</option>
 																	<option v-for="op in qa.a[index]" :value="op">{{op}}</option>
 																</select>

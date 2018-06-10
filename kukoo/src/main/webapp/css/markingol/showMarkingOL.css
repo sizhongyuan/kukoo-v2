@@ -175,7 +175,7 @@ select {
 }
 
 i, cite, em, var, address, dfn {
-  font-style: italic;
+  /* font-style: italic; */
 }
 
 .option_item .option_text {

@@ -10,13 +10,13 @@
     '      <div class="logo-row">' +
     '        <div class="logo-container-2">' +
     '          <div class="logo-2">' +
-    '            <a href="'+BASEPATH+'homePage" class="clearfix">' +
+    '            <a href="' + BASEPATH + "homePage" + '" class="clearfix">' +
     '              <img :src="logoPath" class="logo-img" alt="Logo"></a>' +
     '            </div>' +
     '          </div>' +
     '          <div class="menu-btn-respons-container">' +
     '            <button id="menu-btn" type="button" class="navbar-toggle btn-navbar collapsed" data-toggle="collapse" data-target="#main-menu .navbar-collapse">' +
-    '              <span aria-hidden="true" class="icon_menu hamb-mob-icon"></span>' +
+    '              <span aria-hidden="true" class="icon_menu hamb-mob-icon" style="font-family:ElegantIcons !important"></span>' +
     '            </button>' +
     '          </div>' +
     '        </div>' +
@@ -74,10 +74,12 @@
     template: '#pg-header-template',
     data: function() {
       return {
-        "logoPath": this.homepage ? BASEPATH + "elementy/images/logo-white.svg" : BASEPATH + "elementy/images/logo.svg"
+        "logoPath": this.homepage ? BASEPATH + "elementy/png/logo-white.png" : BASEPATH + "elementy/png/logo-black.png"
       };
     },
-    mounted: function() {},
+    mounted: function() {
+      //$(".hamb-mob-icon").css("font-family", "ElegantIcons !important");
+    },
     methods: {},
     watch: {}
   });
@@ -85,6 +87,8 @@
   new Vue({
     "el": '.pg-header',
   });
+
+
 
 
 })(window)

@@ -30,7 +30,7 @@
               <pg-head-banner id="ban1" text="新不伦瑞克省技术移民" purl="<%=basePath %>list/lists" pname="移民项目" isdetail="1" url="http://www.welcomenb.ca/content/wel-bien/en/immigrating/content/HowToImmigrate/NBProvincialNomineeProgramNEW/ExpressEntry.html"></pg-head-banner>
 
               <div class="tabs-4 tabs-4-c">
-                <div class="col-sm-8 bg-white pl-0 pt-20">
+                <div class="col-sm-8 bg-white pl-0 pt-20 tabs-4-1">
                   <ul class="nav nav-tabs bootstrap-tabs">
                     <li class="active">
                       <a href="#Policy" class="a-inv font-微软雅黑" data-toggle="tab">政策解读</a>
@@ -49,7 +49,7 @@
                     </li>
                   </ul>
                 </div>
-                <div class="col-sm-4 bg-white pt-20"></div>
+                <div class="col-sm-4 bg-white pt-20 pl-0 pr-0 tabs-4-2"></div>
               </div>
 
               <!-- COTENT CONTAINER -->
@@ -425,11 +425,11 @@
                                             <li>
                                               <div class="col-sm-5">处理周期</div>
                                               <div class="col-sm-7">
-                                                8个月左右
+                                                12个月左右
                                               </div>
                                             </li>
 
-                                            <a class="button small hover-thin blue" href="#">在线评估</a>
+                                            <a class="button small hover-thin blue" href="<%=basePath %>markingOLController/showMarkingOL" target="_blank">在线评估</a>
 
                                           </ul>
 
