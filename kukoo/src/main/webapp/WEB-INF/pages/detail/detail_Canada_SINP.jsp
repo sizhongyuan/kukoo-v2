@@ -111,7 +111,7 @@
 							<!-- LOGO -->
 							<div class="logo-container-2">
 								<div class="logo-2">
-									<a href="/kukoo/homePage" class="clearfix"> <img
+									<a href="<%=basePath %>homePage" class="clearfix"> <img
 										src="<%=basePath%>elementy/images/logo.svg" class="logo-img"
 										alt="Logo">
 									</a>
@@ -142,20 +142,20 @@
 									<nav class="collapse collapsing navbar-collapse right-1024">
 										<ul class="nav navbar-nav">
 											<!-- MENU ITEM -->
-											<li class="parent megamenu"><a href="/kukoo/homePage"
+											<li class="parent megamenu"><a href="<%=basePath %>homePage"
 												class=""><div class="main-menu-title">首页</div></a></li>
 
 											<!-- MENU ITEM -->
-											<li class="parent megamenu"><a href="/kukoo/list/lists"
+											<li class="parent megamenu"><a href="<%=basePath %>list/lists"
 												class=""><div class="main-menu-title">项目列表</div></a></li>
 
 											<!-- MENU ITEM -->
-											<li class="parent megamenu"><a href="/kukoo/timeline"
+											<li class="parent megamenu"><a href="<%=basePath %>timeline"
 												class=""><div class="main-menu-title">申报移民流程</div></a></li>
 
 											<!-- MENU ITEM -->
 											<li class="parent megamenu"><a
-												href="/kukoo/markingOLController/showMarkingOL" class=""><div
+												href="<%=basePath %>markingOLController/showMarkingOL" class=""><div
 														class="main-menu-title">答题</div></a></li>
 										</ul>
 

@@ -10,6 +10,9 @@
 									String path = request.getContextPath();
 									String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 									String servicePath=request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+"/";
+									if("www.kukoovisa.com".equals(request.getServerName())){
+										basePath = request.getScheme()+"://"+request.getServerName()+"/";
+									}
 									String myToken  =(String)  request.getSession().getAttribute("sessionToken");
 								%>
 								<meta charset="utf-8">
