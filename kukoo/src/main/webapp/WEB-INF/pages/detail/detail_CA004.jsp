@@ -30,7 +30,7 @@
               <pg-head-banner
                 id="ban1"
                 text="萨省技术移民"
-                purl="/kukoo/list/lists"
+                purl="<%=basePath %>list/lists"
                 pname="移民项目"
                 isdetail="1"
                 url="http://www.saskatchewan.ca/residents/moving-to-saskatchewan/immigrating-to-saskatchewan/saskatchewan-immigrant-nominee-program/applicants-international-skilled-workers"></pg-head-banner>

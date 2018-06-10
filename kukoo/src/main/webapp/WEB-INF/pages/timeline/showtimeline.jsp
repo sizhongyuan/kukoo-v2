@@ -66,7 +66,7 @@
 										<!-- LOGO -->
 										<div class="logo-container-2">
 											<div class="logo-2">
-												<a href="/kukoo/homePage" class="clearfix">
+												<a href="<%=basePath %>homePage" class="clearfix">
 													<img src="<%=basePath%>elementy/images/logo.svg" class="logo-img" alt="Logo"></a>
 												</div>
 											</div>
@@ -93,35 +93,35 @@
 														<ul class="nav navbar-nav">
 															<!-- MENU ITEM -->
 															<li class="parent megamenu">
-																<a href="/kukoo/homePage" class="">
+																<a href="<%=basePath %>homePage" class="">
 																	<div class="main-menu-title">首页</div>
 																</a>
 															</li>
 
 															<!-- MENU ITEM -->
 															<li class="parent megamenu">
-																<a href="/kukoo/list/lists" class="">
+																<a href="<%=basePath %>list/lists" class="">
 																	<div class="main-menu-title">项目列表</div>
 																</a>
 															</li>
 
 															<!-- MENU ITEM -->
 															<li class="parent megamenu">
-																<a href="/kukoo/list/cases" class="">
+																<a href="<%=basePath %>list/cases" class="">
 																	<div class="main-menu-title">案例列表</div>
 																</a>
 															</li>
 
 															<!-- MENU ITEM -->
 															<li class="parent megamenu">
-																<a href="/kukoo/timeline" class="">
+																<a href="<%=basePath %>timeline" class="">
 																	<div class="main-menu-title">申报移民流程</div>
 																</a>
 															</li>
 
 															<!-- MENU ITEM -->
 															<li class="parent megamenu">
-																<a href="/kukoo/markingOLController/showMarkingOL" class="">
+																<a href="<%=basePath %>markingOLController/showMarkingOL" class="">
 																	<div class="main-menu-title">答题</div>
 																</a>
 															</li>

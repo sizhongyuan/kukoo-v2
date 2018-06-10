@@ -210,7 +210,7 @@ function start(rv) {
 function zy() {
   //http://47.94.215.48/kukoo/markingOLController/getAllProfession
   $.ajax({
-    url: "/kukoo/markingOLController/getAllProfession",
+    url: BASEPATH+"markingOLController/getAllProfession",
     type: "get",
     dataType: "json",
     success: function(result) {
@@ -225,7 +225,7 @@ doAjax(JSON.stringify(answer));
 
 function doAjax(marking, cb) {
   $.ajax({
-    url: "/kukoo/markingOLController/addMarkingOL",
+    url: BASEPATH+"markingOLController/addMarkingOL",
     type: "POST",
     data: {
       marking: marking

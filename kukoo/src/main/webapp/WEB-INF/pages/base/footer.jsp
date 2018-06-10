@@ -68,7 +68,7 @@
 
 				<!-- Copyright -->
 				<div class="left">
-					<a class="footer2-copy" href="http://47.94.215.48:8080/kukoo/homePage" target="_blank">&copy; KUKOO</a>
+					<a class="footer2-copy" href="<%=basePath %>homePage" target="_blank">&copy; KUKOO</a>
 				</div>
 
 			</div>

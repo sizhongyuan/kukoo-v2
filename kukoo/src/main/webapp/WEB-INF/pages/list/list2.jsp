@@ -196,7 +196,7 @@ $(function() {
 									    <div class="panel-body">
 									        <div class="row">
 												<div class="col-xs-12">
-													<a href="/kukoo/detail/showDetail/" class="thumbnail">
+													<a href="<%=basePath %>detail/showDetail/" class="thumbnail">
 											            <img src="<%=basePath %>img/homepage/homePage.jpeg"
 											                 alt="通用的占位符缩略图">
 											        </a>
@@ -229,7 +229,7 @@ $(function() {
 									    <div class="panel-body">
 									        <div class="row">
 												<div class="col-xs-12">
-													<a href="/kukoo/detail/showDetail/" class="thumbnail">
+													<a href="<%=basePath %>detail/showDetail/" class="thumbnail">
 											            <img src="<%=basePath %>img/homepage/homePage.jpeg"
 											                 alt="通用的占位符缩略图">
 											        </a>

@@ -251,7 +251,7 @@ _app = new Vue({
     var _this = this;
     $(".btns span").on("click", function() {
       $.ajax({
-        url: "/kukoo/markingOLController/addMarkingOL",
+        url: BASEPATH+"markingOLController/addMarkingOL",
         type: "POST",
         data: {
           marking: _this.val()
@@ -259,7 +259,7 @@ _app = new Vue({
         dataType: "json",
         success: function(result) {
           if (true) {
-            window.location.href = "/kukoo/markingOLController/resultOL";
+            window.location.href = BASEPATH+"markingOLController/resultOL";
           }
         }
       });
@@ -440,7 +440,7 @@ _app2 = new Vue({
       localStorage.setItem("__list", JSON.stringify(list));
       localStorage.setItem("__answer", JSON.stringify(_app.val()));
       setTimeout(function() {
-        window.location.href = "/kukoo/markingOLController/resultOL";
+        window.location.href = BASEPATH+"markingOLController/resultOL";
       }, 500)
     });
   },
