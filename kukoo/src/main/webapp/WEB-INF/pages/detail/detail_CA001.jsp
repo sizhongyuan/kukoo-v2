@@ -384,7 +384,7 @@
                               </ul>
 
                               <div class="alert alert-info mb=50">
-                                <span aria-hidden="true" class="alert-icon icon_info_alt"></span>
+                                <span aria-hidden="true" class="alert-icon icon_info_alt" style="font-family: ElegantIcons !important;"></span>
                                 <strong>提醒!</strong>
                                 根据CRS评分规则，获得省提名可直接增加600分，进而快速获得移民申请ITA邀请。因此，对于CRS评分较低的申请人，若语言短期内难以继续提高，布谷建议同时申请省提名项目以获得更高的成功率。
                               </div>

@@ -134,6 +134,9 @@ function start(rv) {
     },
     updated: function() {},
     methods: {
+      del_zy: function(i, ii) {
+        this.rv.Quebec[0].specialty[i].splice(ii, 1);
+      },
       js: function() {
         this.answer[0].learn = this.rv.Quebec[0].learn;
         this.answer[0].specialty = this.rv.Quebec[0].specialty[0];

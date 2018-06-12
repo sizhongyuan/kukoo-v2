@@ -531,7 +531,7 @@ i, cite, em, var, address, dfn {
 
 .btns {
   text-align: right;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
 }
 
 .btns span {
@@ -541,4 +541,191 @@ i, cite, em, var, address, dfn {
 .clear {
   float: none;
   clear: both;
+}
+
+/* /////////////时间段选择控件/////////////////// */
+
+.timeline {
+  padding-top: 26px;
+  height: auto;
+  position: initial;
+  padding: 0px 90px 20px 90px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.timeline .mask {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: #000;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0.2;
+  z-index: 100;
+}
+
+.timeline ul {
+  display: inline-block;
+  width: 100%;
+}
+
+.timeline .ti {
+  position: absolute;
+  width: 46px;
+  height: 46px;
+  background-color: #666;
+  z-index: 2;
+  color: #fff;
+  line-height: 46px;
+  text-align: center;
+  border-radius: 50px;
+  left: 5px;
+  top: 0px;
+}
+
+.timeline .ti2 {
+  line-height: 15px;
+  /* margin-top: 7px; */
+  padding-top: 8px;
+}
+
+.ul-ed {}
+
+.ul-ed li {
+  height: 26px;
+  line-height: 26px;
+}
+
+.ul-ed li div {
+  height: 100%;
+}
+
+.ul-ed li:hover {
+  background-color: #efefef;
+}
+
+.ul-ed .todo {
+  /*text-decoration: underline;*/
+  border-bottom: solid 1px #999;
+  cursor: pointer;
+}
+
+.glyphicon {
+  cursor: pointer;
+  font-family: Glyphicons Halflings !important;
+  margin-left: 10px;
+  margin-top: 7px;
+}
+
+* {
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+}
+
+.tsp {
+  width: 480px;
+  position: absolute;
+  z-index: 200;
+  background-color: #fff;
+  box-shadow: 4px 6px 12px 3px #888686;
+}
+
+.year, .month1 {
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  background-color: #ececec;
+  font-weight: bold;
+}
+
+.year .on, .month1 .on {
+  color: #fff;
+  background-color: #eaeaea !important;
+  box-shadow: inset 0px 0px 14px #888;
+}
+
+.year .off, .month1 .off {
+  color: #ccc;
+  cursor: default;
+}
+
+.year .off:hover, .month1 .off:hover {
+  color: #ccc;
+  cursor: default;
+  background-color: #fefefe !important;
+}
+
+.year .col-md-3 {
+  width: 20%;
+  max-width: 20%;
+  flex: 0 0 20%;
+}
+
+.year .d11, .year .col-md-10 div, .year .col-md-10 div, .year .col-md-11 div, .month1 .col-md-11 div {
+  background-color: #fefefe;
+  height: 30px;
+  line-height: 30px;
+  border: solid 1px #ddd;
+  cursor: pointer;
+}
+
+.year .d11 {
+  height: 60px !important;
+  line-height: 60px !important;
+  padding: 0;
+  text-align: center;
+  border-left: 0 !important;
+}
+
+.year .d11:hover, .year .col-md-10 div:hover, .year .col-md-10 div:hover, .year .col-md-11 div:hover, .month1 .col-md-11 div:hover {
+  background-color: #eee;
+}
+
+.tsp .btns {
+  margin-bottom: 0;
+}
+
+.tsp .btns .on {
+  background-color: #dcdcdc;
+  box-shadow: inset 0px 0px 36px #4c4c4c;
+  color: #fff;
+  margin-bottom: 0;
+}
+
+.tsp .btn {
+  border: solid 1px #eee;
+  border-radius: 0;
+  border-bottom: 0;
+  height: 34px;
+  line-height: 24px;
+  font-weight: bold;
+}
+
+.tsp .btn:hover {
+  background-color: #ececec;
+}
+
+.tsp .btn:nth-child(2) {
+  border-left: 0;
+}
+
+.tsp .row {
+  padding-right: 0;
+  margin-right: 0;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.tsp .row1 {
+  border-left: none !important;
+}
+
+.tsp .row2 {
+  border-top: none !important;
+  border-left: none !important;
 }
