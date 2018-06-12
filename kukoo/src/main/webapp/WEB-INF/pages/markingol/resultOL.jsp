@@ -196,29 +196,36 @@
 								<div class="col-md-3 pl-0 pr-0">补充您及您伴侣（如有）的专业（可多选）</div>
 
 								<div class="col-md-9" v-if="answer.length==1">
-									<span class="con1" @click="rv.Quebec[0].index=0" data-toggle="modal" data-target="#bs-example-modal-sm">
+									<span class="con1">
 										<span v-if="rv.Quebec[0].specialty[0].length==0">您的专业</span>
-										<span class="zy1" v-for="item in rv.Quebec[0].specialty[0]">{{item}},</span>
-										<i class="fa fa-caret-down"></i>
+										<span class="zy1" v-for="(item,ii) in rv.Quebec[0].specialty[0]">{{item}}
+											<i @click="del_zy(0,ii)" class="fa fa-times-circle"></i>
+										</span>
+										<i class="fa fa-plus-square" @click="rv.Quebec[0].index=0" data-toggle="modal" data-target="#bs-example-modal-sm"></i>
 									</span>
 									<button type="button" class="btn btn-default ml-20" @click="js">计算</button>
 								</div>
 
 								<div class="col-md-9" v-if="answer.length==2">
-									<span class="col-md-12 con2" @click="rv.Quebec[0].index=0" data-toggle="modal" data-target="#bs-example-modal-sm">
+									<span class="col-md-12 con2">
 										<span v-if="rv.Quebec[0].specialty[0].length==0">您的专业</span>
-										<span class="zy1" v-for="item in rv.Quebec[0].specialty[0]">{{item}},</span>
-										<i class="fa fa-caret-down"></i>
+										<span class="zy1" v-for="(item,ii) in rv.Quebec[0].specialty[0]">{{item}}
+											<i @click="del_zy(0,ii)" class="fa fa-times-circle"></i>
+										</span>
+										<i class="fa fa-plus-square" @click="rv.Quebec[0].index=0" data-toggle="modal" data-target="#bs-example-modal-sm"></i>
 									</span>
-									<span class="col-md-12 con2" @click="rv.Quebec[0].index=1" data-toggle="modal" data-target="#bs-example-modal-sm">
+									<span class="col-md-12 con2">
 										<span v-if="rv.Quebec[0].specialty[1].length==0">您配偶的专业</span>
-										<span class="zy1" v-for="item in rv.Quebec[0].specialty[1]">{{item}},</span>
-										<i class="fa fa-caret-down"></i>
+										<span class="zy1" v-for="(item,ii) in rv.Quebec[0].specialty[1]">{{item}}
+											<i @click="del_zy(1,ii)" class="fa fa-times-circle"></i>
+										</span>
+										<i class="fa fa-plus-square" @click="rv.Quebec[0].index=1" data-toggle="modal" data-target="#bs-example-modal-sm"></i>
 									</span>
 									<button type="button" class="btn btn-default mt-25 ml-30" @click="js">计算</button>
 								</div>
 
 							</div>
+
 							<project-score :msg="rv.Quebec" :type="'Quebec'" v-if="rv.Quebec.length>0"></project-score>
 
 							<ul class="icon-list mt-50 mb-20 font-微软雅黑 notice">

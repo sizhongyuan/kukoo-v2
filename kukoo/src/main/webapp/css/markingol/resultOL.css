@@ -444,13 +444,33 @@ i, cite, em, var, address, dfn {
 .main .zy .con1 i {
   position: absolute;
   right: 0;
-  top: 15px;
+  top: 17px;
+  right: 0px;
+  color: #5bc0de;
+  font-size: 14px;
 }
 
 .main .zy .con2 i {
   position: absolute;
   right: 0;
-  top: 10px;
+  top: 8px;
+  right: 0px;
+  color: #5bc0de;
+  font-size: 14px;
+}
+
+.main .zy .con1 .zy1 i {
+  top: 18px !important;
+  right: -7px !important;
+  color: #666;
+  font-size: 12px !important;
+}
+
+.main .zy .con2 .zy1 i {
+  top: 10px !important;
+  right: -7px !important;
+  color: #666;
+  font-size: 12px !important;
 }
 
 .main .zy button {
@@ -458,10 +478,11 @@ i, cite, em, var, address, dfn {
 }
 
 .main .zy .zy1 {
-  margin-right: 10px;
+  margin-right: 20px;
   /* border: solid 1px #eee; */
   height: 28px;
   padding: 0px;
+  position: relative;
 }
 
 .select2-container--default, .select2-selection--multiple, .select2-container--default.select2-container--focus, .select2-selection--multiple {

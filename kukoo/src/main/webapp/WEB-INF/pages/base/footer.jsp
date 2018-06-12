@@ -1,6 +1,6 @@
 <%@page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 
-	<footer id="footer4" class="page-section pt-30 pb-50 footer2-black mt-20" style="font-size:12px;">
+	<footer id="footer4" class="page-section pt-30 pb-50 footer2-black" style="font-size:12px;">
 
 		<div class="container">
 			<div class="row">
