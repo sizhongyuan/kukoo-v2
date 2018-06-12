@@ -32,6 +32,8 @@ _app = new Vue({
       }, 200)
     });
     this.handelVerify();
+    //
+    $(".mask").css("height", $(document).height());
   },
   updated: function() {
     if (this.change1) {
