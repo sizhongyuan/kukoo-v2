@@ -15,8 +15,9 @@ public class SINPutil {
 		reJson.put("projectName", "萨省技术移民");
 		reJson.put("country", "加拿大");
 		reJson.put("pass", 60);
+		reJson.put("intro", "该项目属于省提名移民项目；首先经萨省移民局审批获得省提名，再经联邦移民局进行健康及安全等审核。申请人须表明有意向居住在提名省份；获得永居身份后通常可迁徙至加拿大任意地区居住。该项目对年龄和语言要求较为宽松，处理速度相对较快，但需要抢名额；同时，申请人职业须在萨省紧缺职业列表上，且部分职业需要萨省行业协会进行职业认证。");
 		reJson.put("scoreIntro", "萨省技术移民评分标准满分100分，采用抢名额的方式进行申请；要求打分达到60分，同时满足萨省紧缺职业等其他要求。");
-		reJson.put("capital", "★☆☆");
+		reJson.put("capital", 1);
 		reJson.put("period", "24个月左右");
 		reJson.put("visaType", "永久居民");
 		reJson.put("projectType", "技术移民");

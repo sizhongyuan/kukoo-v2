@@ -29,8 +29,9 @@ public class QSWutil {
 		reJson.put("projectName", "魁北克省技术移民");
 		reJson.put("country", "加拿大");
 		reJson.put("pass", 59);
+		reJson.put("intro", "该项目属于省提名移民项目；首先经魁省移民局审批获得省提名，再经联邦移民局进行健康及安全等审核。申请人须表明有意向居住在提名省份；获得永居身份后通常可迁徙至加拿大任意地区居住。该项目无职业限制，子女有额外加分，若申请人所学专业属于受训加分专业，则通常语言要求也较为宽松。但该项目需要抢名额，且处理周期相对长。");
 		reJson.put("scoreIntro", "魁北克省技术移民评分标准满分116分，采用抢名额的方式进行申请；要求打分达到50分（单身）或59分（有伴侣），同时满足魁北克省其他要求。");
-		reJson.put("capital", "★☆☆");
+		reJson.put("capital", 1);
 		reJson.put("period", "36个月左右");
 		reJson.put("visaType", "永久居民");
 		reJson.put("projectType", "技术移民");
