@@ -70,6 +70,16 @@ var rv1 = {
   }]
 }
 
+var pId = {
+  "加拿大联邦技术移民": "CA001",
+  "魁北克省技术移民": "CA002",
+  "新斯科舍省技术移民": "CA003",
+  "萨省技术移民": "CA004",
+  "安大略省技术移民": "CA005",
+  "新不伦瑞克省技术移民": "CA006",
+  "澳大利亚189独立技术移民": "AU001",
+  "澳大利亚190州担保技术移民": "AU002"
+}
 
 var __list = localStorage.getItem("__list");
 var list = __list ? JSON.parse(__list) : [];
@@ -100,6 +110,14 @@ function m_capital(arr) {
   });
 }
 
+
+function m_url(arr) {
+  if (arr == undefined || (arr || []).length == 0) return;
+  arr.forEach(function(c) {
+    c.url = BASEPATH + "detail/detail_" + pId[c.projectName];
+  });
+}
+
 var _app, _app2;
 
 function start(rv) {
@@ -107,7 +125,8 @@ function start(rv) {
     template: '#project-template',
     props: ["msg", "type"],
     data: function() {
-      m_capital(this.msg);
+      //m_capital(this.msg);
+      m_url(this.msg);
       return {
         "type": this.type,
         "msg": this.msg
@@ -122,15 +141,22 @@ function start(rv) {
     }
   });
 
-  var tmp = [];
-  if (!rv.Quebec.specialty || rv.Quebec.specialty.length == 0) {
-    rv.Quebec.specialty = [
-      [],
-      []
-    ];
+  if (rv.Quebec == undefined) {
+    rv.Quebec = [];
+  } else {
+    var tmp = [];
+    if (!rv.Quebec.specialty || rv.Quebec.specialty.length == 0) {
+      rv.Quebec.specialty = [
+        [],
+        []
+      ];
+    }
+    if (!rv.Quebec.specialty || rv.Quebec.specialty.length == 1) {
+      rv.Quebec.specialty.push([]);
+    }
+    tmp.push(rv.Quebec);
+    rv.Quebec = tmp;
   }
-  tmp.push(rv.Quebec);
-  rv.Quebec = tmp;
 
   _app = new Vue({
     "el": '.main',
@@ -174,20 +200,27 @@ function start(rv) {
         //
         if (result.Quebec != undefined) {
           var tmp = [];
-          if (!result.Quebec || !result.Quebec.specialty || result.Quebec.specialty.length == 0) {
+          if (!result.Quebec.specialty || result.Quebec.specialty.length == 0) {
             result.Quebec.specialty = [
               [],
               []
             ];
+          }
+          if (!result.Quebec.specialty || result.Quebec.specialty.length == 1) {
+            result.Quebec.specialty.push([]);
           }
           tmp.push(result.Quebec);
           result.Quebec = tmp;
         }
         result.Quebec = result.Quebec || [];
 
-        m_capital(result.Quebec);
-        m_capital(result.recommend);
-        m_capital(result.promote);
+        //m_capital(result.Quebec);
+        //m_capital(result.recommend);
+        //m_capital(result.promote);
+
+        m_url(result.Quebec);
+        m_url(result.recommend);
+        m_url(result.promote);
 
         Vue.set(_this.rv, 'recommend', result.recommend || []);
         Vue.set(_this.rv, 'promote', result.promote || []);
@@ -243,9 +276,15 @@ function zy() {
 }
 
 
-doAjax(JSON.stringify(answer));
+doAjax(JSON.stringify(answer), "init");
 
 function doAjax(marking, cb) {
+
+  if (cb != "init") {
+    localStorage.setItem("__list", JSON.stringify(list));
+    localStorage.setItem("__answer", marking);
+  }
+
   $.ajax({
     url: BASEPATH + "markingOLController/addMarkingOL",
     type: "POST",
@@ -254,7 +293,7 @@ function doAjax(marking, cb) {
     },
     dataType: "json",
     success: function(result) {
-      if (cb) {
+      if (cb != "init") {
         cb(result);
       } else {
         start(result);

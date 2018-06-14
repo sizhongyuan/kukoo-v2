@@ -630,7 +630,8 @@ var _app_tsp = new Vue({
     }
     if (__answer[1] && __answer[1].question5) {
       this.works2 = __answer[1].question5 || [];
-      if (this.works2.length > 0) this.hasWife = true;
+      //if (this.works2.length > 0) this.hasWife = true;
+      this.hasWife = true;
     }
   },
   mounted: function() {
