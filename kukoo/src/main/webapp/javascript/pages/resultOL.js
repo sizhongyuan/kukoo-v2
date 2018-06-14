@@ -93,6 +93,13 @@ function _g67(i, details) {
   }
 }
 
+function m_capital(arr) {
+  if (arr == undefined || (arr || []).length == 0) return;
+  arr.forEach(function(c) {
+    c.capital_n = parseInt(c.capital.split('万')[0]);
+  });
+}
+
 var _app, _app2;
 
 function start(rv) {
@@ -100,7 +107,11 @@ function start(rv) {
     template: '#project-template',
     props: ["msg", "type"],
     data: function() {
-      //return this.msg;
+      m_capital(this.msg);
+      return {
+        "type": this.type,
+        "msg": this.msg
+      }
     },
     methods: {
       goQuebec5: function(index) {
@@ -172,26 +183,15 @@ function start(rv) {
           tmp.push(result.Quebec);
           result.Quebec = tmp;
         }
-        //
+        result.Quebec = result.Quebec || [];
 
-        _this.rv = result;
+        m_capital(result.Quebec);
+        m_capital(result.recommend);
+        m_capital(result.promote);
 
-        result.recommend.forEach(function(c) {
-          if (c.specialty == undefined) c.specialty = [
-            [],
-            []
-          ];
-        });
-        result.promote.forEach(function(c) {
-          if (c.specialty == undefined) c.specialty = [
-            [],
-            []
-          ];
-        });
-
-        Vue.set(_this.rv, 'recommend', result.recommend);
-        Vue.set(_this.rv, 'promote', result.promote);
-        Vue.set(_this.rv, 'Quebec', result.Quebec || []);
+        Vue.set(_this.rv, 'recommend', result.recommend || []);
+        Vue.set(_this.rv, 'promote', result.promote || []);
+        Vue.set(_this.rv, 'Quebec', result.Quebec);
       }
     }
   });

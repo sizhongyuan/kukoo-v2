@@ -15,7 +15,6 @@
 				<div id="loader-overflow">
 					<div id="loader3" class="loader-cont">Please enable JS</div>
 				</div>
-
 				<div id="wrap" class="boxed ">
 					<div class="grey-bg">
 						<!-- Grey BG -->
@@ -297,12 +296,10 @@
 															<span>{{item.major}}</span>
 															<span>
 																<i class="fa fa-star"></i>
-																<i class="fa fa-star" v-if="parseInt(item.capital.split('万')[0])>50"></i>
-																<i class="fa fa-star" v-if="parseInt(item.capital.split('万')[0])>=150"></i>
-
-																<i class="fa fa-star-o" v-if="parseInt(item.capital.split('万')[0])<50"></i>
-																<i class="fa fa-star-o" v-if="parseInt(item.capital.split('万')[0])<50||(parseInt(item.capital.split('万')[0])>50&&parseInt(item.capital.split('万')[0])<150)"></i>
-																<!-- {{item.capital}} -->
+																<i class="fa fa-star" v-if="item.capital_n>50"></i>
+																<i class="fa fa-star" v-if="item.capital_n>=150"></i>
+																<i class="fa fa-star-o" v-if="item.capital_n<50"></i>
+																<i class="fa fa-star-o" v-if="item.capital_n<50||(item.capital_n>50 && item.capital_n<150)"></i>
 															</span>
 														</div>
 													</div>
