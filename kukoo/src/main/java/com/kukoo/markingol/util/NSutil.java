@@ -23,8 +23,9 @@ public class NSutil {
 		reJson.put("projectName", "新斯科舍省技术移民");
 		reJson.put("country", "加拿大");
 		reJson.put("pass", 67);
+		reJson.put("intro", "该项目属于省提名移民项目；首先经新省移民局审批获得省提名，再经联邦移民局进行健康及安全等审核。申请人须表明有意向居住在提名省份；获得永居身份后通常可迁徙至加拿大任意地区居住。该项目采用快速通道（Express Entry, 'EE'）系统进行申请，处理速度相对较快，但名额较少需要抢名额；同时，申请人职业须在新省紧缺职业列表上。");
 		reJson.put("scoreIntro", "新斯科舍省技术移民评分标准满分100分，采用抢名额的方式进行申请；要求打分达到67分，同时满足新斯科舍省紧缺职业等其他要求。scoreIntro");
-		reJson.put("capital", "★☆☆");
+		reJson.put("capital", 1);
 		reJson.put("period", "9个月左右");
 		reJson.put("visaType", "永久居民");
 		reJson.put("projectType", "技术移民");

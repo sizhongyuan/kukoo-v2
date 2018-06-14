@@ -24,9 +24,10 @@ public class EEutil {
 		reJson.put("projectName", "加拿大联邦技术移民");
 		reJson.put("country", "加拿大");
 		reJson.put("pass", 425);
+		reJson.put("intro", "加拿大联邦技术移民项目是由加拿大联邦移民局直接受理的移民项目，联邦技术移民采用快速通道（Express Entry, 'EE'）系统进行申请，具有名额充沛、无职业限制、无加拿大境内居住地要求、审理速度快等优点，最快可在8个月内办理成功并登陆加拿大。 同时，从申请条件上对语言水平等条件要求较高，通常适合学历高，年纪轻，英语好的申请人。");
 		reJson.put("scoreIntro", "联邦技术移民CRS评分标准满分1200分，采用根据高低分被动接受邀请的方式进行申请；通常CRS分数超过430分的被邀请的概率较大。"
 					+"*CRS评分体系没有设置通过分，此处按照425预估邀请分数");
-		reJson.put("capital", "★☆☆");
+		reJson.put("capital", 1);
 		reJson.put("period", "8个月左右");
 		reJson.put("visaType", "永久居民");
 		reJson.put("projectType", "技术移民");
@@ -214,9 +215,10 @@ public class EEutil {
 		reJson.put("projectName", "安大略省技术移民");
 		reJson.put("country", "加拿大");
 		reJson.put("pass", 400);
+		reJson.put("intro", "该项目属于省提名移民项目；首先经安省移民局审批获得省提名，再经联邦移民局进行健康、安全等审核。申请人须表明有意向居住在提名省份，获得永居身份后通常可迁徙至加拿大任意地区居住。该项目采用快速通道（Express Entry, 'EE'）系统进行申请，需要被动接受邀请；审理速度相对较快，但通常不定期发邀请。同时要求申请人职业为安省非限制类职业。");
 		reJson.put("scoreIntro", "安省技术移民CRS评分标准满分1200分，采用根据高低分被动接受邀请的方式进行申请；通常CRS分数超过400分的被邀请的概率较大。"
 					+"*CRS评分体系没有设置通过分，此处按照400预估邀请分数");
-		reJson.put("capital", "★☆☆");
+		reJson.put("capital", 1);
 		reJson.put("period", "12个月左右");
 		reJson.put("visaType", "永久居民");
 		reJson.put("projectType", "技术移民");
