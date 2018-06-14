@@ -64,43 +64,43 @@
 												<div class="col-md-2">您</div>
 												<div class="col-md-1">
 													<select class="w-100" dtype="*" @change="dogo" v-model="details[0].value[0][0]">
-														<option v-for="item in details[0].a[0]">{{item}}</option>
+														<option :value="item" v-for="item in details[0].a[0]">{{item}}</option>
 													</select>
 												</div>
 												<div class="col-md-1">
 													<select class="w-100" dtype="*" @change="dogo" v-model="details[0].value[1][0]">
-														<option v-for="item in details[0].a[1]">{{item}}</option>
+														<option :value="item" v-for="item in details[0].a[1]">{{item}}</option>
 													</select>
 												</div>
 												<div class="col-md-1">
 													<select class="w-100" dtype="*" @change="dogo" v-model="details[0].value[2][0]">
-														<option v-for="item in details[0].a[2]">{{item}}</option>
+														<option :value="item" v-for="item in details[0].a[2]">{{item}}</option>
 													</select>
 												</div>
 												<div class="col-md-1">
 													<select class="w-100" dtype="*" @change="dogo" v-model="details[0].value[3][0]">
-														<option v-for="item in details[0].a[3]">{{item}}</option>
+														<option :value="item" v-for="item in details[0].a[3]">{{item}}</option>
 													</select>
 												</div>
 												<div class="col-md-2"></div>
 												<div class="col-md-1">
 													<select class="w-100" dtype="*" @change="dogo" v-model="details[1].value[0][0]">
-														<option v-for="item in details[1].a[0]">{{item}}</option>
+														<option :value="item" v-for="item in details[1].a[0]">{{item}}</option>
 													</select>
 												</div>
 												<div class="col-md-1">
 													<select class="w-100" dtype="*" @change="dogo" v-model="details[1].value[1][0]">
-														<option v-for="item in details[1].a[1]">{{item}}</option>
+														<option :value="item" v-for="item in details[1].a[1]">{{item}}</option>
 													</select>
 												</div>
 												<div class="col-md-1">
 													<select class="w-100" dtype="*" @change="dogo" v-model="details[1].value[2][0]">
-														<option v-for="item in details[1].a[2]">{{item}}</option>
+														<option :value="item" v-for="item in details[1].a[2]">{{item}}</option>
 													</select>
 												</div>
 												<div class="col-md-1">
 													<select class="w-100" dtype="*" @change="dogo" v-model="details[1].value[3][0]">
-														<option v-for="item in details[1].a[3]">{{item}}</option>
+														<option :value="item" v-for="item in details[1].a[3]">{{item}}</option>
 													</select>
 												</div>
 											</div>
@@ -108,43 +108,43 @@
 												<div class="col-md-2">您的伴侣</div>
 												<div class="col-md-1">
 													<select class="w-100" dtype="*" @change="dogo" v-model="details[0].value[0][1]">
-														<option v-for="item in details[0].a[0]">{{item}}</option>
+														<option :value="item" v-for="item in details[0].a[0]">{{item}}</option>
 													</select>
 												</div>
 												<div class="col-md-1">
 													<select class="w-100" dtype="*" @change="dogo" v-model="details[0].value[1][1]">
-														<option v-for="item in details[0].a[1]">{{item}}</option>
+														<option :value="item" v-for="item in details[0].a[1]">{{item}}</option>
 													</select>
 												</div>
 												<div class="col-md-1">
 													<select class="w-100" dtype="*" @change="dogo" v-model="details[0].value[2][1]">
-														<option v-for="item in details[0].a[2]">{{item}}</option>
+														<option :value="item" v-for="item in details[0].a[2]">{{item}}</option>
 													</select>
 												</div>
 												<div class="col-md-1">
 													<select class="w-100" dtype="*" @change="dogo" v-model="details[0].value[3][1]">
-														<option v-for="item in details[0].a[3]">{{item}}</option>
+														<option :value="item" v-for="item in details[0].a[3]">{{item}}</option>
 													</select>
 												</div>
 												<div class="col-md-2"></div>
 												<div class="col-md-1">
 													<select class="w-100" dtype="*" @change="dogo" v-model="details[1].value[0][1]">
-														<option v-for="item in details[1].a[0]">{{item}}</option>
+														<option :value="item" v-for="item in details[1].a[0]">{{item}}</option>
 													</select>
 												</div>
 												<div class="col-md-1">
 													<select class="w-100" dtype="*" @change="dogo" v-model="details[1].value[1][1]">
-														<option v-for="item in details[1].a[1]">{{item}}</option>
+														<option :value="item" v-for="item in details[1].a[1]">{{item}}</option>
 													</select>
 												</div>
 												<div class="col-md-1">
 													<select class="w-100" dtype="*" @change="dogo" v-model="details[1].value[2][1]">
-														<option v-for="item in details[1].a[2]">{{item}}</option>
+														<option :value="item" v-for="item in details[1].a[2]">{{item}}</option>
 													</select>
 												</div>
 												<div class="col-md-1">
 													<select class="w-100" dtype="*" @change="dogo" v-model="details[1].value[3][1]">
-														<option v-for="item in details[1].a[3]">{{item}}</option>
+														<option :value="item" v-for="item in details[1].a[3]">{{item}}</option>
 													</select>
 												</div>
 											</div>
@@ -296,10 +296,11 @@
 															<span>{{item.major}}</span>
 															<span>
 																<i class="fa fa-star"></i>
-																<i class="fa fa-star" v-if="item.capital_n>50"></i>
-																<i class="fa fa-star" v-if="item.capital_n>=150"></i>
-																<i class="fa fa-star-o" v-if="item.capital_n<50"></i>
-																<i class="fa fa-star-o" v-if="item.capital_n<50||(item.capital_n>50 && item.capital_n<150)"></i>
+																<i class="fa fa-star" v-if="item.capital==2"></i>
+																<i class="fa fa-star" v-if="item.capital==2||item.capital==3"></i>
+
+																<i class="fa fa-star-o" v-if="item.capital==1"></i>
+																<i class="fa fa-star-o" v-if="item.capital==1||item.capital==2"></i>
 															</span>
 														</div>
 													</div>
@@ -324,9 +325,9 @@
 													</div>
 												</div>
 												<div class="col-md-8">
-													<div class="intro">{{item.intro}}</div>
+													<div class="intro">{{item.scoreIntro}}</div>
 													<div class="link">
-														<a href="#">项目详情</a>
+														<a :href="item.url">项目详情</a>
 													</div>
 												</div>
 											</div>
