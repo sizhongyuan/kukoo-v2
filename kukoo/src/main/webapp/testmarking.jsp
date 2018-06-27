@@ -1,37 +1,117 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@include file="/WEB-INF/pages/base/head.jsp"%>
 <html lang="zh-CN">
-<script type="text/javascript">
-
-	function tijiao(){
+<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script>
+	/* var url = location.href.split('#')[0];
 	
-		var tijiao = document.getElementById("jianyikuang").value;
-		console.log(tijiao);
-		$.ajax({
-				url:"/kukoo/markingOLController/addMarkingOL",
-				type: "POST",
-				data:{
-					marking:tijiao
-				},
-				dataType:"json",
-				success: function (result) {
-					console.log(JSON.stringify(result));
-					document.getElementById("fanhuikuang").value=JSON.stringify(result);
-				}
-			});
+	wx.config({
+	debug: true,
+	appId: 'wxa7e5e00c55178c8a',
+	timestamp: "${wx.timestamp}",
+	nonceStr: "${wx.noncestr}",
+	signature: "${wx.signature}",
+	jsApiList: [
+	// 所有要调用的 API 都要加到这个列表中
+	'checkJsApi',
+	'onMenuShareTimeline',
+	'onMenuShareAppMessage',
+	]
+	});
+	
+	wx.ready(function () {
+	// 在这里调用 API
+	wx.onMenuShareTimeline({
+	title: '答题分享', // 分享标题
+	link: url, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+	imgUrl: 'xxxxxxxxxxxxxx', // 分享图标
+	success: function () {
+	// 用户确认分享后执行的回调函数
+	},
+	cancel: function () {
+	// 用户取消分享后执行的回调函数
 	}
-	function zhuanye(){
-		$.ajax({
-			url:"/kukoo/markingOLController/getAllProfession",
-			type: "GET",
-			dataType:"json",
-			success: function (result) {
-				console.log(JSON.stringify(result));
-				document.getElementById("fanhuikuang").value=JSON.stringify(result);
-			}
-		});
+	});
+	wx.onMenuShareAppMessage({
+	title: '1234567', // 分享标题
+	desc: 'xxxxxx3456789xxxxx', // 分享描述
+	link: 'http://www.kukoovisa.com', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+	imgUrl: 'wechat.png', // 分享图标
+	type: '', // 分享类型,music、video或link，不填默认为link
+	dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+	success: function () {
+	// 用户确认分享后执行的回调函数
+	},
+	cancel: function () {
+	// 用户取消分享后执行的回调函数
 	}
-</script>
+	});
+	}); */
+	
+	
+	
+	$(document).ready(function () {
+    //通过ajax，在页面加载的时候获取微信分享接口signature，nonceStr，timestamp 和appId
+    $.ajax({
+        type: "post",
+        url: "/kukoo/shareController/share",
+        dataType: "json",
+        data:{shareUrl:"http://www.kukoovisa.com/"},
+        success: function (data) {
+        console.log(data.appId);
+        console.log(data.timestamp);
+        console.log(data.nonceStr);
+        console.log(data.signature);
+        console.log(data.shareUrl);
+            wx.config({
+                debug: true,
+                appId: data.appId,
+                timestamp: data.timestamp,
+                nonceStr: data.nonceStr,
+                signature: data.signature,
+                jsApiList: ['onMenuShareAppMessage',
+							'onMenuShareTimeline']
+                // 功能列表，我们要使用JS-SDK的什么功能
+            });
+            wx.ready(function () {
+                // 获取“分享给朋友”按钮点击状态及自定义分享内容接口
+                wx.onMenuShareAppMessage({
+                    title: "分享自定义标题", // 分享标题
+                    desc: "分享自定义描述", // 分享描述
+                    link: data.shareUrl,//分享点击之后的链接
+                    imgUrl:'wechat.png', // 分享图标
+                    type: 'link', // 分享类型,music、video或link，不填默认为link
+                    success: function () {
+                        //成功之后的回调
+                        alert("分享成功");
+                    }
+                });
+                wx.onMenuShareTimeline({
+                    title: "分享自定义标题", // 分享标题
+                    desc: "分享自定义描述", // 分享描述
+                    link: data.shareUrl,//分享点击之后的链接
+                    imgUrl:'wechat.png', // 分享图标
+                    type: 'link', // 分享类型,music、video或link，不填默认为link
+                    success: function () {
+                        //成功之后的回调
+                        alert("分享成功");
+                    },
+                    cancel: function () {
+                        // 用户取消分享后执行的回调函数
+                        alert("分享失败");
+                    }
+                });
+            });
+            wx.error(function (res) {
+            	//console.log(res);
+            	//alert(res);
+                //打印错误消息。及把 debug:false,设置为debug:ture就可以直接在网页上看到弹出的错误提示
+            });
+        }
+    })
+});
+	</script>
+
 <style>
         table,table tr th, table tr td { border:1px solid #0094ff; }
 </style>
@@ -40,8 +120,12 @@
 </head>
 
 <body>
-	
-	<button id="" onclick="tijiao()">提交</button>
+	 微信分享开发  
+      <img   
+        style="width:32px; height:35px; cursor:pointer"   
+        alt=""   
+        src="wechat.png"> 
+	<!-- <button id="" onclick="tijiao()">提交</button>
 	<button id="aaa" onclick="zhuanye()">获取专业</button>
 	<table border="2">
 		<tr>
@@ -52,7 +136,7 @@
 			<td>返回参数</td>
 			<td><textarea id="fanhuikuang" style="width:900px;height:200px;"></textarea></td>
 		</tr>
-	</table>
+	</table> -->
   	<!-- <table>
   	<tr>
   	<td></td>
