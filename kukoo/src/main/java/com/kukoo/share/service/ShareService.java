@@ -6,6 +6,7 @@ import java.util.Map;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.kukoo.markingol.model.MarkingOL;
+import com.kukoo.share.model.ShareConfigModel;
 
 
 
@@ -25,4 +26,11 @@ public interface ShareService{
 	 */
 	public JSONObject getShare(String url) throws Exception;
 	
+	
+	/**
+	 * 获取access_token和jsapi_ticket
+	 * @return
+	 * @throws Exception
+	 */
+	public ShareConfigModel getShareConfig() throws Exception;
 }

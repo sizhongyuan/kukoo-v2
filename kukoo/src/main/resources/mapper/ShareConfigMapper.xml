@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<!-- 项目信息mybatis mapper 文件配置 -->
+<mapper namespace="com.kukoo.share.dao.ShareMapper">
+	<!-- 获取最新的access_token和jsapi_ticket -->
+	<select id="getShareConfig" resultType="com.kukoo.share.model.ShareConfigModel">
+		SELECT
+			id,
+			access_token,
+			jsapi_ticket,
+			getTime
+		FROM
+			tt_share_config 
+		order by getTime desc
+		
+	</select>
+	<!-- 保存项目信息对象 -->
+	<insert id="saveShareConfig" parameterType="com.kukoo.share.model.ShareConfigModel">
+	insert into tt_share_config
+		(
+			id,
+			access_token,
+			jsapi_ticket,
+			getTime
+		)
+		values
+		(
+			#{id,jdbcType=VARCHAR},
+			#{access_token,jdbcType=VARCHAR},
+			#{jsapi_ticket,jdbcType=VARCHAR},
+			#{getTime,jdbcType=DATE}
+		)
+	</insert>
+</mapper>
