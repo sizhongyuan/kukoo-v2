@@ -259,6 +259,9 @@ _app = new Vue({
       $(window).scrollTop(0);
     });
     pageInitStyle();
+    setTimeout(function() {
+      DICTIONART.init();
+    }, 1000);
   },
   methods: {},
   watch: {},

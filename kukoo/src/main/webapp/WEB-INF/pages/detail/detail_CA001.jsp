@@ -464,6 +464,7 @@
                 <!-- End BG -->
               </div>
               <!-- End wrap -->
+              <script src="<%=basePath %>javascript/dist/dictionary.js"></script>
               <script src="<%=basePath %>javascript/dist/header.js"></script>
               <script src="<%=basePath %>javascript/dist/headerBanner.js"></script>
               <script src="<%=basePath %>javascript/pages/detaile_pay_doc.js"></script>
