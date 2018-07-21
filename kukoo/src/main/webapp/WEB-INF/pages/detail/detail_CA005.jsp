@@ -411,7 +411,7 @@
                                     <h5 class="font-微软雅黑">9.&nbsp 递交联邦移民签证申请材料</h5>
                                     <ul class="icon-list mb-10 font-微软雅黑">
                                       <li>
-                                        <i class="fa fa-angle-right"></i>体检回执及其他申请材料准备完毕后，90天内通过EE系统在线提交联邦移民申请材料；</li>
+                                        <i class="fa fa-angle-right"></i>加拿大联邦阶段体检回执及其他申请材料准备完毕后，60天内通过EE系统在线提交联邦移民申请材料；</li>
                                       <li>
                                         <i class="fa fa-angle-right"></i>部分情况下，在递交申请材料后有可能会被移民局要求补充提供材料或背景调查。</li>
                                     </ul>
@@ -516,6 +516,7 @@
 
                         <%-- <script src="<%=basePath %>elementy/js/velocity.min.js"></script> --%>
 
+                          <script src="<%=basePath %>javascript/dist/dictionary.js"></script>
                           <script src="<%=basePath %>javascript/dist/header.js"></script>
                           <script src="<%=basePath %>javascript/dist/headerBanner.js"></script>
                           <script src="<%=basePath %>javascript/pages/detaile_pay_doc.js"></script>

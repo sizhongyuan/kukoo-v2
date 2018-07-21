@@ -331,7 +331,6 @@
                                   </div>
                                 </li>
 
-
                                 <a class="button small hover-thin blue" href="<%=basePath %>markingOLController/showMarkingOL" target="_blank">在线评估</a>
 
                               </ul>
@@ -355,6 +354,7 @@
 
                     <%-- <script src="<%=basePath %>elementy/js/velocity.min.js"></script> --%>
 
+                      <script src="<%=basePath %>javascript/dist/dictionary.js"></script>
                       <script src="<%=basePath %>javascript/dist/header.js"></script>
                       <script src="<%=basePath %>javascript/dist/headerBanner.js"></script>
                       <script src="<%=basePath %>javascript/pages/detaile_pay_doc.js"></script>

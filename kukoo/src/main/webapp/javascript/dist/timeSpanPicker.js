@@ -564,6 +564,7 @@ var tsp_col = Vue.component('ts-per', {
       }
     },
     set_timeSpan: function(e) {
+      this.sync();
       this.index = parseInt($(e.target).attr("index"));
       //
       this.tmp = this.selected[this.index];
