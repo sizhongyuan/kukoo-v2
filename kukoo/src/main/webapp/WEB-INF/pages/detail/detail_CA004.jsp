@@ -163,9 +163,9 @@
                                         <ul class="table-ul">
                                           <li :class="{'table-title':i==0,'bg-gray':i%2==0}" v-for="(c,i) in profession.sa">
                                             <div class="col-sm-1">{{c[0]}}</div>
-                                            <div class="col-sm-3">{{c[1]}}</div>
+                                            <div class="col-sm-4">{{c[1]}}</div>
                                             <div class="col-sm-5">{{c[2]}}</div>
-                                            <div class="col-sm-3">{{c[3]}}</div>
+                                            <div class="col-sm-2">{{c[3]}}</div>
                                           </li>
                                         </ul>
                                       </div>
@@ -450,7 +450,7 @@
                                                             <h5 class="font-微软雅黑">8.&nbsp 递交联邦移民签证申请材料</h5>
                                                             <ul class="icon-list mb-10 font-微软雅黑">
                                                               <li>
-                                                                <i class="fa fa-angle-right"></i>体检回执及其他申请材料准备完毕后，90天内通过EE系统在线提交联邦移民申请材料;</li>
+                                                                <i class="fa fa-angle-right"></i>加拿大联邦阶段体检回执及其他申请材料准备完毕后，60天内通过EE系统在线提交联邦移民申请材料;</li>
                                                               <li>
                                                                 <i class="fa fa-angle-right"></i>部分情况下，在递交申请材料后有可能会被移民局要求补充提供材料或背景调查。</li>
                                                             </ul>

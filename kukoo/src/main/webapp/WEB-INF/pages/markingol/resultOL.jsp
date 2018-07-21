@@ -227,7 +227,7 @@
 
 							<project-score :msg="rv.Quebec" :type="'Quebec'" v-if="rv.Quebec.length>0"></project-score>
 
-							<ul class="icon-list mt-50 mb-20 font-微软雅黑 notice">
+							<ul class="icon-list mt-50 mb-50 font-微软雅黑 notice">
 								<li>
 									<i class="fa fa-info-circle"></i>
 									此评估结果涵盖了国内申请者大部分常见情况，并力求评估分数和结果尽可能精准；但未考虑申请者在移民目的国有直系亲属、工作学习经历、工作Offer等特殊情况，因此评估结果仅供申请者参考。为获得更准确的评估意见，还请参考各移民项目详情或联系布谷为您免费咨询。

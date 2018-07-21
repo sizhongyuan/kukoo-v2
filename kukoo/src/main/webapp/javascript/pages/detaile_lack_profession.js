@@ -122,10 +122,10 @@ var LACK_PROFESSION = {
   "kui": [],
   "sa": [
     [
-      "NOC代码",
+      "NOC",
       "中文名称",
       "英文名称",
-      "认证机构"
+      "是否需要认证"
     ],
     [
       "0211",
@@ -140,34 +140,10 @@ var LACK_PROFESSION = {
       "APEGS"
     ],
     [
-      "2132",
-      "机械工程师",
-      "Mechanical engineers",
-      "APEGS"
-    ],
-    [
-      "2133",
-      "电气和电子工程师",
-      "Electrical and electronics engineers",
-      "APEGS"
-    ],
-    [
-      "2141",
-      "工业和制造工程师",
-      "Industrial and manufacturing engineers",
-      "APEGS"
-    ],
-    [
       "2147",
       "计算机工程师",
       "Computer engineers",
       "APEGS"
-    ],
-    [
-      "2151",
-      "建筑师",
-      "Architects",
-      "CACB Or BEFA"
     ],
     [
       "2154",
@@ -177,33 +153,45 @@ var LACK_PROFESSION = {
     ],
     [
       "2173",
-      "软件工程师和设计师",
-      "Software engineers and designers",
-      "CIPS of AITP or ISP or ITCP"
+      "软件工程师",
+      "Software engineers",
+      "APEGS"
+    ],
+    [
+      "2173",
+      "软件设计师",
+      "Software designers",
+      "CIPS"
     ],
     [
       "2175",
       "网页设计师和开发人员",
       "Web designers and developer",
-      "CIPS of AITP or ISP or ITCP"
+      "CIPS"
     ],
     [
-      "3211",
-      "医学实验室化验师",
-      "Medical laboratory technologists",
-      "SSMLT"
+      "3111",
+      "精神病学家",
+      "Psychiatrists",
+      "CPSS"
     ],
     [
-      "3216",
-      "医用超声检查",
-      "Medical sonographers",
-      "Sonography Canada Or ARDMS"
+      "3215",
+      "医学放射技师",
+      "Medical Radiation Technologists",
+      "SAMRT"
+    ],
+    [
+      "3234",
+      "护理人员",
+      "Paramedics",
+      "SCOP"
     ],
     [
       "4151",
       "心理学家",
       "Psychologists",
-      "Saskatchewan College of Psychologists"
+      "省执照"
     ],
     [
       "4212",
@@ -215,7 +203,37 @@ var LACK_PROFESSION = {
       "4214",
       "幼儿教育工作者和助理",
       "Early childhood educators and assistants",
-      "ECEC"
+      "ME"
+    ],
+    [
+      "3211",
+      "医学实验室化验师",
+      "Medical laboratory technologists",
+      "SSMLT"
+    ],
+    [
+      "3216",
+      "医用超声检查",
+      "Medical sonographers",
+      "ARDMS"
+    ],
+    [
+      "4162",
+      "经济学家和经济政策研究人员和分析师",
+      "Economists and economic policy researchers and analysts",
+      "不需要"
+    ],
+    [
+      "2123",
+      "农业代表、顾问和专家",
+      "Agricultural representatives, consultants and specialists",
+      "不需要"
+    ],
+    [
+      "2242",
+      "电子服务技师（家用和商用设备）",
+      "Electronic service technicians (household and business equipment)",
+      "不需要"
     ],
     [
       "6331",
@@ -224,21 +242,15 @@ var LACK_PROFESSION = {
       "SATCC"
     ],
     [
-      "7231",
-      "机械师",
-      "Machinists",
+      "7201",
+      "承包商和主管（加工、金属成型、装配行业以及相关职业）",
+      "Contractors and supervisors, machining, metal forming, shaping and erecting trades and related occupations",
       "SATCC"
     ],
     [
-      "7237",
-      "焊工和相关机器操作员",
-      "Welders",
-      "SATCC"
-    ],
-    [
-      "7272",
-      "橱柜制作",
-      "Cabinetmakers",
+      "7204",
+      "承包商和主管（木工行业）",
+      "Contractors and supervisors, carpentry trades",
       "SATCC"
     ],
     [
@@ -266,76 +278,52 @@ var LACK_PROFESSION = {
       "SATCC"
     ],
     [
-      "0423",
-      "社会、社区和改造服务经理",
-      "Managers in social, community and correctional services",
-      "N/A"
+      "7237",
+      "焊工",
+      "Welders",
+      "SATCC"
     ],
     [
-      "0811",
-      "自然资源经理和渔业经理",
-      "Managers in natural resources production and fishing",
-      "N/A"
+      "7384",
+      "休闲汽车维修技师",
+      "Recreation Vehicle Service",
+      "SATCC"
+    ],
+    [
+      "0822",
+      "园艺经理",
+      "Managers in horticulture",
+      "SATCC"
+    ],
+    [
+      "2225",
+      "景观和园艺技术员/专家",
+      "Landscape and horticulture technicians and specialists",
+      "SATCC"
+    ],
+    [
+      "8252",
+      "自然资源生产经理、农业服务承包商、农场主管和专业畜牧工人",
+      "Agricultural service contractors, farm supervisors and specialized livestock ",
+      "不需要"
     ],
     [
       "0821",
       "农业经理",
       "Managers in agriculture",
-      "N/A"
+      "不需要"
     ],
     [
       "0911",
       "生产经理",
       "Manufacturing managers",
-      "N/A"
+      "不需要"
     ],
     [
       "0912",
       "公用事业经理",
       "Utilities managers",
-      "N/A"
-    ],
-    [
-      "1122",
-      "企业管理咨询职业工作者",
-      "Professional occupations in business management consulting",
-      "N/A"
-    ],
-    [
-      "2121",
-      "生物学家及相关科学家",
-      "Biologists and related scientists",
-      "N/A"
-    ],
-    [
-      "2123",
-      "农业代表、顾问和专家",
-      "Agricultural representatives, consultants and specialists",
-      "N/A"
-    ],
-    [
-      "2212",
-      "地质矿产技师和技术员",
-      "Geological and mineral technologists and technicians",
-      "N/A"
-    ],
-    [
-      "2225",
-      "景观和园林技师和专家",
-      "Landscape and horticulture technicians and specialists",
-      "N/A"
-    ],
-    [
-      "2242",
-      "电子服务技师（家用和商用设备）",
-      "Electronic service technicians (household and business equipment)",
-      "N/A"
-    ],
-    [
-      "2243",
-      "工业仪表技术员和技工",
-      "Industrial instrument technicians and mechanics",
-      "N/A"
+      "不需要"
     ]
   ],
   "an_2017": [ //安省技术移民2017年邀请职业
