@@ -913,8 +913,8 @@
     function innerHighlight(node, pat) {
       var skip = 0;
       if (node.nodeType == 3) {
-        var pos = node.data.toUpperCase().indexOf(pat);
-        pos -= (node.data.substr(0, pos).toUpperCase().length - node.data.substr(0, pos).length);
+        var pos = node.data.indexOf(pat);
+        pos -= (node.data.substr(0, pos).length - node.data.substr(0, pos).length);
         if (pos >= 0) {
           var spannode = document.createElement('span');
           spannode.className = 'dictionary-hl';
@@ -927,6 +927,12 @@
               if (dictionary[i][1] == id) {
                 $("#bs-dictionary-modal #mySmallModalLabel").text(dictionary[i][2]);
                 $("#bs-dictionary-modal .my-content").html(dictionary[i][4]);
+                if (dictionary[i][5] && dictionary[i][5].length > 5) {
+                  $("#bs-dictionary-modal .my-a-c").show();
+                  $("#bs-dictionary-modal .my-a").attr('href', dictionary[i][5]);
+                } else {
+                  $("#bs-dictionary-modal .my-a-c").hide();
+                }
               }
             }
           });
@@ -970,8 +976,14 @@
         '        <h4 class="modal-title" id="mySmallModalLabel">标题</h4>' +
         '      </div>' +
         '      <div class="modal-body">' +
-        '        <div class="my-content">' +
-        '          内容' +
+        '        <div class="my-content-c">' +
+        '          <span class="my-content"></span>' +
+        '           <ul class="my-a-c icon-list mb-10 font-微软雅黑">' +
+        '              <li>' +
+        '                <i class="fa fa-info-circle"></i>' +
+        '                <a class="my-a" target="_blank" style="color: #888;">官网链接：点击查看</a>' +
+        '              </li>' +
+        '          </ul>' +
         '        </div>' +
         '      </div>' +
         '    </div>' +
@@ -983,9 +995,11 @@
     init: function() {
       this.addmodal();
       for (var name in mapping) {
-        $("#wrap").highlight("\"" + name + "\"", mapping[name]);
-        $("#wrap").highlight("“" + name + "”", mapping[name]);
+        $("#wrap p").highlight(name, mapping[name]); //$('#wrap .toggle-view-custom')
+        //$("#wrap").highlight("\"" + name + "\"", mapping[name]);
+        //$("#wrap").highlight("“" + name + "”", mapping[name]);
       }
+      $('#wrap .toggle-view-custom').highlight("CLB", mapping["CLB"])
     }
   };
 
