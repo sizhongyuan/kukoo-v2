@@ -431,7 +431,7 @@ var tsp_col = Vue.component('ts-per', {
         if (rv) index = i;
         return rv;
       });
-      var i = index > 60 ? (11 - ms.length) : 1;
+      var i = index > 60 ? (ms.length + 1) : (12 - ms.length);
       var len = ms.length;
       while (ms.length < 12) {
         if (index > 60) {
@@ -439,13 +439,14 @@ var tsp_col = Vue.component('ts-per', {
             "sm": i,
             "state": 2
           });
+          i++;
         } else {
           ms.insert(0, {
-            "sm": len - i - 1,
+            "sm": i,
             "state": 2
           });
+          i--;
         }
-        i++;
       };
       this.ms = ms;
     },

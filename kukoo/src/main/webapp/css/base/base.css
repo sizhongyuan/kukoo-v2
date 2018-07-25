@@ -85,6 +85,11 @@ html, div, span, li, h1, h2, h3, h4, h5, h6, a, p {
 }
 
 .dictionary-hl {
-  background-color: yellow;
+  /* background-color: yellow; */
+  color: #A58D67;
+  font-weight: bold;
   cursor: pointer;
+  /* padding: 0 2px; */
+  /* font-size: 14px; */
+  font-weight: bold;
 }
