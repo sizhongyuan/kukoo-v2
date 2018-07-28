@@ -373,6 +373,7 @@ var tsp_col = Vue.component('ts-per', {
   template: '#timespanpicker-template',
   props: ["myname", "works", "yms", "profession", "_type"],
   data: function() {
+    this._mt_20 = navigator.userAgent.indexOf('Trident') > -1 ? "mt_20" : "";
     return {
       "works": this.works,
       "styleObject": {},

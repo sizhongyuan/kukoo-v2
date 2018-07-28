@@ -35,28 +35,28 @@
                 isdetail="1"
                 url="http://www.saskatchewan.ca/residents/moving-to-saskatchewan/immigrating-to-saskatchewan/saskatchewan-immigrant-nominee-program/applicants-international-skilled-workers"></pg-head-banner>
 
-                <div class="tabs-4 tabs-4-c">
-                  <div class="col-sm-8 bg-white pl-0 pt-20 tabs-4-1">
-                    <ul class="nav nav-tabs bootstrap-tabs">
-                      <li class="active">
-                        <a href="#Policy" class="a-inv font-微软雅黑" data-toggle="tab">政策解读</a>
-                      </li>
-                      <li>
-                        <a href="#Requirement" class="a-inv font-微软雅黑" data-toggle="tab">申请条件</a>
-                      </li>
-                      <li>
-                        <a href="#process" class="a-inv font-微软雅黑" data-toggle="tab">流程周期</a>
-                      </li>
-                      <li>
-                        <a href="#fee" class="a-inv font-微软雅黑" data-toggle="tab">费用详情</a>
-                      </li>
-                      <li>
-                        <a href="#documents" class="a-inv font-微软雅黑" data-toggle="tab">材料清单</a>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="col-sm-4 bg-white pt-20 pl-0 pr-0 tabs-4-2"></div>
+              <div class="tabs-4 tabs-4-c">
+                <div class="col-sm-8 bg-white pl-0 pt-20 tabs-4-1">
+                  <ul class="nav nav-tabs bootstrap-tabs">
+                    <li class="active">
+                      <a href="#Policy" class="a-inv font-微软雅黑" data-toggle="tab">政策解读</a>
+                    </li>
+                    <li>
+                      <a href="#Requirement" class="a-inv font-微软雅黑" data-toggle="tab">申请条件</a>
+                    </li>
+                    <li>
+                      <a href="#process" class="a-inv font-微软雅黑" data-toggle="tab">流程周期</a>
+                    </li>
+                    <li>
+                      <a href="#fee" class="a-inv font-微软雅黑" data-toggle="tab">费用详情</a>
+                    </li>
+                    <li>
+                      <a href="#documents" class="a-inv font-微软雅黑" data-toggle="tab">材料清单</a>
+                    </li>
+                  </ul>
                 </div>
+                <div class="col-sm-4 bg-white pt-20 pl-0 pr-0 tabs-4-2"></div>
+              </div>
 
               <!-- COTENT CONTAINER -->
               <div class="container mt-30">
@@ -284,15 +284,21 @@
                                     </ul>
                                   </div>
                                   <h5 class="font-微软雅黑">2.&nbsp 准备移民申请资料</h5>
-                                  <p>确认满足NB技术移民申请条件后，申请者可以开始着手准备移民申请材料；准备周期较长的核心申请材料包括：</p>
+                                  <p>确认满足萨省技术移民申请条件后，申请者可以开始着手准备移民申请材料；准备周期较长的核心申请材料包括：</p>
                                   <ul class="icon-list mb-20 font-微软雅黑">
                                     <li>
-                                      <i class="fa fa-angle-right"></i>雅思等语言成绩&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp不定期</li>
+                                      <i class="fa fa-angle-right"></i>
+                                      <span style="width:160px;display: inline-block;">雅思等语言成绩</span>
+                                      不定期</li>
 
                                     <li>
-                                      <i class="fa fa-angle-right"></i>学历认证&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp3个月左右</li>
+                                      <i class="fa fa-angle-right"></i>
+                                      <span style="width:160px;display: inline-block;">学历认证</span>
+                                      3个月左右</li>
                                     <li>
-                                      <i class="fa fa-angle-right"></i>职业认证（针对部分职业）&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp6-12个月左右</li>
+                                      <i class="fa fa-angle-right"></i>
+                                      <span style="width:160px;display: inline-block;">职业认证（针对部分职业）</span>
+                                      6-12个月左右</li>
                                   </ul>
                                   <h5 class="font-微软雅黑">3.&nbsp 注册移民系统账号</h5>
                                   <ul class="icon-list mb-10 font-微软雅黑">
@@ -383,15 +389,21 @@
                                                   </ul>
                                                 </div>
                                                 <h5 class="font-微软雅黑">2.&nbsp 准备移民申请资料</h5>
-                                                <p>确认满足NB技术移民申请条件后，申请者可以开始着手准备移民申请材料；准备周期较长的核心申请材料包括：</p>
+                                                <p>确认满足萨省技术移民申请条件后，申请者可以开始着手准备移民申请材料；准备周期较长的核心申请材料包括：</p>
                                                 <ul class="icon-list mb-20 font-微软雅黑">
                                                   <li>
-                                                    <i class="fa fa-angle-right"></i>雅思等语言成绩&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp不定期</li>
+                                                    <i class="fa fa-angle-right"></i>
+                                                    <span style="width:160px;display: inline-block;">雅思等语言成绩</span>
+                                                    不定期</li>
 
                                                   <li>
-                                                    <i class="fa fa-angle-right"></i>学历认证&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp3个月左右</li>
+                                                    <i class="fa fa-angle-right"></i>
+                                                    <span style="width:160px;display: inline-block;">学历认证</span>
+                                                    3个月左右</li>
                                                   <li>
-                                                    <i class="fa fa-angle-right"></i>职业认证（针对部分职业）&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp6-12个月左右</li>
+                                                    <i class="fa fa-angle-right"></i>
+                                                    <span style="width:160px;display: inline-block;">职业认证（针对部分职业）</span>
+                                                    6-12个月左右</li>
                                                 </ul>
                                                 <h5 class="font-微软雅黑">3.&nbsp 注册移民系统账号</h5>
                                                 <ul class="icon-list mb-10 font-微软雅黑">
@@ -536,7 +548,6 @@
                                                                 24个月左右
                                                               </div>
                                                             </li>
-
 
                                                             <a class="button small hover-thin blue" href="<%=basePath %>markingOLController/showMarkingOL" target="_blank">在线评估</a>
 

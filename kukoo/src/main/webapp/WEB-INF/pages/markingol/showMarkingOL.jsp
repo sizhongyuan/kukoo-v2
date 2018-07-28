@@ -92,7 +92,7 @@
 
 									<div class="timeline">
 										<ts-per myname="您" :yms="yms1" :works="works1" :_type="0" :profession="profession1"></ts-per>
-										<ts-per myname="您的<br/>配偶" class="mt-20" :yms="yms2" :works="works2" :_type="1" :profession="profession2" v-if="hasWife"></ts-per>
+										<ts-per myname="配偶" class="mt-20" :yms="yms2" :works="works2" :_type="1" :profession="profession2" v-if="hasWife"></ts-per>
 
 										<div class="modal fade bs-example-modal-sm bootstrap-modal" id="bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
 											<div class="modal-dialog modal-sm">
@@ -250,20 +250,20 @@
 											<div clsss="list">
 												<div class="row">
 													<div class="col-md-1">
-														<span class="ti" :class="{'ti2':_type==1}" v-html="myname"></span>
+														<span class="ti" v-html="myname"></span>
 													</div>
 													<div class="col-md-11">
 														<ul class="ul-ed">
 															<li class="row col-md-12" v-for="(item,index) in selected">
-																<div class="col-md-3" @click="set_timeSpan" :index="index">
+																<div class="col-md-3" :class="_mt_20" @click="set_timeSpan" :index="index">
 																	<span class="todo" :index="index">{{item.start}}</span>
 																	<span :index="index">~~</span>
 																	<span class="todo" :index="index">{{item.end}}</span>
 																</div>
-																<div class="col-md-6" @click="set_profession(index)" data-toggle="modal" data-target="#bs-example-modal-sm" :index="index">
+																<div class="col-md-6" :class="_mt_20" @click="set_profession(index)" data-toggle="modal" data-target="#bs-example-modal-sm" :index="index">
 																	<span class="todo" :index="index">{{item.profession}}</span>
 																</div>
-																<div class="col-md-3">
+																<div class="col-md-3" :class="_mt_20">
 																	<span class="glyphicon glyphicon-minus-sign" aria-hidden="true" @click="remove(index)"></span>
 																	<span class="glyphicon glyphicon-plus-sign" aria-hidden="true" @click="add(index)" v-if="index==selected.length-1"></span>
 																</div>

@@ -584,7 +584,7 @@ i, cite, em, var, address, dfn {
   text-align: center;
   border-radius: 50px;
   left: 5px;
-  top: 0px;
+  top: -10px;
 }
 
 .timeline .ti2 {
@@ -604,8 +604,18 @@ i, cite, em, var, address, dfn {
   height: 100%;
 }
 
+.ul-ed li .mt_20 {
+  margin-top: -20px;
+}
+
 .ul-ed li:hover {
   background-color: #efefef;
+}
+
+.ul-ed li p {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .ul-ed .todo {

@@ -125,7 +125,7 @@ var LACK_PROFESSION = {
       "NOC",
       "中文名称",
       "英文名称",
-      "是否需要认证"
+      "评估机构"
     ],
     [
       "0211",
@@ -191,7 +191,7 @@ var LACK_PROFESSION = {
       "4151",
       "心理学家",
       "Psychologists",
-      "省执照"
+      "Saskatchewan College of Psychologists"
     ],
     [
       "4212",
