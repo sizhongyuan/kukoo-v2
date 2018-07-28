@@ -921,7 +921,7 @@
           spannode.setAttribute("_id", key);
           spannode.setAttribute("data-toggle", "modal");
           spannode.setAttribute("data-target", "#bs-dictionary-modal");
-          $(spannode).on("click", function() {
+          $(spannode).on("click", function(e) {
             var id = $(this).attr("_id");
             for (var i = 0; i < dictionary.length; i++) {
               if (dictionary[i][1] == id) {
@@ -934,6 +934,10 @@
                   $("#bs-dictionary-modal .my-a-c").hide();
                 }
               }
+            }
+            if ($(this).parents(".toggle").length > 0) {
+              $('#bs-dictionary-modal').modal("show");
+              e.stopPropagation();
             }
           });
           var middlebit = node.splitText(pos);
@@ -994,12 +998,21 @@
     },
     init: function() {
       this.addmodal();
+      $('#bs-dictionary-modal').on('show.bs.modal', function(e) {
+        e.stopPropagation();
+      });
       for (var name in mapping) {
-        $("#wrap p").highlight(name, mapping[name]); //$('#wrap .toggle-view-custom')
+        //$("#wrap p").highlight(name, mapping[name]);
+        $("#wrap p,#wrap .icon-list li,#wrap .alert-info").filter(function() {
+          return $(this).parents(".toggle-view-custom").length == 0;
+        }).highlight(name, mapping[name]);
         //$("#wrap").highlight("\"" + name + "\"", mapping[name]);
         //$("#wrap").highlight("“" + name + "”", mapping[name]);
       }
-      $('#wrap .toggle-view-custom').highlight("CLB", mapping["CLB"])
+      var $dd = $('#wrap .toggle-view-custom dd');
+      $dd.highlight("CLB", mapping["CLB"]);
+      $dd.highlight("受训领域", mapping["受训领域"]);
+      $dd.highlight("LMIA", mapping["LMIA"]);
     }
   };
 

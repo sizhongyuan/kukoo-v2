@@ -443,7 +443,7 @@ var TRAINING = [
     "2"
   ],
   [
-    "指导咨询和教育与职业信息",
+    "指导咨询和教育与职业信息（学士）",
     "Guidance Counselling and Educational and Vocational Information (Bach.)",
     "6",
     "2"

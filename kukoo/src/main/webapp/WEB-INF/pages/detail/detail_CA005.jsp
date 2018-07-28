@@ -181,9 +181,6 @@
                                 <li>
                                   <i class="fa fa-angle-right"></i>职业不能是安省监管职业。</li>
                               </ul>
-                              <div class="post-prev-info ">
-                                <P>安省监管职业清单</P>
-                              </div>
                               <h5 class="font-微软雅黑">
                                 <strong>语言能力</strong>
                               </h5>

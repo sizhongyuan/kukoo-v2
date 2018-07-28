@@ -5,7 +5,7 @@
 		<div class="container">
 			<div class="row">
 
-				<div class="col-md-4 col-sm-3 widget">
+				<div class="col-md-4 col-sm-4 widget">
 					<div class="mb-30">
 						<a href="index.html">
 							<img class="logo-footer" style="max-height:34px;" src="<%=basePath %>elementy/png/logo-footer.png" alt="logo"/>
@@ -24,7 +24,7 @@
 					</div>
 				</div>
 
-				<div class="col-md-4 col-sm-3 widget">
+				<div class="col-md-4 col-sm-4 widget">
 					<h4>移民局官网</h4>
 					<ul class="links-list a-text-cont a-text-main-cont font-poppins">
 						<li>
@@ -45,18 +45,19 @@
 					</ul>
 				</div>
 
-				<div class="col-md-4 col-sm-3 widget">
-					<div class="col-md-12">
+				<div class="col-md-4 col-sm-4 widget">
+					<div>
 						<h4>关注我们</h4>
 					</div>
-					<div class="col-md-4">
+					<div style="float:left;">
 						<img style="width: 70px;" src="<%=basePath %>elementy/images/2wm-wx.jpg" alt=""/>
 						<div class="mt-5">微信服务号</div>
 					</div>
-					<div class="col-md-4">
+					<div style="float:left; margin-left:30px;">
 						<img style="width: 70px;" src="<%=basePath %>elementy/images/2wm-wb.jpg" alt=""/>
 						<div class="mt-5">微博订阅号</div>
 					</div>
+					<div style="float:none; clear:both;"></div>
 				</div>
 
 			</div>
